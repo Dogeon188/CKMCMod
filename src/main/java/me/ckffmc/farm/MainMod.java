@@ -1,4 +1,4 @@
-package net.fabricmc.example;
+package me.ckffmc.farm;
 
 import net.fabricmc.api.ModInitializer;
 

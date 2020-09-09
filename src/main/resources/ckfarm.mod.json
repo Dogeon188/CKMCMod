@@ -9,25 +9,25 @@
     "Me!"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://dogeon188.github.io/",
+    "sources": "https://github.com/Dogeon188/CKMCMod/"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/ckfarm/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "me.ckffmc.farm.MainMod"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "ckfarm.mixins.json"
   ],
 
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": ">=0.9.3",
     "fabric": "*",
     "minecraft": "1.16.x"
   },
