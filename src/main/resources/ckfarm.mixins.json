@@ -6,7 +6,7 @@
   "mixins": [
   ],
   "client": [
-    "me.ckffmc.farm.Mixin"
+    "ModMixin"
   ],
   "injectors": {
     "defaultRequire": 1

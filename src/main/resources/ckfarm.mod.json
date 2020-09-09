@@ -1,19 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
-  "version": "${version}",
+  "id": "ckfarm",
+  "version": "0.0.0",
 
-  "name": "Example Mod",
+  "name": "CKMC Farming",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
-    "Me!"
+    "Dogeon188",
+    "Tsoado",
+    "Sky-Mee"
   ],
   "contact": {
     "homepage": "https://dogeon188.github.io/",
     "sources": "https://github.com/Dogeon188/CKMCMod/"
   },
 
-  "license": "CC0-1.0",
   "icon": "assets/ckfarm/icon.png",
 
   "environment": "*",
