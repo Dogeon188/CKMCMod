@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "id": "ckfarm",
-  "version": "0.0.0",
+  "id": "ckmcff_farm",
+  "version": "0.1.0-build.2",
 
   "name": "CKMC Farming",
   "description": "This is an example description! Tell everyone what your mod is about!",
