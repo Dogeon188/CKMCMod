@@ -34,9 +34,10 @@ public class MyItems {
     }
 
     private static Item register(Identifier id, Item item) {
-        if (item instanceof BlockItem) ((BlockItem)item).appendBlocks(Item.BLOCK_ITEMS, item);
+        if (item instanceof BlockItem) ((BlockItem) item).appendBlocks(Item.BLOCK_ITEMS, item);
         return Registry.register(Registry.ITEM, id, item);
     }
+
     static {
         DEBUG_ITEM = register("debug_item", new Item((new Item.Settings()).group(MyItemGroups.GENERAL)));
         DEBUG_BLOCK = register(new BlockItem(MyBlocks.DEBUG_BLOCK, (new Item.Settings()).group(MyItemGroups.GENERAL)));

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "id": "ckmcff_farm",
-  "version": "0.1.0-build.2",
+  "version": "0.1.0+build.2-1.16",
 
   "name": "CKMC Farming",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Farming, cooking, living.",
   "authors": [
     "Dogeon188",
     "Tsoado",
@@ -19,20 +19,14 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "me.ckffmc.farm.MainMod"
-    ]
+    "main": [ "me.ckffmc.farm.MainMod" ]
   },
-  "mixins": [
-    "ckfarm.mixins.json"
-  ],
+  "mixins": [ "ckfarm.mixins.json" ],
 
   "depends": {
     "fabricloader": ">=0.9.3",
     "fabric": "*",
     "minecraft": "1.16.x"
   },
-  "suggests": {
-    "flamingo": "*"
-  }
+  "suggests": { "flamingo": "*" }
 }

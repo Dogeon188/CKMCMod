@@ -7,5 +7,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
 public class MyItemGroups {
-    public static final ItemGroup GENERAL = FabricItemGroupBuilder.create(new Identifier(MainMod.MOD_ID, "general")).icon(() -> new ItemStack(MyItems.DEBUG_ITEM)).build();
+    public static final ItemGroup GENERAL = FabricItemGroupBuilder.create(new Identifier(MainMod.MOD_ID, "general"))
+            .icon(() -> new ItemStack(MyItems.DEBUG_ITEM))
+            /* .appendItems(stacks -> {
+                stacks.add(new ItemStack(MyItems.DEBUG_BLOCK));
+            }) */
+            .build();
 }
