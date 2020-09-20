@@ -1,5 +1,8 @@
 {
   "item.ckfarm.debug_item": "Debug Item",
+  "item.ckfarm.lettuce": "Lettuce",
+  "item.ckfarm.lettuce_seeds": "Lettuce Seeds",
+  "item.ckfarm.sweet_potato": "Sweet Potato",
   "block.ckfarm.debug_block": "Debug Block",
   "itemGroup.ckfarm.general": "CKFFMC Farming"
 }

@@ -1,0 +1,52 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "alternatives",
+          "children": [
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "block_state_property",
+                  "block": "ckfarm:lettuce",
+                  "properties": {"age": "7"}
+                }
+              ],
+              "name": "ckfarm:lettuce"
+            },
+            {"type": "item", "name": "ckfarm:lettuce_seeds"}
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "item",
+          "functions": [
+            {
+              "function": "apply_bonus",
+              "enchantment": "fortune",
+              "formula": "binomial_with_bonus_count",
+              "parameters": {"extra": 3, "probability": 0.5714286}
+            }
+          ],
+          "name": "ckfarm:lettuce_seeds"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "block_state_property",
+          "block": "ckfarm:lettuce",
+          "properties": {"age": "7"}
+        }
+      ]
+    }
+  ],
+  "functions": [{"function": "minecraft:explosion_decay"}]
+}

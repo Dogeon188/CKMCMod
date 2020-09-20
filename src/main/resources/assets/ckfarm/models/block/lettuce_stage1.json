@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "ckfarm:block/lettuce_stage1"
+  }
+}
