@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 
 public class MyItemGroups {
     public static final ItemGroup GENERAL = FabricItemGroupBuilder.create(new Identifier(MainMod.MOD_ID, "general"))
-            .icon(() -> new ItemStack(MyItems.DEBUG_ITEM))
+            .icon(() -> new ItemStack(MyItems.SWEET_POTATO))
             /* .appendItems(stacks -> {
                 stacks.add(new ItemStack(MyItems.DEBUG_BLOCK));
             }) */

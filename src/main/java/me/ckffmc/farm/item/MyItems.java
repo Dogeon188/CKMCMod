@@ -3,7 +3,6 @@ package me.ckffmc.farm.item;
 import me.ckffmc.farm.MainMod;
 import me.ckffmc.farm.block.MyBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -15,8 +14,6 @@ public class MyItems {
     public static final Item LETTUCE_SEEDS;
     public static final Item LETTUCE;
     public static final Item SWEET_POTATO;
-    public static final Item DEBUG_ITEM;
-    public static final Item DEBUG_BLOCK;
 
     private static Item register(Block block) {
         return register(new BlockItem(block, new Item.Settings()));
@@ -48,7 +45,7 @@ public class MyItems {
         LETTUCE = register("lettuce", new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
         SWEET_POTATO = register("sweet_potato", new AliasedBlockItem(MyBlocks.SWEET_POTATO,
                 new Item.Settings().group(MyItemGroups.GENERAL)));
-        DEBUG_ITEM = register("debug_item", new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
-        DEBUG_BLOCK = register(MyBlocks.DEBUG_BLOCK, MyItemGroups.GENERAL);
+//        DEBUG_ITEM = register("debug_item", new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
+//        DEBUG_BLOCK = register(MyBlocks.DEBUG_BLOCK, MyItemGroups.GENERAL);
     }
 }
