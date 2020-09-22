@@ -19,7 +19,9 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [ "me.ckffmc.farm.MainMod" ]
+    "main": [ "me.ckffmc.farm.MainMod" ],
+    "client": [ "me.ckffmc.farm.client.MainClient" ],
+    "server": [ "me.ckffmc.farm.server.MainServer" ]
   },
   "mixins": [ "ckfarm.mixins.json" ],
 
