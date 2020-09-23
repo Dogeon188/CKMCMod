@@ -1,0 +1,36 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {"type": "item", "name": "ckfarm:rice"}
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "item",
+          "functions": [
+            {
+              "function": "apply_bonus",
+              "enchantment": "fortune",
+              "formula": "binomial_with_bonus_count",
+              "parameters": {"extra": 3, "probability": 0.5714286}
+            }
+          ],
+          "name": "ckfarm:rice"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "block_state_property",
+          "block": "ckfarm:rice",
+          "properties": {"age": "7"}
+        }
+      ]
+    }
+  ],
+  "functions": [{"function": "explosion_decay"}]
+}
