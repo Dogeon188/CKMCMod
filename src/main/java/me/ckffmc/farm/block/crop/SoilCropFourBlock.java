@@ -6,9 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
@@ -19,14 +19,12 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class EarthCropSmallBlock extends CropBlock {
+public class SoilCropFourBlock extends CropBlock {
     public static final IntProperty AGE;
     private static final VoxelShape[] AGE_TO_SHAPE;
-    private final Item SEEDS_ITEM;
 
-    public EarthCropSmallBlock(Item seeds_item, Settings settings) {
-        super(settings);
-        SEEDS_ITEM = seeds_item;
+    public SoilCropFourBlock(Settings settings) {
+        super(settings.noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP));
     }
 
     public IntProperty getAgeProperty() {
@@ -38,7 +36,7 @@ public class EarthCropSmallBlock extends CropBlock {
     }
 
     @Environment(EnvType.CLIENT)
-    protected ItemConvertible getSeedsItem() { return SEEDS_ITEM; }
+    protected ItemConvertible getSeedsItem() { return null; }
 
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (random.nextInt(3) != 0) super.randomTick(state, world, pos, random);

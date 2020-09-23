@@ -1,28 +1,20 @@
 package me.ckffmc.farm.block.crop;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
-public class EarthCropBlock extends CropBlock {
+public class SoilCropEightBlock extends CropBlock {
     private static final VoxelShape[] AGE_TO_SHAPE;
-    private final Item SEEDS_ITEM;
 
-    public EarthCropBlock(Item seeds_item, Settings settings) {
-        super(settings);
-        SEEDS_ITEM = seeds_item;
+    public SoilCropEightBlock(Settings settings) {
+        super(settings.noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP));
     }
-
-    @Environment(EnvType.CLIENT)
-    protected ItemConvertible getSeedsItem() { return SEEDS_ITEM; }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return AGE_TO_SHAPE[state.get(this.getAgeProperty())];
