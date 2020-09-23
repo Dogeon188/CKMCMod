@@ -3,3 +3,4 @@
 ## Crops
 - Lettuce
 - Sweet Potato
+- Rice
