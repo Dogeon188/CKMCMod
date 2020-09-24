@@ -19,11 +19,11 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class SoilCropFourBlock extends CropBlock {
+public class SoilFourBlock extends CropBlock {
     public static final IntProperty AGE;
     private static final VoxelShape[] AGE_TO_SHAPE;
 
-    public SoilCropFourBlock(Settings settings) {
+    public SoilFourBlock(Settings settings) {
         super(settings.noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP));
     }
 

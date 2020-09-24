@@ -9,10 +9,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
-public class SoilCropEightBlock extends CropBlock {
+public class SoilEightBlock extends CropBlock {
     private static final VoxelShape[] AGE_TO_SHAPE;
 
-    public SoilCropEightBlock(Settings settings) {
+    public SoilEightBlock(Settings settings) {
         super(settings.noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP));
     }
 
