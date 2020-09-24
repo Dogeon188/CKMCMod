@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "id": "ckffmc_farm",
-  "version": "0.1.0+build.2-1.16",
+  "version": "${version}",
 
-  "name": "CKMC Farming",
+  "name": "CKFarm",
   "description": "Farming, cooking, living.",
   "authors": [
     "Dogeon188",
