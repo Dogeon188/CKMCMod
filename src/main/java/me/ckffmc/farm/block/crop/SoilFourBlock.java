@@ -1,14 +1,10 @@
 package me.ckffmc.farm.block.crop;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.CropBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
@@ -18,14 +14,13 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import java.util.Random;
+import java.util.concurrent.Callable;
 
-public class SoilFourBlock extends CropBlock {
+public class SoilFourBlock extends SoilEightBlock {
     public static final IntProperty AGE;
     private static final VoxelShape[] AGE_TO_SHAPE;
 
-    public SoilFourBlock(Settings settings) {
-        super(settings.noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP));
-    }
+    public SoilFourBlock(Callable<ItemConvertible> seedsItem, Settings settings) { super(seedsItem, settings); }
 
     public IntProperty getAgeProperty() {
         return AGE;
@@ -34,9 +29,6 @@ public class SoilFourBlock extends CropBlock {
     public int getMaxAge() {
         return 3;
     }
-
-    @Environment(EnvType.CLIENT)
-    protected ItemConvertible getSeedsItem() { return null; }
 
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (random.nextInt(3) != 0) super.randomTick(state, world, pos, random);
@@ -50,7 +42,7 @@ public class SoilFourBlock extends CropBlock {
         builder.add(AGE);
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext ctx) {
         return AGE_TO_SHAPE[state.get(this.getAgeProperty())];
     }
 

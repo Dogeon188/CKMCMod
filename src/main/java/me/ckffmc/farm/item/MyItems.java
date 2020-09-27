@@ -44,13 +44,16 @@ public class MyItems {
     }
 
     static {
-        LETTUCE_SEEDS = register("lettuce_seeds", new AliasedBlockItem(MyBlocks.LETTUCE, new Item.Settings().group(MyItemGroups.GENERAL)));
+        LETTUCE_SEEDS = register("lettuce_seeds",
+                new AliasedBlockItem(MyBlocks.LETTUCE, new Item.Settings().group(MyItemGroups.GENERAL)));
         LETTUCE = register("lettuce",
                 new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.LETTUCE)));
         SWEET_POTATO = register("sweet_potato", new AliasedBlockItem(MyBlocks.SWEET_POTATO,
                 new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.SWEET_POTATO)));
-        RICE = register("rice", new AliasedBlockItem(MyBlocks.RICE, new Item.Settings().group(MyItemGroups.GENERAL)));
-        CORN = register("corn", new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.CORN)));
+        RICE = register("rice",
+                new AliasedBlockItem(MyBlocks.RICE, new Item.Settings().group(MyItemGroups.GENERAL)));
+        CORN = register("corn",
+                new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.CORN)));
         CORN_SEEDS = register("corn_seeds", new AliasedBlockItem(MyBlocks.CORN,
                 new Item.Settings().group(MyItemGroups.GENERAL)));
 //        DEBUG_ITEM = register("debug_item", new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
