@@ -26,31 +26,31 @@ public class TallCropBlock extends CropBlock {
     public static final IntProperty AGE;
     public static final VoxelShape[] SHAPES;
     private final Callable<ItemConvertible> SEEDS_ITEM_CALLABLE;
-    private final Callable<Block> REPRESENTATIVE_CALLABLE;
 
-    public TallCropBlock(Callable<ItemConvertible> seedsItem, Callable<Block> representative, Settings settings) {
+    public TallCropBlock(Callable<ItemConvertible> seedsItem, Settings settings) {
         super(settings.noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP));
         this.SEEDS_ITEM_CALLABLE = seedsItem;
-        this.REPRESENTATIVE_CALLABLE = representative;
         this.setDefaultState(this.stateManager.getDefaultState().with(HALF, DoubleBlockHalf.LOWER));
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPES[state.get(HALF) == DoubleBlockHalf.UPPER ? this.getAge(state) - 4 : Math.min(3, this.getAge(state))];
+        return SHAPES[state.get(HALF) == DoubleBlockHalf.UPPER ? this.getAge(state) % 4 : Math.min(3,
+                this.getAge(state))];
     }
 
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
         return floor.isOf(Blocks.FARMLAND);
     }
 
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState,
+                                                 WorldAccess world, BlockPos pos, BlockPos posFrom) {
         DoubleBlockHalf h = state.get(HALF);
         if (direction.getAxis() == Direction.Axis.Y && h == DoubleBlockHalf.LOWER == (direction == Direction.UP) && state.get(AGE) > this.getMidAge() && (!newState.isOf(this) || newState.get(HALF) == h))
             return Blocks.AIR.getDefaultState();
         if (h == DoubleBlockHalf.LOWER && direction == Direction.DOWN && !state.canPlaceAt(world, pos))
             return Blocks.AIR.getDefaultState();
-        if ((world.getBlockState(pos.down()).isOf(this.getInstance()) && h == DoubleBlockHalf.UPPER) || (world.getBlockState(pos.up()).isOf(this.getInstance()) && h == DoubleBlockHalf.LOWER))
+        if ((h == DoubleBlockHalf.UPPER && world.getBlockState(pos.down()).isOf(this)) || (h == DoubleBlockHalf.LOWER && world.getBlockState(pos.up()).isOf(this)))
             return state;
         return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
     }
@@ -63,7 +63,7 @@ public class TallCropBlock extends CropBlock {
                 BlockPos posUp = pos.up();
                 BlockState stateUp = world.getBlockState(posUp);
                 if (i <= this.getMidAge()) world.setBlockState(pos, this.withAge(i), 2);
-                else if (stateUp.isAir() || stateUp.isOf(this.getInstance())) {
+                else if (stateUp.isAir() || stateUp.isOf(this)) {
                     world.setBlockState(pos, this.withAge(i), 2);
                     world.setBlockState(posUp, this.withAge(i).with(HALF, DoubleBlockHalf.UPPER), 2);
                 }
@@ -80,19 +80,13 @@ public class TallCropBlock extends CropBlock {
         if (state.get(HALF) == DoubleBlockHalf.UPPER) {
             world.setBlockState(pos, this.withAge(i), 2);
             world.setBlockState(pos.down(), this.withAge(i).with(HALF, DoubleBlockHalf.LOWER), 2);
-        } else if (i > this.getMidAge() && (stateUp.isAir() || stateUp.isOf(this.getInstance()))) {
+        } else if (i > this.getMidAge() && (stateUp.isAir() || stateUp.isOf(this))) {
             world.setBlockState(pos, this.withAge(i), 2);
             world.setBlockState(pos.up(), this.withAge(i).with(HALF, DoubleBlockHalf.UPPER), 2);
         } else world.setBlockState(pos, this.withAge(Math.min(3, i)), 2);
     }
 
     public int getMidAge() { return 3; }
-
-    protected Block getInstance() {
-        try { return this.REPRESENTATIVE_CALLABLE.call();
-        } catch (Exception e) { e.printStackTrace(); }
-        return null;
-    }
 
     @Environment(EnvType.CLIENT)
     protected ItemConvertible getSeedsItem() {
