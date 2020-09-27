@@ -3,5 +3,7 @@
   "item.ckfarm.lettuce_seeds": "Lettuce Seeds",
   "item.ckfarm.sweet_potato": "Sweet Potato",
   "item.ckfarm.rice": "Rice",
+  "item.ckfarm.corn": "Corn",
+  "item.ckfarm.corn_seeds": "Corn Seeds",
   "itemGroup.ckfarm.general": "CKFFMC Farming"
 }

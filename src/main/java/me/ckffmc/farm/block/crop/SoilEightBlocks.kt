@@ -12,9 +12,7 @@ class RiceBlock(settings: Settings?) : SoilEightBlock(settings) {
 
 class LettuceBlock(settings: Settings?) : SoilEightBlock(settings) {
     @Environment(EnvType.CLIENT)
-    override fun getSeedsItem(): ItemConvertible {
-        return MyItems.LETTUCE_SEEDS
-    }
+    override fun getSeedsItem(): ItemConvertible { return MyItems.LETTUCE_SEEDS }
 }
 
 /*

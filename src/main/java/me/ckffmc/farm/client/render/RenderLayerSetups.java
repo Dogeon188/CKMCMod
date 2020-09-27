@@ -16,6 +16,7 @@ public class RenderLayerSetups {
         // with transparent pixel(s)
         RenderLayer cutout = RenderLayer.getCutout();
         putBlock(MyBlocks.RICE, cutout);
+        putBlock(MyBlocks.CORN, cutout);
         putBlock(MyBlocks.LETTUCE, cutout);
         putBlock(MyBlocks.SWEET_POTATO, cutout);
         // half-transparent
