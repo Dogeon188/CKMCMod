@@ -7,10 +7,6 @@ import net.minecraft.client.render.RenderLayer;
 
 public class RenderLayerSetups {
     public static void renderLayerSetups() {
-        blockSetups();
-    }
-
-    private static void blockSetups() {
         // leaves, bars, etc.
         RenderLayer cutoutMipped = RenderLayer.getCutoutMipped();
         // with transparent pixel(s)
