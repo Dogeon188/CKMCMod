@@ -1,4 +1,4 @@
 {
-  "parent": "minecraft:block/cross",
-  "textures": {"cross": "ckfarm:block/garlic_stage3"}
+  "parent": "minecraft:block/crop",
+  "textures": {"crop": "ckfarm:block/garlic_stage3"}
 }
