@@ -14,6 +14,6 @@ public class MainMod implements ModInitializer {
         try {
             for (String c : toLoadClasses) Class.forName(c).getDeclaredConstructor().newInstance();
         } catch (Exception e) { e.printStackTrace(); }
-        System.out.println("CKFFMC farming mod is ready!");
+//        System.out.println("CKFFMC farming mod is ready!");
     }
 }

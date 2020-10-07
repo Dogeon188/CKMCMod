@@ -14,6 +14,7 @@ public class MyItems {
     public static final Item LETTUCE_SEEDS;
     public static final Item LETTUCE;
     public static final Item SWEET_POTATO;
+    public static final Item BAKED_SWEET_POTATO;
     public static final Item GARLIC;
     public static final Item RICE;
     public static final Item CORN;
@@ -53,6 +54,8 @@ public class MyItems {
                 new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.LETTUCE)));
         SWEET_POTATO = register("sweet_potato", new AliasedBlockItem(MyBlocks.SWEET_POTATO,
                 new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.SWEET_POTATO)));
+        BAKED_SWEET_POTATO = register("baked_sweet_potato",
+                new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.BAKED_SWEET_POTATO)));
         GARLIC = register("garlic", new AliasedBlockItem(MyBlocks.GARLIC,
                 new Item.Settings().group(MyItemGroups.GENERAL)));
         RICE = register("rice",

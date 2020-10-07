@@ -2,7 +2,11 @@
   "item.ckfarm.lettuce": "Lettuce",
   "item.ckfarm.lettuce_seeds": "Lettuce Seeds",
   "item.ckfarm.sweet_potato": "Sweet Potato",
+  "item.ckfarm.baked_sweet_potato": "Baked Sweet Potato",
   "item.ckfarm.rice": "Rice",
+  "item.ckfarm.garlic": "Garlic",
+  "item.ckfarm.ginger": "Ginger",
+  "item.ckfarm.spring_onion": "Spring Onion",
   "item.ckfarm.corn": "Corn",
   "item.ckfarm.corn_seeds": "Corn Seeds",
   "itemGroup.ckfarm.general": "CKFFMC Farming"
