@@ -2,11 +2,10 @@ package me.ckffmc.farm.item;
 
 import me.ckffmc.farm.MainMod;
 import me.ckffmc.farm.block.MyBlocks;
+import me.ckffmc.farm.entity.MyEntityType;
 import net.minecraft.block.Block;
-import net.minecraft.item.AliasedBlockItem;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.entity.EntityType;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -21,6 +20,7 @@ public class MyItems {
     public static final Item CORN_SEEDS;
     public static final Item SPRING_ONION;
     public static final Item GINGER;
+    public static final Item OYSTER_SPAWN_EGG;
 
     private static Item register(Block block) {
         return register(new BlockItem(block, new Item.Settings()));
@@ -48,10 +48,10 @@ public class MyItems {
     }
 
     static {
-        LETTUCE_SEEDS = register("lettuce_seeds",
-                new AliasedBlockItem(MyBlocks.LETTUCE, new Item.Settings().group(MyItemGroups.GENERAL)));
         LETTUCE = register("lettuce",
                 new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.LETTUCE)));
+        LETTUCE_SEEDS = register("lettuce_seeds",
+                new AliasedBlockItem(MyBlocks.LETTUCE, new Item.Settings().group(MyItemGroups.GENERAL)));
         SWEET_POTATO = register("sweet_potato", new AliasedBlockItem(MyBlocks.SWEET_POTATO,
                 new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.SWEET_POTATO)));
         BAKED_SWEET_POTATO = register("baked_sweet_potato",
@@ -68,6 +68,8 @@ public class MyItems {
                 new Item.Settings().group(MyItemGroups.GENERAL)));
         GINGER = register("ginger", new AliasedBlockItem(MyBlocks.GINGER,
                 new Item.Settings().group(MyItemGroups.GENERAL)));
+        OYSTER_SPAWN_EGG = register("oyster_spawn_egg", new SpawnEggItem(MyEntityType.OYSTER, 0x091E07, 0xC9BCCA, new Item.Settings().group(MyItemGroups.GENERAL)));
+
 //        DEBUG_ITEM = register("debug_item", new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
 //        DEBUG_BLOCK = register(MyBlocks.DEBUG_BLOCK, MyItemGroups.GENERAL);
     }
