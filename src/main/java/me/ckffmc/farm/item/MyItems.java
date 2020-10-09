@@ -20,7 +20,10 @@ public class MyItems {
     public static final Item CORN;
     public static final Item CORN_SEEDS;
     public static final Item SPRING_ONION;
+    public static final Item SPRING_ONION_SEEDS;
     public static final Item GINGER;
+    public static final Item SALT;
+    public static final Item SALT_BLOCK;
 
     private static Item register(Block block) {
         return register(new BlockItem(block, new Item.Settings()));
@@ -57,18 +60,20 @@ public class MyItems {
         BAKED_SWEET_POTATO = register("baked_sweet_potato",
                 new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.BAKED_SWEET_POTATO)));
         GARLIC = register("garlic", new AliasedBlockItem(MyBlocks.GARLIC,
-                new Item.Settings().group(MyItemGroups.GENERAL)));
+                new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.GARLIC)));
         RICE = register("rice",
                 new AliasedBlockItem(MyBlocks.RICE, new Item.Settings().group(MyItemGroups.GENERAL)));
         CORN = register("corn",
                 new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.CORN)));
         CORN_SEEDS = register("corn_seeds", new AliasedBlockItem(MyBlocks.CORN,
                 new Item.Settings().group(MyItemGroups.GENERAL)));
-        SPRING_ONION = register("spring_onion", new AliasedBlockItem(MyBlocks.SPRING_ONION,
+        SPRING_ONION = register("spring_onion",
+                new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.SPRING_ONION)));
+        SPRING_ONION_SEEDS = register("spring_onion_seeds", new AliasedBlockItem(MyBlocks.SPRING_ONION,
                 new Item.Settings().group(MyItemGroups.GENERAL)));
         GINGER = register("ginger", new AliasedBlockItem(MyBlocks.GINGER,
-                new Item.Settings().group(MyItemGroups.GENERAL)));
-//        DEBUG_ITEM = register("debug_item", new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
-//        DEBUG_BLOCK = register(MyBlocks.DEBUG_BLOCK, MyItemGroups.GENERAL);
+                new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.GINGER)));
+        SALT = register("salt", new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
+        SALT_BLOCK = register(MyBlocks.SALT_BLOCK, MyItemGroups.GENERAL);
     }
 }

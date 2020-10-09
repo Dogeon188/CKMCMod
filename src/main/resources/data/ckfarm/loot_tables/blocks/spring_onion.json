@@ -1,0 +1,52 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "alternatives",
+          "children": [
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "block_state_property",
+                  "block": "ckfarm:spring_onion",
+                  "properties": {"age": "3"}
+                }
+              ],
+              "name": "ckfarm:spring_onion"
+            },
+            {"type": "item", "name": "ckfarm:spring_onion_seeds"}
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "item",
+          "functions": [
+            {
+              "function": "apply_bonus",
+              "enchantment": "fortune",
+              "formula": "binomial_with_bonus_count",
+              "parameters": {"extra": 3, "probability": 0.5714286}
+            }
+          ],
+          "name": "ckfarm:spring_onion_seeds"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "block_state_property",
+          "block": "ckfarm:spring_onion",
+          "properties": {"age": "3"}
+        }
+      ]
+    }
+  ],
+  "functions": [{"function": "minecraft:explosion_decay"}]
+}

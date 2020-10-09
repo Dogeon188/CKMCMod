@@ -20,10 +20,14 @@ So the textures or so will eventually be changed to something more normal, and w
 - Lettuce
 - Sweet Potato
 - Rice
-- Corn (WIP)
-- Ginger (WIP)
-- Garlic (WIP)
-- Spring Onion (WIP)
+- Corn
+- Ginger
+- Garlic
+- Spring Onion
+
+### Foods & Ingredients
+- Baked Sweet Potato
+- Salt
 
 ## Future Plans
 
@@ -48,7 +52,6 @@ So the textures or so will eventually be changed to something more normal, and w
     - Stinky Tofu
 - Tofu Puddings
 - Soy Sauce
-- Salt
 - Shaved Ice
     - Brown Sugar
     - Ice Crusher?
