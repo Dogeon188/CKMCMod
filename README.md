@@ -21,9 +21,9 @@ So the textures or so will eventually be changed to something more normal, and w
 - Sweet Potato
 - Rice
 - Corn
-- Ginger
-- Garlic
-- Spring Onion
+- Ginger (WIP)
+- Garlic (WIP)
+- Spring Onion (WIP)
 
 ### Foods & Ingredients
 - Baked Sweet Potato
