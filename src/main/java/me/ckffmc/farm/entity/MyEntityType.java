@@ -18,11 +18,11 @@ public class MyEntityType {
     }
 
     public static void loadEntities() {
-        FabricDefaultAttributeRegistry.register(MyEntityType.OYSTER, OysterEntity.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(MyEntityType.OYSTER, OysterEntity.createOysterAttributes());
     }
 
     static {
         OYSTER = register("oyster",
-                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, OysterEntity::new).dimensions(EntityDimensions.fixed(0.5f, 0.125f)));
+                FabricEntityTypeBuilder.create(SpawnGroup.WATER_AMBIENT, OysterEntity::new).dimensions(EntityDimensions.fixed(0.5f, 0.125f)));
     }
 }

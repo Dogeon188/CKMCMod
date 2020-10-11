@@ -9,5 +9,7 @@
   "item.ckfarm.spring_onion": "Spring Onion",
   "item.ckfarm.corn": "Corn",
   "item.ckfarm.corn_seeds": "Corn Seeds",
+  "item.ckfarm.oyster_spawn_egg": "Oyster Spawn Egg",
+  "entity.ckfarm.oyster": "Oyster",
   "itemGroup.ckfarm.general": "CKFFMC Farming"
 }
