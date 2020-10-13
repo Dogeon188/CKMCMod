@@ -1,6 +1,6 @@
 package me.ckffmc.farm.client;
 
-import me.ckffmc.farm.client.render.RenderLayerSetups;
+import me.ckffmc.farm.client.render.RenderSetups;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -9,6 +9,6 @@ import net.fabricmc.api.Environment;
 public class MainClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        RenderLayerSetups.renderLayerSetups();
+        RenderSetups.renderSetups();
     }
 }
