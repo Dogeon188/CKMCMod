@@ -4,7 +4,6 @@ import me.ckffmc.farm.MainMod;
 import me.ckffmc.farm.block.MyBlocks;
 import me.ckffmc.farm.entity.MyEntityType;
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityType;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -75,10 +74,7 @@ public class MyItems {
                 new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.GINGER)));
         SALT = register("salt", new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
         SALT_BLOCK = register(MyBlocks.SALT_BLOCK, MyItemGroups.GENERAL);
-                new Item.Settings().group(MyItemGroups.GENERAL)));
+                new Item.Settings().group(MyItemGroups.GENERAL);
         OYSTER_SPAWN_EGG = register("oyster_spawn_egg", new SpawnEggItem(MyEntityType.OYSTER, 0x091E07, 0xC9BCCA, new Item.Settings().group(MyItemGroups.GENERAL)));
-
-//        DEBUG_ITEM = register("debug_item", new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
-//        DEBUG_BLOCK = register(MyBlocks.DEBUG_BLOCK, MyItemGroups.GENERAL);
     }
 }
