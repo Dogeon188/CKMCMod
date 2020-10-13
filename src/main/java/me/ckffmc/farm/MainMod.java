@@ -14,7 +14,7 @@ public class MainMod implements ModInitializer {
         try {
             MyItems.class.getDeclaredConstructor().newInstance();
         } catch (Exception e) { e.printStackTrace(); }
-        MyEntityType.loadEntities();
+        MyEntityType.load();
 //        System.out.println("CKFFMC farming mod is ready!");
     }
 }

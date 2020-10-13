@@ -5,12 +5,12 @@ import me.ckffmc.farm.entity.OysterEntity;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.model.ModelUtil;
 import net.minecraft.client.render.entity.model.CompositeEntityModel;
+import net.minecraft.util.math.MathHelper;
 
 public class OysterEntityModel extends CompositeEntityModel<OysterEntity> {
     private final ModelPart torso;
     private final ModelPart topShell;
     private final ModelPart bottomShell;
-    private float openAnimation;
 
     public OysterEntityModel() {
         this.textureWidth = 32;
@@ -32,13 +32,8 @@ public class OysterEntityModel extends CompositeEntityModel<OysterEntity> {
     public Iterable<ModelPart> getParts() { return ImmutableList.of(this.torso, this.bottomShell, this.topShell); }
 
     @Override
-    public void animateModel(OysterEntity entity, float f, float g, float tickDelta) {
-        this.openAnimation = entity.getOpenProgress(tickDelta);
-        super.animateModel(entity, f, g, tickDelta);
-    }
-
-    @Override
     public void setAngles(OysterEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-        this.topShell.pitch = ModelUtil.interpolateAngle(2.1415F, 3.1415F, this.openAnimation);
+        this.topShell.pitch = ModelUtil.interpolateAngle(3.08F, 3.1415926F,
+                MathHelper.sin((animationProgress % 128.0f) / 20.371832715f - 3.1415926f));
     }
 }
