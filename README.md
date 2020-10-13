@@ -15,6 +15,10 @@ So the textures or so will eventually be changed to something more normal, and w
 
 ## Features
 
+### Entity (Probably not with an s)
+
+- Oyster
+
 ### Crops
 
 - Lettuce
@@ -45,7 +49,6 @@ So the textures or so will eventually be changed to something more normal, and w
     - Flour
 - Oyster Vermicelli
     - Vermicelli
-    - Oyster
 - Bubble Tea
     - Tapioca Balls
 - Tofu

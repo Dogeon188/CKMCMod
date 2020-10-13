@@ -10,6 +10,7 @@ public class MyFoodComponents {
     public static final FoodComponent GARLIC;
     public static final FoodComponent SPRING_ONION;
     public static final FoodComponent GINGER;
+    public static final FoodComponent COOKED_OYSTER;
 
     static {
         SWEET_POTATO = new FoodComponent.Builder().hunger(1).saturationModifier(0.5f).build();
@@ -19,5 +20,6 @@ public class MyFoodComponents {
         GARLIC = new FoodComponent.Builder().hunger(1).saturationModifier(0.5f).build();
         SPRING_ONION = new FoodComponent.Builder().hunger(1).saturationModifier(0.5f).build();
         GINGER = new FoodComponent.Builder().hunger(1).saturationModifier(0.5f).build();
+        COOKED_OYSTER = new FoodComponent.Builder().hunger(2).saturationModifier(1.6f).meat().build();
     }
 }

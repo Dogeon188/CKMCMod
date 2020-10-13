@@ -3,5 +3,5 @@
   "ingredient": { "item": "ckfarm:sweet_potato" },
   "result": "ckfarm:baked_sweet_potato",
   "experience": 0.35,
-  "cookingtime": 200
+  "cookingtime": 100
 }
