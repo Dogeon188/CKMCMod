@@ -37,7 +37,7 @@ So the textures or so will eventually be changed to something more normal, and w
 
 ### Crops
 - Tea
-- Soy Bean
+- Soybean
 - Mango
 - Red Bean
 - Pineapple
