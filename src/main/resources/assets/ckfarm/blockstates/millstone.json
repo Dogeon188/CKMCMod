@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": {"model": "ckfarm:block/millstone"},
+    "facing=east": {"model": "ckfarm:block/millstone", "y": 90},
+    "facing=south": {"model": "ckfarm:block/millstone", "y": 180},
+    "facing=west": {"model": "ckfarm:block/millstone", "y": 270}
+  }
+}

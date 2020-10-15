@@ -25,6 +25,7 @@ public class MyItems {
     public static final Item RAW_OYSTER;
     public static final Item COOKED_OYSTER;
     public static final Item OYSTER_SPAWN_EGG;
+    public static final Item MILLSTONE;
 
     private static Item register(Block block) {
         return register(new BlockItem(block, new Item.Settings()));
@@ -81,5 +82,6 @@ public class MyItems {
         COOKED_OYSTER = register("cooked_oyster",
                 new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.COOKED_OYSTER)));
         OYSTER_SPAWN_EGG = register("oyster_spawn_egg", new SpawnEggItem(MyEntityType.OYSTER, 0x091E07, 0xC9BCCA, new Item.Settings().group(MyItemGroups.GENERAL)));
+        MILLSTONE = register(MyBlocks.MILLSTONE, MyItemGroups.GENERAL);
     }
 }

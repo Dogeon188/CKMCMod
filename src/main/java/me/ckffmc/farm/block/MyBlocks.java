@@ -17,6 +17,7 @@ public class MyBlocks {
     public static final Block CORN;
     public static final Block GINGER;
     public static final Block SALT_BLOCK;
+    public static final Block MILLSTONE;
 
     private static Block register(String id, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier(MainMod.MOD_ID, id), block);
@@ -38,5 +39,6 @@ public class MyBlocks {
         GINGER = register("ginger", new SoilFourBlock(() -> MyItems.GINGER,
                 FabricBlockSettings.of(Material.PLANT)));
         SALT_BLOCK = register("salt_block", new Block(FabricBlockSettings.copyOf(Blocks.GLOWSTONE)));
+        MILLSTONE = register("millstone", new MillstoneBlock(FabricBlockSettings.copyOf(Blocks.STONE)));
     }
 }
