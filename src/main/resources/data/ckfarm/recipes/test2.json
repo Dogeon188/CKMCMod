@@ -1,0 +1,9 @@
+{
+  "type": "milling",
+  "ingredient": {
+    "item": "dirt"
+  },
+  "result": {
+    "item": "stone", "count": 1
+  }
+}

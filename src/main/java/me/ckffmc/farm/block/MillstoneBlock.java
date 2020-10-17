@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -20,12 +21,15 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class MillstoneBlock extends BlockWithEntity {
-    public static final DirectionProperty FACING;
-    private static final VoxelShape SHAPE;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
+    public static final BooleanProperty MILLING = BooleanProperty.of("milling");
+    private static final VoxelShape SHAPE = VoxelShapes.union(
+            Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D),
+            Block.createCuboidShape(3.0D, 6.0D, 3.0D, 13.0D, 11.0D, 13.0D));
 
     public MillstoneBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH));
+        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(MILLING, false));
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -33,29 +37,33 @@ public class MillstoneBlock extends BlockWithEntity {
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
+        builder.add(FACING, MILLING);
     }
 
-    @Override
     public BlockEntity createBlockEntity(BlockView world) { return new MillstoneBlockEntity(); }
 
-    @Override
     public BlockRenderType getRenderType(BlockState state) { return BlockRenderType.MODEL; }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
     }
 
-    @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient) {
-            NamedScreenHandlerFactory handler = state.createScreenHandlerFactory(world, pos);
-            if (handler != null) { player.openHandledScreen(handler); }
+        if (world.isClient) {
+            return ActionResult.SUCCESS;
+        } else {
+            this.openScreen(world, pos, player);
+            return ActionResult.CONSUME;
         }
-        return ActionResult.SUCCESS;
     }
 
-    @Override
+    protected void openScreen(World world, BlockPos pos, PlayerEntity player) {
+        BlockEntity blockEntity = world.getBlockEntity(pos);
+        if (blockEntity instanceof MillstoneBlockEntity) {
+            player.openHandledScreen((NamedScreenHandlerFactory)blockEntity);
+        }
+    }
+
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -65,13 +73,5 @@ public class MillstoneBlock extends BlockWithEntity {
             }
             super.onStateReplaced(state, world, pos, newState, moved);
         }
-    }
-
-
-    static {
-        FACING = HorizontalFacingBlock.FACING;
-        SHAPE = VoxelShapes.union(
-                Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D),
-                Block.createCuboidShape(3.0D, 6.0D, 3.0D, 13.0D, 11.0D, 13.0D));
     }
 }

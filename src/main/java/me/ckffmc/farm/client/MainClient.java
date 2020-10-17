@@ -1,6 +1,6 @@
 package me.ckffmc.farm.client;
 
-import me.ckffmc.farm.MyScreenHandlerType;
+import me.ckffmc.farm.screen.MyScreenHandlerType;
 import me.ckffmc.farm.client.gui.screen.MillstoneScreen;
 import me.ckffmc.farm.client.render.RenderSetups;
 import net.fabricmc.api.ClientModInitializer;
@@ -13,6 +13,6 @@ public class MainClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         RenderSetups.renderSetups();
-        ScreenRegistry.register(MyScreenHandlerType.MILL_SCREEN_HANDLER, MillstoneScreen::new);
+        ScreenRegistry.register(MyScreenHandlerType.MILLSTONE_SCREEN_HANDLER, MillstoneScreen::new);
     }
 }
