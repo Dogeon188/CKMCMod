@@ -1,0 +1,6 @@
+{
+  "type": "ckfarm:milling",
+  "ingredient": { "item": "wheat" },
+  "result": { "item": "ckfarm:wheat_flour", "count": 1 },
+  "craft_time": 400
+}

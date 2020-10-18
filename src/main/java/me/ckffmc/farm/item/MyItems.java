@@ -41,6 +41,10 @@ public class MyItems {
     public static final Item MILLSTONE = register(MyBlocks.MILLSTONE, MyItemGroups.GENERAL);
     public static final Item SOYBEAN = register("soybean",
             new AliasedBlockItem(MyBlocks.SOYBEAN, new Item.Settings().group(MyItemGroups.GENERAL)));
+    public static final Item SOY_MILK = register("soy_milk",
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL).maxCount(16).food(MyFoodComponents.SOY_MILK)));
+    public static final Item WHEAT_FLOUR = register("wheat_flour",
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
 
     private static Item register(Block block) {
         return register(new BlockItem(block, new Item.Settings()));

@@ -1,6 +1,0 @@
-{
-  "type": "ckfarm:milling",
-  "ingredient": { "item": "stone" },
-  "result": { "item": "dirt", "count": 16 },
-  "craft_time": 10
-}
