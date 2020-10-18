@@ -31,6 +31,7 @@ So the textures or so will eventually be changed to something more normal, and w
 
 ### Foods & Ingredients
 - Baked Sweet Potato
+- Raw & Cooked Oyster
 - Salt
 
 ## Future Plans
