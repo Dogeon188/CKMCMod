@@ -11,12 +11,12 @@ public class MyBlockEntityType {
 
     public static final BlockEntityType<MillstoneBlockEntity> MILLSTONE_BLOCK_ENTITY;
 
-    private static <T extends BlockEntity> BlockEntityType<T> register(String id, BlockEntityType builder) {
+    private static <T extends BlockEntity> BlockEntityType<T> register(String id, BlockEntityType<T> builder) {
         return Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(MainMod.MOD_ID, id), builder);
     }
 
     static {
-        MILLSTONE_BLOCK_ENTITY = register("mill", BlockEntityType.Builder.create(MillstoneBlockEntity::new,
+        MILLSTONE_BLOCK_ENTITY = register("millstone", BlockEntityType.Builder.create(MillstoneBlockEntity::new,
                 MyBlocks.MILLSTONE).build(null));
     }
 }

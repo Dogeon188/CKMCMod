@@ -33,7 +33,6 @@ public class TallCropBlock extends CropBlock {
         this.setDefaultState(this.stateManager.getDefaultState().with(HALF, DoubleBlockHalf.LOWER));
     }
 
-    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPES[state.get(HALF) == DoubleBlockHalf.UPPER ? this.getAge(state) % 4 : Math.min(3,
                 this.getAge(state))];

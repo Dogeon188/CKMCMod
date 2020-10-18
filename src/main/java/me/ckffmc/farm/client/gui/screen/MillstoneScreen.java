@@ -9,7 +9,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class MillstoneScreen extends HandledScreen<MillstoneScreenHandler> {
-    private static final Identifier BACKGROUND_TEXTURE = new Identifier("ckfarm", "textures/gui/mill.png");
+    private static final Identifier BACKGROUND_TEXTURE = new Identifier("ckfarm", "textures/gui/millstone.png");
 
     public MillstoneScreen(MillstoneScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);

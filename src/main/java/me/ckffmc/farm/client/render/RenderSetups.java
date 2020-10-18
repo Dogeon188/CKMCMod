@@ -20,17 +20,13 @@ public class RenderSetups {
         renderLayerSetups();
 
         // entity render setups
-        putEntity(MyEntityType.OYSTER, (dsp, ctx) -> new OysterEntityRenderer(dsp));
+        EntityRendererRegistry.INSTANCE.register(MyEntityType.OYSTER, (dsp, ctx) -> new OysterEntityRenderer(dsp));
 
         // ui render setups
         ScreenRegistry.register(MyScreenHandlerType.MILLSTONE_SCREEN_HANDLER, MillstoneScreen::new);
 
         // block entity render setups
         BlockEntityRendererRegistry.INSTANCE.register(MyBlockEntityType.MILLSTONE_BLOCK_ENTITY, MillstoneBlockEntityRenderer::new);
-    }
-
-    private static void putEntity(EntityType<?> e, EntityRendererRegistry.Factory f) {
-        EntityRendererRegistry.INSTANCE.register(e, f);
     }
 
     private static void renderLayerSetups() {

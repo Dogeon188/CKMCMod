@@ -1,11 +1,14 @@
 package me.ckffmc.farm.block;
 
 import me.ckffmc.farm.MainMod;
-import me.ckffmc.farm.block.crop.*;
+import me.ckffmc.farm.block.crop.SoilEightBlock;
+import me.ckffmc.farm.block.crop.SoilFourBlock;
+import me.ckffmc.farm.block.crop.TallCropBlock;
 import me.ckffmc.farm.item.MyItems;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.*;
-import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
