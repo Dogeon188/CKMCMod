@@ -1,8 +1,8 @@
 {
   "variants": {
-    "age=0": {"model": "ckfarm:block/sweet_potato_stage0"},
-    "age=1": {"model": "ckfarm:block/sweet_potato_stage1"},
-    "age=2": {"model": "ckfarm:block/sweet_potato_stage2"},
-    "age=3": {"model": "ckfarm:block/sweet_potato_stage3"}
+    "age=0": {"model": "ckfarm:block/sweet_potato/0"},
+    "age=1": {"model": "ckfarm:block/sweet_potato/1"},
+    "age=2": {"model": "ckfarm:block/sweet_potato/2"},
+    "age=3": {"model": "ckfarm:block/sweet_potato/3"}
   }
 }

@@ -1,8 +1,8 @@
 {
   "variants": {
-    "age=0": {"model": "ckfarm:block/soybean/stage0"},
-    "age=1": {"model": "ckfarm:block/soybean/stage1"},
-    "age=2": {"model": "ckfarm:block/soybean/stage2"},
-    "age=3": {"model": "ckfarm:block/soybean/stage3"}
+    "age=0": {"model": "ckfarm:block/soybean/0"},
+    "age=1": {"model": "ckfarm:block/soybean/1"},
+    "age=2": {"model": "ckfarm:block/soybean/2"},
+    "age=3": {"model": "ckfarm:block/soybean/3"}
   }
 }

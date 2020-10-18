@@ -1,12 +1,12 @@
 {
   "variants": {
-    "age=0": {"model": "ckfarm:block/rice_stage0"},
-    "age=1": {"model": "ckfarm:block/rice_stage1"},
-    "age=2": {"model": "ckfarm:block/rice_stage2"},
-    "age=3": {"model": "ckfarm:block/rice_stage3"},
-    "age=4": {"model": "ckfarm:block/rice_stage4"},
-    "age=5": {"model": "ckfarm:block/rice_stage5"},
-    "age=6": {"model": "ckfarm:block/rice_stage6"},
-    "age=7": {"model": "ckfarm:block/rice_stage7"}
+    "age=0": {"model": "ckfarm:block/rice/0"},
+    "age=1": {"model": "ckfarm:block/rice/1"},
+    "age=2": {"model": "ckfarm:block/rice/2"},
+    "age=3": {"model": "ckfarm:block/rice/3"},
+    "age=4": {"model": "ckfarm:block/rice/4"},
+    "age=5": {"model": "ckfarm:block/rice/5"},
+    "age=6": {"model": "ckfarm:block/rice/6"},
+    "age=7": {"model": "ckfarm:block/rice/7"}
   }
 }

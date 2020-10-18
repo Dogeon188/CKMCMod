@@ -1,4 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {"cross": "ckfarm:block/ginger_stage0"}
-}
