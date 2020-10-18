@@ -19,11 +19,14 @@ public class MyBlocks {
             new SoilFourBlock(() -> MyItems.SPRING_ONION, FabricBlockSettings.of(Material.PLANT)));
     public static final Block RICE = register("rice",
             new SoilEightBlock(() -> MyItems.RICE, FabricBlockSettings.of(Material.PLANT)));
-    public static final Block CORN = register("corn"
-            , new TallCropBlock(() -> MyItems.CORN_SEEDS, FabricBlockSettings.of(Material.PLANT)));
-    public static final Block GINGER = register("ginger", new SoilFourBlock(() -> MyItems.GINGER,
-            FabricBlockSettings.of(Material.PLANT)));
-    public static final Block SALT_BLOCK = register("salt_block", new Block(FabricBlockSettings.copyOf(Blocks.GLOWSTONE)));
+    public static final Block CORN = register("corn",
+            new TallCropBlock(() -> MyItems.CORN_SEEDS, FabricBlockSettings.of(Material.PLANT)));
+    public static final Block GINGER = register("ginger",
+            new SoilFourBlock(() -> MyItems.GINGER, FabricBlockSettings.of(Material.PLANT)));
+    public static final Block SALT_BLOCK = register("salt_block",
+            new Block(FabricBlockSettings.copyOf(Blocks.GLOWSTONE)));
+    public static final Block SOYBEAN = register("soybean",
+            new SoilFourBlock(() -> MyItems.SOYBEAN, FabricBlockSettings.of(Material.PLANT)));
 
     private static Block register(String id, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier(MainMod.MOD_ID, id), block);
