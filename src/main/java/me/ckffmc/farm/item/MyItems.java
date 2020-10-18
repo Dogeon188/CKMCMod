@@ -38,6 +38,7 @@ public class MyItems {
     public static final Item COOKED_OYSTER = register("cooked_oyster",
             new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.COOKED_OYSTER)));
     public static final Item OYSTER_SPAWN_EGG = register("oyster_spawn_egg", new SpawnEggItem(MyEntityType.OYSTER, 0x091E07, 0xC9BCCA, new Item.Settings().group(MyItemGroups.GENERAL)));
+    public static final Item MILLSTONE = register(MyBlocks.MILLSTONE, MyItemGroups.GENERAL);
     public static final Item SOYBEAN = register("soybean",
             new AliasedBlockItem(MyBlocks.SOYBEAN, new Item.Settings().group(MyItemGroups.GENERAL)));
 

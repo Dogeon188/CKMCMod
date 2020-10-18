@@ -1,10 +1,16 @@
 package me.ckffmc.farm.client.render;
 
 import me.ckffmc.farm.block.MyBlocks;
+import me.ckffmc.farm.block.entity.MyBlockEntityType;
+import me.ckffmc.farm.client.gui.screen.MillstoneScreen;
+import me.ckffmc.farm.client.render.block.entity.MillstoneBlockEntityRenderer;
 import me.ckffmc.farm.client.render.entity.renderer.OysterEntityRenderer;
 import me.ckffmc.farm.entity.MyEntityType;
+import me.ckffmc.farm.screen.MyScreenHandlerType;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.EntityType;
@@ -12,11 +18,15 @@ import net.minecraft.entity.EntityType;
 public class RenderSetups {
     public static void renderSetups() {
         renderLayerSetups();
-        entityRenderSetups();
-    }
 
-    private static void entityRenderSetups() {
+        // entity render setups
         putEntity(MyEntityType.OYSTER, (dsp, ctx) -> new OysterEntityRenderer(dsp));
+
+        // ui render setups
+        ScreenRegistry.register(MyScreenHandlerType.MILLSTONE_SCREEN_HANDLER, MillstoneScreen::new);
+
+        // block entity render setups
+        BlockEntityRendererRegistry.INSTANCE.register(MyBlockEntityType.MILLSTONE_BLOCK_ENTITY, MillstoneBlockEntityRenderer::new);
     }
 
     private static void putEntity(EntityType<?> e, EntityRendererRegistry.Factory f) {

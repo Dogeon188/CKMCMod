@@ -5,6 +5,7 @@ import me.ckffmc.farm.block.crop.*;
 import me.ckffmc.farm.item.MyItems;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -25,6 +26,8 @@ public class MyBlocks {
             new SoilFourBlock(() -> MyItems.GINGER, FabricBlockSettings.of(Material.PLANT)));
     public static final Block SALT_BLOCK = register("salt_block",
             new Block(FabricBlockSettings.copyOf(Blocks.GLOWSTONE)));
+    public static final Block MILLSTONE = register("millstone",
+            new MillstoneBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.5F)));
     public static final Block SOYBEAN = register("soybean",
             new SoilFourBlock(() -> MyItems.SOYBEAN, FabricBlockSettings.of(Material.PLANT)));
 

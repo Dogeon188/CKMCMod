@@ -10,11 +10,13 @@
   "item.ckfarm.spring_onion_seeds": "Spring Onion Seeds",
   "item.ckfarm.corn": "Corn",
   "item.ckfarm.corn_seeds": "Corn Seeds",
-  "item.ckfarm.oyster": "Oyster",
+  "item.ckfarm.raw_oyster": "Raw Oyster",
   "item.ckfarm.cooked_oyster": "Cooked Oyster",
   "item.ckfarm.oyster_spawn_egg": "Oyster Spawn Egg",
   "entity.ckfarm.oyster": "Oyster",
   "item.ckfarm.salt": "Salt",
   "block.ckfarm.salt_block": "Salt Block",
-  "itemGroup.ckfarm.general": "CKFFMC Farming"
+  "block.ckfarm.millstone": "Millstone",
+  "itemGroup.ckfarm.general": "CKFFMC Farming",
+  "container.millstone": "Milling"
 }
