@@ -11,7 +11,6 @@ public class OysterEntityRenderer extends MobEntityRenderer<OysterEntity, Oyster
         super(dispatcher, new OysterEntityModel(), 0.25f);
     }
 
-    @Override
     public Identifier getTexture(OysterEntity entity) {
         return new Identifier("ckfarm", "textures/entity/oyster.png");
     }

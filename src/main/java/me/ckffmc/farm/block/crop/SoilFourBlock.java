@@ -17,7 +17,7 @@ import java.util.Random;
 import java.util.concurrent.Callable;
 
 public class SoilFourBlock extends SoilEightBlock {
-    public static final IntProperty AGE;
+    public static final IntProperty AGE = Properties.AGE_3;
     private static final VoxelShape[] AGE_TO_SHAPE;
 
     public SoilFourBlock(Callable<ItemConvertible> seedsItem, Settings settings) { super(seedsItem, settings); }
@@ -47,7 +47,6 @@ public class SoilFourBlock extends SoilEightBlock {
     }
 
     static {
-        AGE = Properties.AGE_3;
         AGE_TO_SHAPE = new VoxelShape[]{
                 Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
                 Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D),

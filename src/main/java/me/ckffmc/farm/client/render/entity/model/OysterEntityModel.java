@@ -28,10 +28,8 @@ public class OysterEntityModel extends CompositeEntityModel<OysterEntity> {
         this.topShell.setPivot(0.0F, 23.0F, 3.0F);
     }
 
-    @Override
     public Iterable<ModelPart> getParts() { return ImmutableList.of(this.torso, this.bottomShell, this.topShell); }
 
-    @Override
     public void setAngles(OysterEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
         this.topShell.pitch = ModelUtil.interpolateAngle(3.08F, 3.1415926F,
                 MathHelper.sin((animationProgress % 128.0F) / 20.371832715F - 3.1415926F));
