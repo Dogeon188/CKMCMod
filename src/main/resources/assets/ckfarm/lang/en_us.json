@@ -16,5 +16,7 @@
   "entity.ckfarm.oyster": "Oyster",
   "item.ckfarm.salt": "Salt",
   "block.ckfarm.salt_block": "Salt Block",
-  "itemGroup.ckfarm.general": "CKFFMC Farming"
+  "block.ckfarm.millstone": "Millstone",
+  "itemGroup.ckfarm.general": "CKFFMC Farming",
+  "container.millstone": "Milling"
 }

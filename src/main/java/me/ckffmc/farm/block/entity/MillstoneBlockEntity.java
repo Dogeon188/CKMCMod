@@ -1,9 +1,11 @@
 package me.ckffmc.farm.block.entity;
 
 import me.ckffmc.farm.block.MillstoneBlock;
+import me.ckffmc.farm.recipe.MillingRecipe;
 import me.ckffmc.farm.recipe.MyRecipeType;
 import me.ckffmc.farm.screen.MillstoneScreenHandler;
 import me.ckffmc.farm.util.ImplementedInventory;
+import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,6 +13,9 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.particle.ItemStackParticleEffect;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
@@ -19,10 +24,10 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 
-public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory, Tickable {
+public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory,
+        Tickable, BlockEntityClientSerializable {
     private static final int invsize = 2;
     private DefaultedList<ItemStack> inventory;
     private int craftTime;
@@ -34,7 +39,6 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
         this.inventory = DefaultedList.ofSize(invsize, ItemStack.EMPTY);
         this.propertyDelegate = new PropertyDelegate() {
             public int get(int index) {
-                System.out.println(this);
                 switch (index) {
                     case 0:  return MillstoneBlockEntity.this.craftTime;
                     case 1:  return MillstoneBlockEntity.this.totalCraftTime;
@@ -51,12 +55,23 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
 
             public int size() { return 2; }
         };
-        System.out.println(this.propertyDelegate);
     }
 
     public DefaultedList<ItemStack> getItems() { return inventory; }
 
-    private boolean isCrafting() { return this.craftTime > 0;}
+    public ParticleEffect getParticle() {
+        ItemStack item = this.inventory.get(0);
+        return new ItemStackParticleEffect(ParticleTypes.ITEM, item);
+    }
+
+    private boolean isCrafting() { return this.craftTime > 0; }
+
+//    public float getCraftProgress() {
+//        int i = this.craftTime;
+//        int j = this.totalCraftTime;
+//        System.out.printf("%d %d%n", i, j);
+//        return j != 0 && i != 0 ? (float)i / j : 0;
+//    }
 
     public void fromTag(BlockState state, CompoundTag tag) {
         super.fromTag(state, tag);
@@ -74,12 +89,23 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
         return tag;
     }
 
+    public void fromClientTag(CompoundTag tag) {
+        this.craftTime = tag.getShort("CraftTime");
+        this.totalCraftTime = tag.getShort("TotalCraftTime");
+        this.inventory = DefaultedList.ofSize(invsize, ItemStack.EMPTY);
+        Inventories.fromTag(tag, this.inventory);
+    }
+
+    public CompoundTag toClientTag(CompoundTag tag) {
+        return toTag(tag);
+    }
+
     public void tick() {
         boolean isDirty = false;
         boolean oldIsCrafting = this.isCrafting();
         if (this.world != null && !this.world.isClient) {
             if (this.isCrafting() && this.inventory.get(0).isEmpty()) {
-                this.craftTime = MathHelper.clamp(this.craftTime - 2, 0, this.totalCraftTime);
+                this.craftTime = Math.max(this.craftTime - 2, 0);
             } else {
                 Recipe<?> r = this.world.getRecipeManager().getFirstMatch(MyRecipeType.MILLING,
                         this, this.world).orElse(null);
@@ -98,6 +124,8 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
                 this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).with(MillstoneBlock.MILLING,
                         this.isCrafting()), 3);
             }
+            if (!this.isCrafting()) this.world.setBlockState(this.pos,
+                    this.world.getBlockState(this.pos).with(MillstoneBlock.MILLING, false), 3);
         }
         if (isDirty) this.markDirty();
     }
@@ -117,7 +145,9 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
         } else return false;
     }
 
-    protected int getCraftTime() { return 200; }
+    protected int getCraftTime() {
+        assert this.world != null;
+        return this.world.getRecipeManager().getFirstMatch(MyRecipeType.MILLING, this, this.world).map(MillingRecipe::getCraftTime).orElse(200); }
 
     private void craftRecipe(@Nullable Recipe<?> recipe) {
         if (recipe != null && this.canAcceptRecipeOutput(recipe)) {

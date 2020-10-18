@@ -1,6 +1,5 @@
 package me.ckffmc.farm.screen;
 
-import me.ckffmc.farm.screen.slot.MillstoneOutputSlot;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,13 +12,11 @@ import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.world.World;
 
 public class MillstoneScreenHandler extends ScreenHandler {
     protected final CraftingResultInventory output = new CraftingResultInventory();
     private final PropertyDelegate propertyDelegate;
     private final Inventory inventory;
-    private final World world;
     final Slot inputSlot;
     final Slot outputSlot;
 
@@ -34,11 +31,12 @@ public class MillstoneScreenHandler extends ScreenHandler {
         checkDataCount(propertyDelegate, 2);
         this.propertyDelegate = propertyDelegate;
         this.inventory = inventory;
-        this.world = playerInventory.player.world;
-        System.out.println(this);
+        this.addProperties(propertyDelegate);
 
         inputSlot = this.addSlot(new Slot(inventory, 0, 44, 47));
-        outputSlot = this.addSlot(new MillstoneOutputSlot(playerInventory.player, inventory, 1, 116, 47) {
+        outputSlot = this.addSlot(new Slot(inventory, 1, 116, 47) {
+            public boolean canInsert(ItemStack stack) { return false; }
+
             public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
                 stack.onCraft(player.world, player, stack.getCount());
                 MillstoneScreenHandler.this.output.unlockLastRecipe(player);
@@ -63,7 +61,6 @@ public class MillstoneScreenHandler extends ScreenHandler {
     public int getCraftProgress() {
         int i = this.propertyDelegate.get(0);
         int j = this.propertyDelegate.get(1);
-//        System.out.printf("%s %d %d%n", this.propertyDelegate, i, j);
         return j != 0 && i != 0 ? i * 24 / j : 0;
     }
 

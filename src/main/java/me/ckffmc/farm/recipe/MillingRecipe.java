@@ -16,11 +16,13 @@ public class MillingRecipe implements Recipe<Inventory> {
     protected final Identifier id;
     protected final Ingredient ingredient;
     protected final ItemStack result;
+    protected final int craftTime;
 
-    public MillingRecipe(Identifier id, Ingredient ingredient, ItemStack result) {
+    public MillingRecipe(Identifier id, Ingredient ingredient, ItemStack result, int craftTime) {
         this.id = id;
         this.ingredient = ingredient;
         this.result = result;
+        this.craftTime = craftTime;
     }
 
     public boolean matches(Inventory inv, World world) {
@@ -42,6 +44,8 @@ public class MillingRecipe implements Recipe<Inventory> {
 
     public ItemStack getOutput() { return this.result; }
 
+    public int getCraftTime() { return craftTime; }
+
     public Identifier getId() { return this.id; }
 
     @Override
@@ -53,18 +57,21 @@ public class MillingRecipe implements Recipe<Inventory> {
         public MillingRecipe read(Identifier identifier, JsonObject jsonObject) {
             Ingredient ingredient = Ingredient.fromJson(JsonHelper.getObject(jsonObject, "ingredient"));
             ItemStack itemStack = ShapedRecipe.getItemStack(JsonHelper.getObject(jsonObject, "result"));
-            return new MillingRecipe(identifier, ingredient, itemStack);
+            int craftTime = JsonHelper.getInt(jsonObject, "craft_time", 200);
+            return new MillingRecipe(identifier, ingredient, itemStack, craftTime);
         }
 
         public MillingRecipe read(Identifier identifier, PacketByteBuf packetByteBuf) {
             Ingredient ingredient = Ingredient.fromPacket(packetByteBuf);
             ItemStack itemStack = packetByteBuf.readItemStack();
-            return new MillingRecipe(identifier, ingredient, itemStack);
+            int craftTime = packetByteBuf.readVarInt();
+            return new MillingRecipe(identifier, ingredient, itemStack, craftTime);
         }
 
         public void write(PacketByteBuf packetByteBuf, MillingRecipe millingRecipe) {
             millingRecipe.ingredient.write(packetByteBuf);
             packetByteBuf.writeItemStack(millingRecipe.result);
+            packetByteBuf.writeVarInt(millingRecipe.craftTime);
         }
     }
 }
