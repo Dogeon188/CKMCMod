@@ -11,6 +11,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.particle.ItemStackParticleEffect;
@@ -24,10 +25,11 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
 
 public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory,
-        Tickable, BlockEntityClientSerializable {
+        Tickable, SidedInventory, BlockEntityClientSerializable {
     private static final int invsize = 2;
     private DefaultedList<ItemStack> inventory;
     private int craftTime;
@@ -188,6 +190,18 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
 
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
         return new MillstoneScreenHandler(syncId, inv, this, this.propertyDelegate);
+    }
+
+    public int[] getAvailableSlots(Direction side) {
+        return (side == Direction.DOWN) ? new int[]{1} : new int[]{0};
+    }
+
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
+        return this.isValid(slot, stack);
+    }
+
+    public boolean canExtract(int slot, ItemStack stack, Direction dir) {
+        return (dir == Direction.DOWN && slot == 1);
     }
 }
 
