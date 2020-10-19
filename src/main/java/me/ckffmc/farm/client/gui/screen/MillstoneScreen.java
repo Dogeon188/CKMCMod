@@ -24,7 +24,6 @@ public class MillstoneScreen extends HandledScreen<MillstoneScreenHandler> {
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
         int l = handler.getCraftProgress();
         drawTexture(matrices, x + 76, y + 45, 178, 2, l + 1, 16);
-
     }
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {

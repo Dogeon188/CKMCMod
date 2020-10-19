@@ -37,7 +37,6 @@ public interface ImplementedInventory extends Inventory {
     /**
      * Returns the inventory size.
      */
-    @Override
     default int size() {
         return getItems().size();
     }
@@ -46,7 +45,6 @@ public interface ImplementedInventory extends Inventory {
      * Checks if the inventory is empty.
      * @return true if this inventory has only empty stacks, false otherwise.
      */
-    @Override
     default boolean isEmpty() {
         for (int i = 0; i < size(); i++) {
             ItemStack stack = getStack(i);
@@ -60,7 +58,6 @@ public interface ImplementedInventory extends Inventory {
     /**
      * Retrieves the item in the slot.
      */
-    @Override
     default ItemStack getStack(int slot) {
         return getItems().get(slot);
     }
@@ -71,7 +68,6 @@ public interface ImplementedInventory extends Inventory {
      * @param count How many items to remove. If there are less items in the slot than what are requested,
      *              takes all items in that slot.
      */
-    @Override
     default ItemStack removeStack(int slot, int count) {
         ItemStack result = Inventories.splitStack(getItems(), slot, count);
         if (!result.isEmpty()) {
@@ -84,7 +80,6 @@ public interface ImplementedInventory extends Inventory {
      * Removes all items from an inventory slot.
      * @param slot The slot to remove from.
      */
-    @Override
     default ItemStack removeStack(int slot) {
         return Inventories.removeStack(getItems(), slot);
     }
@@ -96,7 +91,6 @@ public interface ImplementedInventory extends Inventory {
      *              this inventory ({@link Inventory#getMaxCountPerStack()}),
      *              it gets resized to this inventory's maximum amount.
      */
-    @Override
     default void setStack(int slot, ItemStack stack) {
         getItems().set(slot, stack);
         if (stack.getCount() > getMaxCountPerStack()) {
@@ -107,7 +101,6 @@ public interface ImplementedInventory extends Inventory {
     /**
      * Clears the inventory.
      */
-    @Override
     default void clear() {
         getItems().clear();
     }
@@ -117,15 +110,11 @@ public interface ImplementedInventory extends Inventory {
      * Must be called after changes in the inventory, so that the game can properly save
      * the inventory contents and notify neighboring blocks of inventory changes.
      */
-    @Override
-    default void markDirty() {
-        // Override if you want behavior.
-    }
+    default void markDirty() {}
 
     /**
      * @return true if the player can use the inventory, false otherwise.
      */
-    @Override
     default boolean canPlayerUse(PlayerEntity player) {
         return true;
     }

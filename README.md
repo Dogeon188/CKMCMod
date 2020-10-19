@@ -21,13 +21,8 @@ So the textures or so will eventually be changed to something more normal, and w
 
 ### Crops
 
-- Lettuce
-- Sweet Potato
-- Rice
-- Corn
-- Ginger (WIP)
-- Garlic (WIP)
-- Spring Onion (WIP)
+- Lettuce, sweet potato, rice, corn, garlic
+- Ginger (WIP), Spring Onion (WIP)
 
 ### Foods & Ingredients
 - Baked Sweet Potato
@@ -37,34 +32,18 @@ So the textures or so will eventually be changed to something more normal, and w
 ## Future Plans
 
 ### Crops
-- Tea
-- Soybean
-- Mango
-- Red Bean
-- Pineapple
-- Daikon Radish
+
+- Soybean (WIP)
+- Tea, mango, red bean, pineapple, daikon radish
 
 ### Foods & Ingredients
-- Beef Noodles
-    - Noodles
-    - Flour
-- Oyster Vermicelli
-    - Vermicelli
-- Bubble Tea
-    - Tapioca Balls
-- Tofu
-    - Stinky Tofu
-- Tofu Puddings
-- Soy Sauce
-- Shaved Ice
-    - Brown Sugar
-    - Ice Crusher?
-- Sausage
-- Preserved Egg (Century Egg)
-- Red Bean Cake
-- Pineapple Cake
-- Radish Cake
-- Sun Cake
+- Beef noodles (noodles, flour)
+- Oyster Vermicelli (vermicelli)
+- Bubble tea (tapioca balls)
+- Tofu, stinky tofu, tofu puddings, soy sauce
+- Shaved ice (brown sugar)
+- Sausage, preserved egg
+- Red bean cake, pineapple cake, radish cake, sun cake
 
 ## Some words
 

@@ -22,8 +22,8 @@ import java.util.Random;
 import java.util.concurrent.Callable;
 
 public class TallCropBlock extends CropBlock {
-    public static final EnumProperty<DoubleBlockHalf> HALF;
-    public static final IntProperty AGE;
+    public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
+    public static final IntProperty AGE = Properties.AGE_7;
     public static final VoxelShape[] SHAPES;
     private final Callable<ItemConvertible> SEEDS_ITEM_CALLABLE;
 
@@ -99,8 +99,6 @@ public class TallCropBlock extends CropBlock {
     }
 
     static {
-        HALF = Properties.DOUBLE_BLOCK_HALF;
-        AGE = Properties.AGE_7;
         SHAPES = new VoxelShape[]{
                 Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D),
                 Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 8.0D, 14.0D),
