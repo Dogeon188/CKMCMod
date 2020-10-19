@@ -31,6 +31,7 @@ import org.jetbrains.annotations.Nullable;
 public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory,
         Tickable, SidedInventory, BlockEntityClientSerializable {
     private static final int invsize = 2;
+    public float grind_rotation = 0;
     private DefaultedList<ItemStack> inventory;
     private int craftTime;
     private int totalCraftTime;
@@ -66,14 +67,7 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
         return new ItemStackParticleEffect(ParticleTypes.ITEM, item);
     }
 
-    private boolean isCrafting() { return this.craftTime > 0; }
-
-//    public float getCraftProgress() {
-//        int i = this.craftTime;
-//        int j = this.totalCraftTime;
-//        System.out.printf("%d %d%n", i, j);
-//        return j != 0 && i != 0 ? (float)i / j : 0;
-//    }
+    public boolean isCrafting() { return this.craftTime > 0; }
 
     public void fromTag(BlockState state, CompoundTag tag) {
         super.fromTag(state, tag);
