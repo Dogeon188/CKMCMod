@@ -1,0 +1,6 @@
+{
+  "type": "ckfarm:milling",
+  "ingredient": { "item": "ice" },
+  "result": { "item": "ckfarm:shaved_ice", "count": 4 },
+  "craft_time": 400
+}

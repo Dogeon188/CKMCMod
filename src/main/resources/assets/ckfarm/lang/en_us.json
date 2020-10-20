@@ -1,7 +1,7 @@
 {
   "block.ckfarm.millstone": "Millstone",
   "block.ckfarm.salt_block": "Salt Block",
-  "container.millstone": "Milling",
+  "container.ckfarm.millstone": "Milling",
   "entity.ckfarm.oyster": "Oyster",
   "item.ckfarm.baked_sweet_potato": "Baked Sweet Potato",
   "item.ckfarm.cooked_oyster": "Cooked Oyster",
@@ -15,11 +15,15 @@
   "item.ckfarm.raw_oyster": "Raw Oyster",
   "item.ckfarm.rice": "Rice",
   "item.ckfarm.salt": "Salt",
+  "item.ckfarm.shaved_ice": "Shaved Ice",
   "item.ckfarm.soy_milk": "Soy Milk",
   "item.ckfarm.soybean": "Soybean",
   "item.ckfarm.spring_onion": "Spring Onion",
   "item.ckfarm.spring_onion_seeds": "Spring Onion Seeds",
   "item.ckfarm.sweet_potato": "Sweet Potato",
+  "item.ckfarm.sweet_potato_starch": "Sweet Potato Starch",
+  "item.ckfarm.tofu": "Tofu",
+  "item.ckfarm.tofu_pudding": "Tofu Pudding",
   "item.ckfarm.wheat_flour": "Wheat Flour",
   "itemGroup.ckfarm.general": "CKFFMC Farming"
 }

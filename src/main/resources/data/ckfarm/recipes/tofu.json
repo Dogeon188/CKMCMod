@@ -1,0 +1,11 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {"item": "ckfarm:soy_milk"},
+    {"item": "ckfarm:soy_milk"},
+    {"item": "ckfarm:soy_milk"},
+    {"item": "ckfarm:soy_milk"},
+    {"item": "ckfarm:salt"}
+  ],
+  "result": {"item": "ckfarm:tofu", "count": 4}
+}

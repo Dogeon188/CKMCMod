@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {"item": "ckfarm:soy_milk"},
+    {"item": "ckfarm:soy_milk"},
+    {"item": "ckfarm:soy_milk"},
+    {"item": "ckfarm:soy_milk"},
+    {"item": "ckfarm:salt"},
+    {"item": "ckfarm:sweet_potato_starch"}
+  ],
+  "result": {"item": "ckfarm:tofu_pudding", "count": 4}
+}

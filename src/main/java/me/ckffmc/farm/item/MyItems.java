@@ -46,6 +46,14 @@ public class MyItems {
             new DrinkItem(new Item.Settings().group(MyItemGroups.GENERAL).maxCount(16).food(MyFoodComponents.SOY_MILK)));
     public static final Item SALT = register("salt", new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
     public static final Item SALT_BLOCK = register(MyBlocks.SALT_BLOCK, MyItemGroups.GENERAL);
+    public static final Item TOFU = register("tofu",
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
+    public static final Item TOFU_PUDDING = register("tofu_pudding",
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
+    public static final Item SWEET_POTATO_STARCH = register("sweet_potato_starch",
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
+    public static final Item SHAVED_ICE = register("shaved_ice",
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
 
     public static final Item MILLSTONE = register(MyBlocks.MILLSTONE, MyItemGroups.GENERAL);
 

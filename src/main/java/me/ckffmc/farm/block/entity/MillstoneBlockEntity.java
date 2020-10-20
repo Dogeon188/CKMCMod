@@ -1,5 +1,6 @@
 package me.ckffmc.farm.block.entity;
 
+import me.ckffmc.farm.MainMod;
 import me.ckffmc.farm.block.MillstoneBlock;
 import me.ckffmc.farm.recipe.MillingRecipe;
 import me.ckffmc.farm.recipe.MyRecipeType;
@@ -179,7 +180,7 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
     }
 
     public Text getDisplayName() {
-        return new TranslatableText("container.millstone");
+        return new TranslatableText("container." + MainMod.MOD_ID + ".millstone");
     }
 
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
