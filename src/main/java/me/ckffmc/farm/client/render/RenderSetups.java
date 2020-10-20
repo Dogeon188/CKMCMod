@@ -4,7 +4,7 @@ import me.ckffmc.farm.block.MyBlocks;
 import me.ckffmc.farm.block.entity.MyBlockEntityType;
 import me.ckffmc.farm.client.gui.screen.MillstoneScreen;
 import me.ckffmc.farm.client.render.block.entity.MillstoneBlockEntityRenderer;
-import me.ckffmc.farm.client.render.entity.renderer.OysterEntityRenderer;
+import me.ckffmc.farm.client.render.entity.OysterEntityRenderer;
 import me.ckffmc.farm.entity.MyEntityType;
 import me.ckffmc.farm.screen.MyScreenHandlerType;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -13,7 +13,6 @@ import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.entity.EntityType;
 
 public class RenderSetups {
     public static void renderSetups() {

@@ -1,4 +1,4 @@
-package me.ckffmc.farm.client.render.entity.model;
+package me.ckffmc.farm.client.render.entity;
 
 import com.google.common.collect.ImmutableList;
 import me.ckffmc.farm.entity.OysterEntity;
@@ -22,16 +22,15 @@ public class OysterEntityModel extends CompositeEntityModel<OysterEntity> {
         this.bottomShell = new ModelPart(this, 0, 7)
                 .addCuboid(-4.0F, 1.0F, -3.0F, 8.0F, 1.0F, 6.0F);
         this.bottomShell.setPivot(0.0F, 22.0F, 0.0F);
-        this.bottomShell.yaw = 3.1415926F;
         this.topShell = new ModelPart(this, 0, 0)
-                .addCuboid(-4.0F, 0.0F, 0.0F, 8.0F, 1.0F, 6.0F);
-        this.topShell.setPivot(0.0F, 23.0F, 3.0F);
+                .addCuboid(0.0F, 0.0F, -3.0F, 8.0F, 1.0F, 6.0F);
+        this.topShell.setPivot(4.0F, 23.0F, 0.0F);
     }
 
     public Iterable<ModelPart> getParts() { return ImmutableList.of(this.torso, this.bottomShell, this.topShell); }
 
     public void setAngles(OysterEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-        this.topShell.pitch = ModelUtil.interpolateAngle(3.08F, 3.1415926F,
-                MathHelper.sin((animationProgress % 128.0F) / 20.371832715F - 3.1415926F));
+        this.topShell.roll = ModelUtil.interpolateAngle(3.1415926F, 3.24F,
+                MathHelper.sin(animationProgress / 16) + 1);
     }
 }

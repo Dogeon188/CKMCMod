@@ -15,6 +15,8 @@ public class MyItems {
             new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.CORN)));
     public static final Item SPRING_ONION = register("spring_onion",
             new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.SPRING_ONION)));
+    public static final Item RICE = register("rice",
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
 
     public static final Item SWEET_POTATO = register("sweet_potato", new AliasedBlockItem(MyBlocks.SWEET_POTATO,
             new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.SWEET_POTATO)));
@@ -24,8 +26,6 @@ public class MyItems {
             new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.GINGER)));
     public static final Item GARLIC = register("garlic", new AliasedBlockItem(MyBlocks.GARLIC,
             new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.GARLIC)));
-    public static final Item RICE = register("rice",
-            new AliasedBlockItem(MyBlocks.RICE, new Item.Settings().group(MyItemGroups.GENERAL)));
     public static final Item SOYBEAN = register("soybean",
             new AliasedBlockItem(MyBlocks.SOYBEAN, new Item.Settings().group(MyItemGroups.GENERAL)));
 
@@ -35,6 +35,8 @@ public class MyItems {
             new AliasedBlockItem(MyBlocks.CORN, new Item.Settings().group(MyItemGroups.GENERAL)));
     public static final Item SPRING_ONION_SEEDS = register("spring_onion_seeds",
             new AliasedBlockItem(MyBlocks.SPRING_ONION, new Item.Settings().group(MyItemGroups.GENERAL)));
+    public static final Item RICE_SEEDS = register("rice_seeds",
+            new AliasedBlockItem(MyBlocks.RICE, new Item.Settings().group(MyItemGroups.GENERAL)));
 
     public static final Item RAW_OYSTER = register("raw_oyster",
             new Item(new Item.Settings().group(MyItemGroups.GENERAL)));

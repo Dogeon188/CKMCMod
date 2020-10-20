@@ -22,13 +22,13 @@ public class MyBlocks {
     public static final Block SOYBEAN = register("soybean",
             new SoilFourBlock(() -> MyItems.SOYBEAN, FabricBlockSettings.of(Material.PLANT)));
     public static final Block SPRING_ONION = register("spring_onion",
-            new SoilFourBlock(() -> MyItems.SPRING_ONION, FabricBlockSettings.of(Material.PLANT)));
+            new SoilFourBlock(() -> MyItems.SPRING_ONION_SEEDS, FabricBlockSettings.of(Material.PLANT)));
     public static final Block SWEET_POTATO = register("sweet_potato",
             new SoilFourBlock(() -> MyItems.SWEET_POTATO, FabricBlockSettings.of(Material.PLANT)));
     public static final Block LETTUCE = register("lettuce",
             new SoilEightBlock(() -> MyItems.LETTUCE_SEEDS, FabricBlockSettings.of(Material.PLANT)));
     public static final Block RICE = register("rice",
-            new SoilEightBlock(() -> MyItems.RICE, FabricBlockSettings.of(Material.PLANT)));
+            new SoilEightBlock(() -> MyItems.RICE_SEEDS, FabricBlockSettings.of(Material.PLANT)));
 
     public static final Block SALT_BLOCK = register("salt_block",
             new Block(FabricBlockSettings.copyOf(Blocks.GLOWSTONE)));

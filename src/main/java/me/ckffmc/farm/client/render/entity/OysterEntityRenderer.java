@@ -1,6 +1,6 @@
-package me.ckffmc.farm.client.render.entity.renderer;
+package me.ckffmc.farm.client.render.entity;
 
-import me.ckffmc.farm.client.render.entity.model.OysterEntityModel;
+import me.ckffmc.farm.client.render.entity.OysterEntityModel;
 import me.ckffmc.farm.entity.OysterEntity;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
