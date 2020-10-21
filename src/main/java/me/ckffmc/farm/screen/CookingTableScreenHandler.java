@@ -13,32 +13,33 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-public class MillstoneScreenHandler extends ScreenHandler {
-    protected final CraftingResultInventory output = new CraftingResultInventory();
+public class CookingTableScreenHandler extends ScreenHandler {
     private final PropertyDelegate propertyDelegate;
     private final Inventory inventory;
-    final Slot inputSlot;
-    final Slot outputSlot;
+    protected final CraftingResultInventory output = new CraftingResultInventory();
 
-    public MillstoneScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new SimpleInventory(2), new ArrayPropertyDelegate(2));
+    public CookingTableScreenHandler(int syncId,  PlayerInventory playerInventory) {
+        this(syncId, playerInventory, new SimpleInventory(5), new ArrayPropertyDelegate(2));
     }
 
-    public MillstoneScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
-        super(MyScreenHandlerType.MILLSTONE_SCREEN_HANDLER, syncId);
-        checkSize(inventory, 2);
+    public CookingTableScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
+        super(MyScreenHandlerType.COOKING_TABLE_SCREEN_HANDLER, syncId);
+        checkSize(inventory, 5);
         checkDataCount(propertyDelegate, 2);
-        this.propertyDelegate = propertyDelegate;
         this.inventory = inventory;
+        this.propertyDelegate = propertyDelegate;
         this.addProperties(propertyDelegate);
 
-        inputSlot = this.addSlot(new Slot(inventory, 0, 44, 47));
-        outputSlot = this.addSlot(new Slot(inventory, 1, 116, 47) {
+        this.addSlot(new Slot(inventory, 0, 35, 27));
+        this.addSlot(new Slot(inventory, 1, 53, 27));
+        this.addSlot(new Slot(inventory, 2, 35, 45));
+        this.addSlot(new Slot(inventory, 3, 53, 45));
+        this.addSlot(new Slot(inventory, 4, 122, 36) {
             public boolean canInsert(ItemStack stack) { return false; }
 
             public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
                 stack.onCraft(player.world, player, stack.getCount());
-                MillstoneScreenHandler.this.output.unlockLastRecipe(player);
+                CookingTableScreenHandler.this.output.unlockLastRecipe(player);
                 return super.onTakeItem(player, stack);
             }
         });
@@ -54,38 +55,29 @@ public class MillstoneScreenHandler extends ScreenHandler {
         }
     }
 
-    public boolean canUse(PlayerEntity player) { return this.inventory.canPlayerUse(player); }
-
-    @Environment(EnvType.CLIENT)
-    public int getCraftProgress() {
-        int i = this.propertyDelegate.get(0);
-        int j = this.propertyDelegate.get(1);
-        return j != 0 && i != 0 ? i * 24 / j : 0;
-    }
-
     public ItemStack transferSlot(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(invSlot);
         if (slot != null && slot.hasStack()) {
             ItemStack oldStack = slot.getStack();
             newStack = oldStack.copy();
-            if (invSlot == 1) {
-                if (!this.insertItem(oldStack, 2, 38, true)) {
+            if (invSlot == 4) {
+                if (!this.insertItem(oldStack, 5, 41, true)) {
                     return ItemStack.EMPTY;
                 }
 
                 slot.onStackChanged(oldStack, newStack);
-            } else if (invSlot >= 2 && invSlot < 38) {
-                if (!this.insertItem(oldStack, 0, 1, false)) {
-                    if (invSlot < 29) {
-                        if (!this.insertItem(oldStack, 29, 38, false)) {
+            } else if (invSlot >= 5 && invSlot < 41) {
+                if (!this.insertItem(oldStack, 0, 4, false)) {
+                    if (invSlot < 32) {
+                        if (!this.insertItem(oldStack, 32, 41, false)) {
                             return ItemStack.EMPTY;
                         }
-                    } else if (!this.insertItem(oldStack, 2, 29, false)) {
+                    } else if (!this.insertItem(oldStack, 5, 32, false)) {
                         return ItemStack.EMPTY;
                     }
                 }
-            } else if (!this.insertItem(oldStack, 2, 38, false)) {
+            } else if (!this.insertItem(oldStack, 5, 41, false)) {
                 return ItemStack.EMPTY;
             }
 
@@ -97,6 +89,15 @@ public class MillstoneScreenHandler extends ScreenHandler {
             if (invSlot == 1) player.dropItem(slot.onTakeItem(player, oldStack), false);
         }
         return newStack;
+    }
+
+    public boolean canUse(PlayerEntity player) { return this.inventory.canPlayerUse(player); }
+
+    @Environment(EnvType.CLIENT)
+    public int getCraftProgress() {
+        int i = this.propertyDelegate.get(0);
+        int j = this.propertyDelegate.get(1);
+        return j != 0 && i != 0 ? i * 24 / j : 0;
     }
 
     public void close(PlayerEntity player) {

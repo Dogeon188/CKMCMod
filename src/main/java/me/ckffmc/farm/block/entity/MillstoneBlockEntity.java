@@ -161,8 +161,7 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
 
     public void setStack(int slot, ItemStack stack) {
         ItemStack originalStack = this.inventory.get(slot);
-        boolean flag = !stack.isEmpty() && stack.isItemEqualIgnoreDamage(originalStack) && ItemStack.areTagsEqual(stack
-                , originalStack);
+        boolean flag = !stack.isEmpty() && stack.isItemEqualIgnoreDamage(originalStack) && ItemStack.areTagsEqual(stack, originalStack);
         this.inventory.set(slot, stack);
         if (stack.getCount() > this.getMaxCountPerStack()) {
             stack.setCount(this.getMaxCountPerStack());

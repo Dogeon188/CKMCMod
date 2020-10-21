@@ -34,6 +34,8 @@ public class MyBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.GLOWSTONE)));
     public static final Block MILLSTONE = register("millstone",
             new MillstoneBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.5F)));
+    public static final Block COOKING_TABLE = register("cooking_table",
+            new CookingTableBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.5F)));
 
     private static Block register(String id, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier(MainMod.MOD_ID, id), block);

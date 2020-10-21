@@ -1,0 +1,11 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    " # ",
+    "# #",
+    "###"
+  ],
+  "key": {"#": {"item": "stone"}
+  },
+  "result": {"item": "ckfarm:millstone", "count": 1}
+}
