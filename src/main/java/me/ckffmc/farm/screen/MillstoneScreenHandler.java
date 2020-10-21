@@ -42,7 +42,7 @@ public class MillstoneScreenHandler extends ScreenHandler {
                 MillstoneScreenHandler.this.output.unlockLastRecipe(player);
                 return super.onTakeItem(player, stack);
             }
-    });
+        });
 
         int m, l;
         for (m = 0; m < 3; ++m) {

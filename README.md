@@ -35,7 +35,7 @@ So the textures or so will eventually be changed to something more normal, and w
 ### Crops
 
 - Soybean (WIP)
-- Tea, mango, red bean, pineapple, daikon radish
+- Tea, mango, red bean, pineapple, daikon radish, cabbage
 
 ### Foods & Ingredients
 

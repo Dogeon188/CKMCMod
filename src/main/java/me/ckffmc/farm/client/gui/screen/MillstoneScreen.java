@@ -1,6 +1,7 @@
 package me.ckffmc.farm.client.gui.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import me.ckffmc.farm.MainMod;
 import me.ckffmc.farm.screen.MillstoneScreenHandler;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.util.math.MatrixStack;
@@ -9,7 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class MillstoneScreen extends HandledScreen<MillstoneScreenHandler> {
-    private static final Identifier BACKGROUND_TEXTURE = new Identifier("ckfarm", "textures/gui/millstone.png");
+    private static final Identifier BACKGROUND_TEXTURE = new Identifier(MainMod.MOD_ID, "textures/gui/millstone.png");
 
     public MillstoneScreen(MillstoneScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
