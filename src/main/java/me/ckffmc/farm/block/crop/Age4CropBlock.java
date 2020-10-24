@@ -2,8 +2,8 @@ package me.ckffmc.farm.block.crop;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.CropBlock;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
@@ -14,13 +14,12 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import java.util.Random;
-import java.util.concurrent.Callable;
 
-public class SoilFourBlock extends SoilEightBlock {
+public class Age4CropBlock extends CropBlock {
     public static final IntProperty AGE = Properties.AGE_3;
     private static final VoxelShape[] AGE_TO_SHAPE;
 
-    public SoilFourBlock(Callable<ItemConvertible> seedsItem, Settings settings) { super(seedsItem, settings); }
+    public Age4CropBlock(Settings settings) { super(settings); }
 
     public IntProperty getAgeProperty() {
         return AGE;

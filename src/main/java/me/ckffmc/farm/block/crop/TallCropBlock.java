@@ -25,11 +25,9 @@ public class TallCropBlock extends CropBlock {
     public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
     public static final IntProperty AGE = Properties.AGE_7;
     public static final VoxelShape[] SHAPES;
-    private final Callable<ItemConvertible> SEEDS_ITEM_CALLABLE;
 
-    public TallCropBlock(Callable<ItemConvertible> seedsItem, Settings settings) {
+    public TallCropBlock(Settings settings) {
         super(settings.noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP));
-        this.SEEDS_ITEM_CALLABLE = seedsItem;
         this.setDefaultState(this.stateManager.getDefaultState().with(HALF, DoubleBlockHalf.LOWER));
     }
 
@@ -86,13 +84,6 @@ public class TallCropBlock extends CropBlock {
     }
 
     public int getMidAge() { return 3; }
-
-    @Environment(EnvType.CLIENT)
-    protected ItemConvertible getSeedsItem() {
-        try { return this.SEEDS_ITEM_CALLABLE.call();
-        } catch (Exception e) { e.printStackTrace(); }
-        return null;
-    }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(HALF); builder.add(AGE);
