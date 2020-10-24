@@ -48,7 +48,6 @@ public class MillingRecipe implements Recipe<Inventory> {
 
     public Identifier getId() { return this.id; }
 
-    @Override
     public RecipeSerializer<?> getSerializer() { return MyRecipeSerializer.MILLING; }
 
     public RecipeType<?> getType() { return MyRecipeType.MILLING; }

@@ -1,16 +1,12 @@
 package me.ckffmc.farm.block;
 
 import me.ckffmc.farm.block.entity.CookingTableBlockEntity;
-import me.ckffmc.farm.block.entity.MillstoneBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -18,13 +14,8 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-
-import java.util.Objects;
-import java.util.Random;
 
 public class CookingTableBlock extends BlockWithEntity {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;

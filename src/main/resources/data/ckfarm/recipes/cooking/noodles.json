@@ -1,0 +1,9 @@
+{
+  "type": "ckfarm:cooking",
+  "ingredients": [
+    {"item": "egg"},
+    {"item": "ckfarm:salt"},
+    {"item": "ckfarm:wheat_flour"}
+  ],
+  "result": {"item": "ckfarm:noodles", "count": 1}
+}

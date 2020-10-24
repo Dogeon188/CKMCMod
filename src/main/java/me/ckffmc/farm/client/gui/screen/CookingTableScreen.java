@@ -3,7 +3,6 @@ package me.ckffmc.farm.client.gui.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.ckffmc.farm.MainMod;
 import me.ckffmc.farm.screen.CookingTableScreenHandler;
-import me.ckffmc.farm.screen.MillstoneScreenHandler;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
@@ -25,7 +24,7 @@ public class CookingTableScreen extends HandledScreen<CookingTableScreenHandler>
         int y = (height - backgroundHeight) / 2;
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
         int l = handler.getCraftProgress();
-        drawTexture(matrices, x + 84, y + 36, 178, 2, l + 1, 16);
+        drawTexture(matrices, x + 84, y + 35, 178, 2, l + 1, 16);
     }
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {

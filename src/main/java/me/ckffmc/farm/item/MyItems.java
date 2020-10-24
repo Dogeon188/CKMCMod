@@ -59,6 +59,9 @@ public class MyItems {
     public static final Item WHEAT_FLOUR = register("wheat_flour",
             new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
 
+    public static final Item NOODLES = register("noodles",
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
+
     public static final Item SOY_MILK = register("soy_milk",
             new DrinkItem(new Item.Settings().group(MyItemGroups.GENERAL).maxCount(16).food(MyFoodComponents.SOY_MILK)));
 

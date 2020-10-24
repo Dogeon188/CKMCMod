@@ -163,9 +163,7 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
         ItemStack originalStack = this.inventory.get(slot);
         boolean flag = !stack.isEmpty() && stack.isItemEqualIgnoreDamage(originalStack) && ItemStack.areTagsEqual(stack, originalStack);
         this.inventory.set(slot, stack);
-        if (stack.getCount() > this.getMaxCountPerStack()) {
-            stack.setCount(this.getMaxCountPerStack());
-        }
+        if (stack.getCount() > this.getMaxCountPerStack()) stack.setCount(this.getMaxCountPerStack());
 
         if (slot == 0 && !flag) {
             this.totalCraftTime = this.getCraftTime();
