@@ -1,7 +1,9 @@
 package me.ckffmc.farm.screen;
 
+import me.ckffmc.farm.block.entity.MillstoneBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingResultInventory;
@@ -39,6 +41,9 @@ public class MillstoneScreenHandler extends ScreenHandler {
             public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
                 stack.onCraft(player.world, player, stack.getCount());
                 MillstoneScreenHandler.this.output.unlockLastRecipe(player);
+                if (!player.world.isClient && this.inventory instanceof MillstoneBlockEntity) {
+                    ((MillstoneBlockEntity)this.inventory).dropExperience(player);
+                }
                 return super.onTakeItem(player, stack);
             }
         });
@@ -92,6 +97,7 @@ public class MillstoneScreenHandler extends ScreenHandler {
             if (oldStack.getCount() == newStack.getCount()) return ItemStack.EMPTY;
 
             if (invSlot == 1) player.dropItem(slot.onTakeItem(player, oldStack), false);
+            slot.onTakeItem(player, oldStack);
         }
         return newStack;
     }

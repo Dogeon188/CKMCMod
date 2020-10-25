@@ -8,6 +8,7 @@ import me.ckffmc.farm.util.ImplementedInventory;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -23,6 +24,7 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 
 public class CookingTableBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory,
@@ -31,6 +33,7 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
     private DefaultedList<ItemStack> inventory;
     private int cookTime;
     private int totalCookTime;
+    private float experience;
     protected final PropertyDelegate propertyDelegate;
 
     public CookingTableBlockEntity() {
@@ -62,6 +65,7 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
         super.fromTag(state, tag);
         this.cookTime = tag.getShort("CookTime");
         this.totalCookTime = tag.getShort("TotalCookTime");
+        this.experience = tag.getFloat("Experience");
         this.inventory = DefaultedList.ofSize(invsize, ItemStack.EMPTY);
         Inventories.fromTag(tag, this.inventory);
     }
@@ -70,6 +74,7 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
         super.toTag(tag);
         tag.putShort("CookTime", (short)this.cookTime);
         tag.putShort("TotalCookTime", (short)this.totalCookTime);
+        tag.putFloat("Experience", this.experience);
         Inventories.toTag(tag, this.inventory);
         return tag;
     }
@@ -156,6 +161,7 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
                 outputStack.increment(recipeOutput.getCount());
             }
             this.inventory.subList(0, 4).forEach((stack) -> stack.decrement(1));
+            this.experience += ((CookingRecipe)recipe).getExperience();
         }
     }
 
@@ -169,6 +175,20 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
             this.totalCookTime = this.getCookTime();
             this.cookTime = 0;
             this.markDirty();
+        }
+    }
+
+    public void dropExperience(PlayerEntity player) {
+        if (world != null) {
+            int j = MathHelper.floor(this.experience);
+            float g = MathHelper.fractionalPart(experience);
+            if (g != 0.0F && Math.random() < (double) g) ++j;
+            while (j > 0) {
+                int k = ExperienceOrbEntity.roundToOrbSize(j);
+                j -= k;
+                world.spawnEntity(new ExperienceOrbEntity(world, player.getX(), player.getY(), player.getZ(), k));
+            }
+            experience = 0;
         }
     }
 }

@@ -5,5 +5,7 @@
     {"item": "ckfarm:salt"},
     {"item": "ckfarm:wheat_flour"}
   ],
-  "result": {"item": "ckfarm:noodles", "count": 1}
+  "result": {"item": "ckfarm:noodles", "count": 1},
+  "cook_time": 200,
+  "experience": 2.4
 }

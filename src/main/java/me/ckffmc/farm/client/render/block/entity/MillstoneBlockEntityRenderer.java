@@ -33,7 +33,7 @@ public class MillstoneBlockEntityRenderer extends BlockEntityRenderer<MillstoneB
         matrices.push();
         matrices.translate(0.5, 0, 0.5);
         if (entity.isCrafting()) entity.grind_rotation += tickDelta;
-        matrices.multiply(Vector3f.NEGATIVE_Y.getDegreesQuaternion((entity.grind_rotation) * 2));
+        matrices.multiply(Vector3f.NEGATIVE_Y.getDegreesQuaternion(entity.grind_rotation * 2));
         this.grind.render(matrices, GRIND_TEXTURE.getVertexConsumer(vertexConsumers, RenderLayer::getEntitySolid), light, overlay);
         matrices.pop();
 

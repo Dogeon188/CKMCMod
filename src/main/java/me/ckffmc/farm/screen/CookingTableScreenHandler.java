@@ -1,5 +1,6 @@
 package me.ckffmc.farm.screen;
 
+import me.ckffmc.farm.block.entity.CookingTableBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerEntity;
@@ -40,6 +41,9 @@ public class CookingTableScreenHandler extends ScreenHandler {
             public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
                 stack.onCraft(player.world, player, stack.getCount());
                 CookingTableScreenHandler.this.output.unlockLastRecipe(player);
+                if (!player.world.isClient && this.inventory instanceof CookingTableBlockEntity) {
+                    ((CookingTableBlockEntity)this.inventory).dropExperience(player);
+                }
                 return super.onTakeItem(player, stack);
             }
         });
@@ -83,7 +87,8 @@ public class CookingTableScreenHandler extends ScreenHandler {
 
             if (oldStack.getCount() == newStack.getCount()) return ItemStack.EMPTY;
 
-            if (invSlot == 1) player.dropItem(slot.onTakeItem(player, oldStack), false);
+            if (invSlot == 4) player.dropItem(slot.onTakeItem(player, oldStack), false);
+            slot.onTakeItem(player, oldStack);
         }
         return newStack;
     }

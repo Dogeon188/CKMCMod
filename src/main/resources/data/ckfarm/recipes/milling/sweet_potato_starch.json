@@ -2,5 +2,6 @@
   "type": "ckfarm:milling",
   "ingredient": { "item": "ckfarm:sweet_potato" },
   "result": { "item": "ckfarm:sweet_potato_starch", "count": 2 },
-  "craft_time": 400
+  "craft_time": 400,
+  "experience": 0.2
 }

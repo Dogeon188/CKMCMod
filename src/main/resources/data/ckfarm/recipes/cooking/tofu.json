@@ -5,5 +5,7 @@
     {"item": "ckfarm:soy_milk"},
     {"item": "ckfarm:bittern"}
   ],
-  "result": {"item": "ckfarm:tofu", "count": 2}
+  "result": {"item": "ckfarm:tofu", "count": 2},
+  "cook_time": 200,
+  "experience": 1.2
 }

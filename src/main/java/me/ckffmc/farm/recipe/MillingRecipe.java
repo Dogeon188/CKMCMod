@@ -14,16 +14,19 @@ import net.minecraft.world.World;
 
 public class MillingRecipe implements Recipe<Inventory> {
     public static final int DEFAULT_CRAFT_TIME = 200;
+    public static final float DEFAULT_EXPERIENCE = 0.4F;
     protected final Identifier id;
     protected final Ingredient ingredient;
     protected final ItemStack result;
     protected final int craftTime;
+    protected final float experience;
 
-    public MillingRecipe(Identifier id, Ingredient ingredient, ItemStack result, int craftTime) {
+    public MillingRecipe(Identifier id, Ingredient ingredient, ItemStack result, int craftTime, float experience) {
         this.id = id;
         this.ingredient = ingredient;
         this.result = result;
         this.craftTime = craftTime;
+        this.experience = experience;
     }
 
     public boolean matches(Inventory inv, World world) {
@@ -47,6 +50,8 @@ public class MillingRecipe implements Recipe<Inventory> {
 
     public int getCraftTime() { return craftTime; }
 
+    public float getExperience() { return experience; }
+
     public Identifier getId() { return id; }
 
     public RecipeSerializer<?> getSerializer() { return MyRecipeSerializer.MILLING; }
@@ -58,20 +63,23 @@ public class MillingRecipe implements Recipe<Inventory> {
             Ingredient ingredient = Ingredient.fromJson(JsonHelper.getObject(jsonObject, "ingredient"));
             ItemStack result = ShapedRecipe.getItemStack(JsonHelper.getObject(jsonObject, "result"));
             int craftTime = JsonHelper.getInt(jsonObject, "craft_time", DEFAULT_CRAFT_TIME);
-            return new MillingRecipe(identifier, ingredient, result, craftTime);
+            float experience = JsonHelper.getFloat(jsonObject, "experience", DEFAULT_EXPERIENCE);
+            return new MillingRecipe(identifier, ingredient, result, craftTime, experience);
         }
 
         public MillingRecipe read(Identifier identifier, PacketByteBuf packetByteBuf) {
             Ingredient ingredient = Ingredient.fromPacket(packetByteBuf);
             ItemStack result = packetByteBuf.readItemStack();
             int craftTime = packetByteBuf.readVarInt();
-            return new MillingRecipe(identifier, ingredient, result, craftTime);
+            float experience = packetByteBuf.readFloat();
+            return new MillingRecipe(identifier, ingredient, result, craftTime, experience);
         }
 
         public void write(PacketByteBuf packetByteBuf, MillingRecipe millingRecipe) {
             millingRecipe.ingredient.write(packetByteBuf);
             packetByteBuf.writeItemStack(millingRecipe.result);
             packetByteBuf.writeVarInt(millingRecipe.craftTime);
+            packetByteBuf.writeFloat(millingRecipe.experience);
         }
     }
 }

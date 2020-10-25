@@ -2,5 +2,6 @@
   "type": "ckfarm:milling",
   "ingredient": { "item": "ckfarm:soybean" },
   "result": { "item": "ckfarm:soy_milk", "count": 1 },
-  "craft_time": 400
+  "craft_time": 400,
+  "experience": 0.6
 }

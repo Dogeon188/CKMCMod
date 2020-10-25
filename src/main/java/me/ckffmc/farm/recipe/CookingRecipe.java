@@ -16,16 +16,19 @@ import net.minecraft.world.World;
 
 public class CookingRecipe implements Recipe<Inventory> {
     public static final int DEFAULT_COOK_TIME = 200;
+    public static final float DEFAULT_EXPERIENCE = 0.4F;
     protected final Identifier id;
     protected final DefaultedList<Ingredient> ingredients;
     protected final ItemStack result;
     protected final int cookTime;
+    protected final float experience;
 
-    public CookingRecipe(Identifier id, DefaultedList<Ingredient> ingredients, ItemStack result, int cookTime) {
+    public CookingRecipe(Identifier id, DefaultedList<Ingredient> ingredients, ItemStack result, int cookTime, float experience) {
         this.id = id;
         this.ingredients = ingredients;
         this.result = result;
         this.cookTime = cookTime;
+        this.experience = experience;
     }
 
     public boolean matches(Inventory inv, World world) {
@@ -56,6 +59,8 @@ public class CookingRecipe implements Recipe<Inventory> {
 
     public int getCookTime() { return cookTime; }
 
+    public float getExperience() { return experience; }
+
     public Identifier getId() { return this.id; }
 
     public RecipeSerializer<?> getSerializer() { return MyRecipeSerializer.COOKING; }
@@ -69,7 +74,8 @@ public class CookingRecipe implements Recipe<Inventory> {
             if (ingredients.size() > 4) throw new JsonParseException("Too many ingredients for cooking recipe");
             ItemStack result = ShapedRecipe.getItemStack(JsonHelper.getObject(jsonObject, "result"));
             int cookTime = JsonHelper.getInt(jsonObject, "cook_time", DEFAULT_COOK_TIME);
-            return new CookingRecipe(identifier, ingredients, result, cookTime);
+            float experience = JsonHelper.getFloat(jsonObject, "experience", DEFAULT_EXPERIENCE);
+            return new CookingRecipe(identifier, ingredients, result, cookTime, experience);
         }
 
         private static DefaultedList<Ingredient> getIngredients(JsonArray json) {
@@ -87,7 +93,8 @@ public class CookingRecipe implements Recipe<Inventory> {
             for(int j = 0; j < ingredients.size(); ++j) ingredients.set(j, Ingredient.fromPacket(packetByteBuf));
             ItemStack result = packetByteBuf.readItemStack();
             int cookTime = packetByteBuf.readVarInt();
-            return new CookingRecipe(identifier, ingredients, result, cookTime);
+            float experience = packetByteBuf.readFloat();
+            return new CookingRecipe(identifier, ingredients, result, cookTime, experience);
         }
 
         public void write(PacketByteBuf packetByteBuf, CookingRecipe cookingRecipe) {
@@ -95,6 +102,7 @@ public class CookingRecipe implements Recipe<Inventory> {
             for (Ingredient ingredient : cookingRecipe.ingredients) ingredient.write(packetByteBuf);
             packetByteBuf.writeItemStack(cookingRecipe.result);
             packetByteBuf.writeVarInt(cookingRecipe.cookTime);
+            packetByteBuf.writeFloat(cookingRecipe.experience);
         }
     }
 }

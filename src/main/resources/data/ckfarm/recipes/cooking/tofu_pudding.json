@@ -6,5 +6,7 @@
     {"item": "ckfarm:bittern"},
     {"item": "ckfarm:sweet_potato_starch"}
   ],
-  "result": {"item": "ckfarm:tofu_pudding", "count": 2}
+  "result": {"item": "ckfarm:tofu_pudding", "count": 2},
+  "cook_time": 200,
+  "experience": 1.2
 }

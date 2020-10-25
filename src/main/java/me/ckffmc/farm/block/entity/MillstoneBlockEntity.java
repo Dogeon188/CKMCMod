@@ -9,6 +9,7 @@ import me.ckffmc.farm.util.ImplementedInventory;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -24,6 +25,7 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 
 public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory,
@@ -33,6 +35,7 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
     private DefaultedList<ItemStack> inventory;
     private int craftTime;
     private int totalCraftTime;
+    private float experience;
     protected final PropertyDelegate propertyDelegate;
 
     public MillstoneBlockEntity() {
@@ -64,6 +67,7 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
         super.fromTag(state, tag);
         this.craftTime = tag.getShort("CraftTime");
         this.totalCraftTime = tag.getShort("TotalCraftTime");
+        this.experience = tag.getFloat("Experience");
         this.inventory = DefaultedList.ofSize(invsize, ItemStack.EMPTY);
         Inventories.fromTag(tag, this.inventory);
     }
@@ -72,6 +76,7 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
         super.toTag(tag);
         tag.putShort("CraftTime", (short)this.craftTime);
         tag.putShort("TotalCraftTime", (short)this.totalCraftTime);
+        tag.putFloat("Experience", this.experience);
         Inventories.toTag(tag, this.inventory);
         return tag;
     }
@@ -162,6 +167,7 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
                 outputStack.increment(recipeOutput.getCount());
             }
             this.inventory.get(0).decrement(1);
+            this.experience += ((MillingRecipe)recipe).getExperience();
         }
     }
 
@@ -174,6 +180,20 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
         if (slot == 0 && !flag) {
             this.totalCraftTime = this.getCraftTime();
             this.markDirty();
+        }
+    }
+
+    public void dropExperience(PlayerEntity player) {
+        if (world != null) {
+            int j = MathHelper.floor(this.experience);
+            float g = MathHelper.fractionalPart(experience);
+            if (g != 0.0F && Math.random() < (double) g) ++j;
+            while (j > 0) {
+                int k = ExperienceOrbEntity.roundToOrbSize(j);
+                j -= k;
+                world.spawnEntity(new ExperienceOrbEntity(world, player.getX(), player.getY(), player.getZ(), k));
+            }
+            experience = 0;
         }
     }
 }
