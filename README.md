@@ -50,7 +50,6 @@ So the textures or so will eventually be changed to something more normal, and w
 - Tofu pudding: From cooking 2 soy milks + 1 bittern + 1 sweet potato starch
 - Shaved ice: From milling ice block
 - Soy milk: From milling soybean
-- 
 
 ## Future Plans
 
