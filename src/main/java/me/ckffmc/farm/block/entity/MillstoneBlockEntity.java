@@ -1,7 +1,6 @@
 package me.ckffmc.farm.block.entity;
 
 import me.ckffmc.farm.MainMod;
-import me.ckffmc.farm.block.MillstoneBlock;
 import me.ckffmc.farm.recipe.MillingRecipe;
 import me.ckffmc.farm.recipe.MyRecipeType;
 import me.ckffmc.farm.screen.MillstoneScreenHandler;
@@ -27,6 +26,8 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Objects;
 
 public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory,
         Tickable, SidedInventory, BlockEntityClientSerializable {
@@ -81,10 +82,7 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
         return tag;
     }
 
-    public void fromClientTag(CompoundTag tag) {
-        assert this.world != null;
-        fromTag(this.world.getBlockState(this.pos), tag);
-    }
+    public void fromClientTag(CompoundTag tag) { fromTag(this.getCachedState(), tag); }
 
     public CompoundTag toClientTag(CompoundTag tag) { return toTag(tag); }
 
@@ -135,11 +133,7 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
                     }
                 } else this.craftTime = 0;
             } else this.craftTime = 0;
-            if (oldIsCrafting != this.isCrafting()) {
-                isDirty = true;
-                this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).with(MillstoneBlock.MILLING,
-                        this.isCrafting()), 0b11);
-            }
+            if (oldIsCrafting != this.isCrafting()) isDirty = true;
         }
         if (isDirty) this.markDirty();
     }
@@ -195,6 +189,11 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
             }
             experience = 0;
         }
+    }
+
+    public void markDirty() {
+        super.markDirty();
+        Objects.requireNonNull(getWorld()).updateListeners(getPos(), getCachedState(), getCachedState(), 0b11);
     }
 }
 

@@ -3,10 +3,8 @@ package me.ckffmc.farm.screen;
 import me.ckffmc.farm.block.entity.MillstoneBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
@@ -16,11 +14,8 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
 public class MillstoneScreenHandler extends ScreenHandler {
-    protected final CraftingResultInventory output = new CraftingResultInventory();
     private final PropertyDelegate propertyDelegate;
     private final Inventory inventory;
-    final Slot inputSlot;
-    final Slot outputSlot;
 
     public MillstoneScreenHandler(int syncId, PlayerInventory playerInventory) {
         this(syncId, playerInventory, new SimpleInventory(2), new ArrayPropertyDelegate(2));
@@ -34,15 +29,23 @@ public class MillstoneScreenHandler extends ScreenHandler {
         this.inventory = inventory;
         this.addProperties(propertyDelegate);
 
-        inputSlot = this.addSlot(new Slot(inventory, 0, 44, 47));
-        outputSlot = this.addSlot(new Slot(inventory, 1, 116, 47) {
+        this.addSlot(new Slot(inventory, 0, 44, 47) {
+            public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
+                if (!player.world.isClient && this.inventory instanceof MillstoneBlockEntity) {
+                    this.inventory.markDirty();
+                }
+                return super.onTakeItem(player, stack);
+            }
+        });
+        this.addSlot(new Slot(inventory, 1, 116, 47) {
             public boolean canInsert(ItemStack stack) { return false; }
 
             public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
-                stack.onCraft(player.world, player, stack.getCount());
-                MillstoneScreenHandler.this.output.unlockLastRecipe(player);
                 if (!player.world.isClient && this.inventory instanceof MillstoneBlockEntity) {
-                    ((MillstoneBlockEntity)this.inventory).dropExperience(player);
+                    MillstoneBlockEntity blockEntity = (MillstoneBlockEntity) this.inventory;
+                    stack.onCraft(player.world, player, stack.getCount());
+                    blockEntity.dropExperience(player);
+                    blockEntity.markDirty();
                 }
                 return super.onTakeItem(player, stack);
             }

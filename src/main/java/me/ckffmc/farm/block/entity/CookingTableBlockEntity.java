@@ -27,6 +27,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
+
 public class CookingTableBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory,
         Tickable, SidedInventory, BlockEntityClientSerializable {
     private static final int invsize = 5;
@@ -79,10 +81,7 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
         return tag;
     }
 
-    public void fromClientTag(CompoundTag tag) {
-        assert this.world != null;
-        fromTag(this.world.getBlockState(this.pos), tag);
-    }
+    public void fromClientTag(CompoundTag tag) { fromTag(this.getCachedState(), tag); }
 
     public CompoundTag toClientTag(CompoundTag tag) { return toTag(tag); }
 
@@ -155,9 +154,8 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
         if (recipe != null && this.canAcceptRecipeOutput(recipe)) {
             ItemStack recipeOutput = recipe.getOutput();
             ItemStack outputStack = this.inventory.get(4);
-            if (outputStack.isEmpty()) {
-                this.inventory.set(4, recipeOutput.copy());
-            } else if (outputStack.getItem() == recipeOutput.getItem()) {
+            if (outputStack.isEmpty()) this.inventory.set(4, recipeOutput.copy());
+            else if (outputStack.getItem() == recipeOutput.getItem()) {
                 outputStack.increment(recipeOutput.getCount());
             }
             this.inventory.subList(0, 4).forEach((stack) -> stack.decrement(1));
@@ -173,7 +171,6 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
 
         if ((slot >= 0 && slot < 4) && !b) {
             this.totalCookTime = this.getCookTime();
-            this.cookTime = 0;
             this.markDirty();
         }
     }
@@ -190,5 +187,10 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
             }
             experience = 0;
         }
+    }
+
+    public void markDirty() {
+        super.markDirty();
+        Objects.requireNonNull(getWorld()).updateListeners(getPos(), getCachedState(), getCachedState(), 0b11);
     }
 }
