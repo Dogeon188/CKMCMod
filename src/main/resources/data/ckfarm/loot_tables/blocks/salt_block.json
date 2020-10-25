@@ -20,21 +20,15 @@
             {
               "type": "item",
               "functions": [
-                {
-                  "function": "set_count",
-                  "count": {"min": 2.0, "max": 4.0, "type": "uniform"}
-                },
+                {"function": "set_count", "count": {"min": 2.0, "max": 4.0, "type": "uniform"}},
                 {
                   "function": "apply_bonus",
                   "enchantment": "fortune",
                   "formula": "uniform_bonus_count",
                   "parameters": {"bonusMultiplier": 1}
                 },
-                {
-                  "function": "limit_count",
-                  "limit": {"max": 4, "min": 1}
-                },
-                { "function": "explosion_decay" }
+                {"function": "limit_count", "limit": {"max": 4, "min": 1}},
+                {"function": "explosion_decay"}
               ],
               "name": "ckfarm:salt"
             }

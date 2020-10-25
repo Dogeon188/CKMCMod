@@ -5,6 +5,8 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.particle.ItemStackParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -22,7 +24,6 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-import java.util.Objects;
 import java.util.Random;
 
 public class MillstoneBlock extends BlockWithEntity {
@@ -34,11 +35,11 @@ public class MillstoneBlock extends BlockWithEntity {
 
     public MillstoneBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(MILLING, false));
+        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH));
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
+        return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite()).with(MILLING, false);
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -54,9 +55,8 @@ public class MillstoneBlock extends BlockWithEntity {
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.isClient) {
-            return ActionResult.SUCCESS;
-        } else {
+        if (world.isClient) return ActionResult.SUCCESS;
+        else {
             this.openScreen(world, pos, player);
             return ActionResult.CONSUME;
         }
@@ -81,7 +81,8 @@ public class MillstoneBlock extends BlockWithEntity {
     }
 
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        if (state.get(MILLING)) {
+        MillstoneBlockEntity entity = (MillstoneBlockEntity) world.getBlockEntity(pos);
+        if (entity != null && entity.isCrafting()) {
             double d = pos.getX() + 0.5D;
             double e = pos.getY();
             double f = pos.getZ() + 0.5D;
@@ -91,7 +92,7 @@ public class MillstoneBlock extends BlockWithEntity {
             double i = random.nextDouble() * 0.6D - 0.3D;
             double j = 0.6875D;
             double k = random.nextDouble() * 0.6D - 0.3D;
-            world.addParticle(((MillstoneBlockEntity) Objects.requireNonNull(world.getBlockEntity(pos))).getParticle(),
+            world.addParticle(new ItemStackParticleEffect(ParticleTypes.ITEM, entity.getStack(0)),
                     d + i, e + j, f + k, 0.0D, 0.0D, 0.0D);
         }
     }

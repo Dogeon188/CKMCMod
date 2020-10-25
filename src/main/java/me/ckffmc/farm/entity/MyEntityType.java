@@ -19,6 +19,6 @@ public class MyEntityType {
     }
 
     public static void load() {
-        FabricDefaultAttributeRegistry.register(MyEntityType.OYSTER, OysterEntity.createOysterAttributes());
+        FabricDefaultAttributeRegistry.register(OYSTER, OysterEntity.createOysterAttributes());
     }
 }

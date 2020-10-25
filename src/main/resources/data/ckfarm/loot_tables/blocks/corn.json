@@ -26,10 +26,7 @@
         {
           "type": "item",
           "functions": [
-            {
-              "function": "set_count",
-              "count": 2
-            },
+            {"function": "set_count", "count": 2},
             {
               "function": "apply_bonus",
               "enchantment": "fortune",

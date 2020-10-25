@@ -2,7 +2,6 @@ package me.ckffmc.farm.block;
 
 import me.ckffmc.farm.MainMod;
 import me.ckffmc.farm.block.crop.CropHelper;
-import me.ckffmc.farm.item.MyItems;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -12,21 +11,21 @@ import net.minecraft.util.registry.Registry;
 
 public class MyBlocks {
     public static final Block CORN = register("corn",
-            CropHelper.newTallCropBlock("corn_seeds", FabricBlockSettings.of(Material.PLANT)));
+            CropHelper.newTall("corn_seeds", FabricBlockSettings.of(Material.PLANT)));
     public static final Block GARLIC = register("garlic",
-            CropHelper.newAge4CropBlock("garlic", FabricBlockSettings.of(Material.PLANT)));
+            CropHelper.newAge4("garlic", FabricBlockSettings.of(Material.PLANT)));
     public static final Block GINGER = register("ginger",
-            CropHelper.newAge4CropBlock("ginger", FabricBlockSettings.of(Material.PLANT)));
+            CropHelper.newAge4("ginger", FabricBlockSettings.of(Material.PLANT)));
     public static final Block SOYBEAN = register("soybean",
-            CropHelper.newAge4CropBlock("soybean", FabricBlockSettings.of(Material.PLANT)));
+            CropHelper.newAge4("soybean", FabricBlockSettings.of(Material.PLANT)));
     public static final Block SPRING_ONION = register("spring_onion",
-            CropHelper.newAge4CropBlock("spring_onion_seeds", FabricBlockSettings.of(Material.PLANT)));
+            CropHelper.newAge4("spring_onion_seeds", FabricBlockSettings.of(Material.PLANT)));
     public static final Block SWEET_POTATO = register("sweet_potato",
-            CropHelper.newAge4CropBlock("sweet_potato", FabricBlockSettings.of(Material.PLANT)));
+            CropHelper.newAge4("sweet_potato", FabricBlockSettings.of(Material.PLANT)));
     public static final Block LETTUCE = register("lettuce",
-            CropHelper.newAge8CropBlock("lettuce_seeds", FabricBlockSettings.of(Material.PLANT)));
+            CropHelper.newAge8("lettuce_seeds", FabricBlockSettings.of(Material.PLANT)));
     public static final Block RICE = register("rice",
-            CropHelper.newAge8CropBlock("rice_seeds", FabricBlockSettings.of(Material.PLANT)));
+            CropHelper.newAge8("rice_seeds", FabricBlockSettings.of(Material.PLANT)));
 
     public static final Block SALT_BLOCK = register("salt_block",
             new Block(FabricBlockSettings.copyOf(Blocks.GLOWSTONE)));

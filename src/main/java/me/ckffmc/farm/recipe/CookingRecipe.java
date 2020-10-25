@@ -15,6 +15,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
 public class CookingRecipe implements Recipe<Inventory> {
+    public static final int DEFAULT_COOK_TIME = 200;
     protected final Identifier id;
     protected final DefaultedList<Ingredient> ingredients;
     protected final ItemStack result;
@@ -28,7 +29,6 @@ public class CookingRecipe implements Recipe<Inventory> {
     }
 
     public boolean matches(Inventory inv, World world) {
-//        System.out.println(inv);
         RecipeFinder finder = new RecipeFinder();
         int i = 0;
         for (int j = 0; j < 4; j++) {
@@ -65,15 +65,11 @@ public class CookingRecipe implements Recipe<Inventory> {
     public static class Serializer implements RecipeSerializer<CookingRecipe> {
         public CookingRecipe read(Identifier identifier, JsonObject jsonObject) {
             DefaultedList<Ingredient> ingredients = getIngredients(JsonHelper.getArray(jsonObject, "ingredients"));
-            if (ingredients.isEmpty()) {
-                throw new JsonParseException("No ingredients for cooking recipe");
-            } else if (ingredients.size() > 4) {
-                throw new JsonParseException("Too many ingredients for cooking recipe");
-            } else {
-                ItemStack result = ShapedRecipe.getItemStack(JsonHelper.getObject(jsonObject, "result"));
-                int cookTime = JsonHelper.getInt(jsonObject, "cook_time", 200);
-                return new CookingRecipe(identifier, ingredients, result, cookTime);
-            }
+            if (ingredients.isEmpty()) throw new JsonParseException("No ingredients for cooking recipe");
+            if (ingredients.size() > 4) throw new JsonParseException("Too many ingredients for cooking recipe");
+            ItemStack result = ShapedRecipe.getItemStack(JsonHelper.getObject(jsonObject, "result"));
+            int cookTime = JsonHelper.getInt(jsonObject, "cook_time", DEFAULT_COOK_TIME);
+            return new CookingRecipe(identifier, ingredients, result, cookTime);
         }
 
         private static DefaultedList<Ingredient> getIngredients(JsonArray json) {

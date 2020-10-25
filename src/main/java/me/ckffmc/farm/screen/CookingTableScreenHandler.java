@@ -50,9 +50,7 @@ public class CookingTableScreenHandler extends ScreenHandler {
                 this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 84 + m * 18));
             }
         }
-        for (m = 0; m < 9; ++m) {
-            this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
-        }
+        for (m = 0; m < 9; ++m) this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
     }
 
     public ItemStack transferSlot(PlayerEntity player, int invSlot) {
@@ -65,7 +63,6 @@ public class CookingTableScreenHandler extends ScreenHandler {
                 if (!this.insertItem(oldStack, 5, 41, true)) {
                     return ItemStack.EMPTY;
                 }
-
                 slot.onStackChanged(oldStack, newStack);
             } else if (invSlot >= 5 && invSlot < 41) {
                 if (!this.insertItem(oldStack, 0, 4, false)) {

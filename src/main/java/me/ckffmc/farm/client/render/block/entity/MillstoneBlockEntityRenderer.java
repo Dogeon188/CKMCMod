@@ -16,6 +16,8 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.util.Identifier;
 
+import java.util.Objects;
+
 public class MillstoneBlockEntityRenderer extends BlockEntityRenderer<MillstoneBlockEntity> {
     public static final SpriteIdentifier GRIND_TEXTURE = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX,
             new Identifier(MainMod.MOD_ID, "block/millstone/grind"));
@@ -26,18 +28,21 @@ public class MillstoneBlockEntityRenderer extends BlockEntityRenderer<MillstoneB
         this.grind = new ModelPart(64, 16, 0, 0).addCuboid(-5.0F, 5.0F, -5.0F, 10.0F, 6.0F, 10.0F);
     }
 
-    public void render(MillstoneBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {matrices.push();
+    public void render(MillstoneBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+        // render grid rotation
+        matrices.push();
         matrices.translate(0.5, 0, 0.5);
-        if (entity.isCrafting()) { entity.grind_rotation += tickDelta; }
+        if (entity.isCrafting()) entity.grind_rotation += tickDelta;
         matrices.multiply(Vector3f.NEGATIVE_Y.getDegreesQuaternion((entity.grind_rotation) * 2));
         this.grind.render(matrices, GRIND_TEXTURE.getVertexConsumer(vertexConsumers, RenderLayer::getEntitySolid), light, overlay);
         matrices.pop();
 
         // render milling item
         matrices.push();
-        double offset = Math.sin((entity.getWorld().getTime() + tickDelta) / 8.0) / 16.0;
+        long time = Objects.requireNonNull(entity.getWorld()).getTime();
+        double offset = Math.sin((time + tickDelta) / 8.0) / 16.0;
         matrices.translate(0.5, 0.6875 + offset, 0.5);
-        matrices.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion((entity.getWorld().getTime() + tickDelta) * 4));
+        matrices.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion((time + tickDelta) * 4));
         MinecraftClient.getInstance().getItemRenderer().renderItem(entity.getStack(0), ModelTransformation.Mode.GROUND, light, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers);
         matrices.pop();
     }

@@ -15,9 +15,6 @@ import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.particle.ItemStackParticleEffect;
-import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
@@ -63,13 +60,6 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
 
     public DefaultedList<ItemStack> getItems() { return inventory; }
 
-    public ParticleEffect getParticle() {
-        ItemStack item = this.inventory.get(0);
-        return new ItemStackParticleEffect(ParticleTypes.ITEM, item);
-    }
-
-    public boolean isCrafting() { return this.craftTime > 0; }
-
     public void fromTag(BlockState state, CompoundTag tag) {
         super.fromTag(state, tag);
         this.craftTime = tag.getShort("CraftTime");
@@ -87,23 +77,47 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
     }
 
     public void fromClientTag(CompoundTag tag) {
-        this.craftTime = tag.getShort("CraftTime");
-        this.totalCraftTime = tag.getShort("TotalCraftTime");
-        this.inventory = DefaultedList.ofSize(invsize, ItemStack.EMPTY);
-        Inventories.fromTag(tag, this.inventory);
+        assert this.world != null;
+        fromTag(this.world.getBlockState(this.pos), tag);
     }
 
-    public CompoundTag toClientTag(CompoundTag tag) {
-        return toTag(tag);
+    public CompoundTag toClientTag(CompoundTag tag) { return toTag(tag); }
+
+    public int[] getAvailableSlots(Direction side) {
+        return (side == Direction.DOWN) ? new int[]{1} : new int[]{0};
+    }
+
+    public boolean isValid(int slot, ItemStack stack) { return slot == 0; }
+
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
+        return this.isValid(slot, stack);
+    }
+
+    public boolean canExtract(int slot, ItemStack stack, Direction dir) {
+        return (dir == Direction.DOWN && slot == 1);
+    }
+
+    public Text getDisplayName() {
+        return new TranslatableText("container." + MainMod.MOD_ID + ".millstone");
+    }
+
+    public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
+        return new MillstoneScreenHandler(syncId, inv, this, this.propertyDelegate);
+    }
+
+    public boolean isCrafting() { return this.craftTime > 0; }
+
+    protected int getCraftTime() {
+        if (this.world != null) {
+            return this.world.getRecipeManager().getFirstMatch(MyRecipeType.MILLING, this, this.world).map(MillingRecipe::getCraftTime).orElse(MillingRecipe.DEFAULT_CRAFT_TIME);
+        } else return 0;
     }
 
     public void tick() {
         boolean isDirty = false;
         boolean oldIsCrafting = this.isCrafting();
         if (this.world != null && !this.world.isClient) {
-            if (this.isCrafting() && this.inventory.get(0).isEmpty()) {
-                this.craftTime = Math.max(this.craftTime - 2, 0);
-            } else {
+            if (!this.inventory.get(0).isEmpty()) {
                 Recipe<?> r = this.world.getRecipeManager().getFirstMatch(MyRecipeType.MILLING,
                         this, this.world).orElse(null);
                 if (this.canAcceptRecipeOutput(r)) {
@@ -115,14 +129,12 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
                         isDirty = true;
                     }
                 } else this.craftTime = 0;
-            }
+            } else this.craftTime = 0;
             if (oldIsCrafting != this.isCrafting()) {
                 isDirty = true;
                 this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).with(MillstoneBlock.MILLING,
-                        this.isCrafting()), 3);
+                        this.isCrafting()), 0b11);
             }
-            if (!this.isCrafting()) this.world.setBlockState(this.pos,
-                    this.world.getBlockState(this.pos).with(MillstoneBlock.MILLING, false), 3);
         }
         if (isDirty) this.markDirty();
     }
@@ -130,9 +142,8 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
     protected boolean canAcceptRecipeOutput(@Nullable Recipe<?> recipe) {
         if (!this.inventory.get(0).isEmpty() && recipe != null) {
             ItemStack recipeOutput = recipe.getOutput();
-            if (recipeOutput.isEmpty()) {
-                return false;
-            } else {
+            if (recipeOutput.isEmpty()) return false;
+            else {
                 ItemStack outputSlot = this.inventory.get(1);
                 if (outputSlot.isEmpty()) return true;
                 else if (!outputSlot.isItemEqualIgnoreDamage(recipeOutput)) return false;
@@ -142,17 +153,12 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
         } else return false;
     }
 
-    protected int getCraftTime() {
-        assert this.world != null;
-        return this.world.getRecipeManager().getFirstMatch(MyRecipeType.MILLING, this, this.world).map(MillingRecipe::getCraftTime).orElse(200); }
-
     private void craftRecipe(@Nullable Recipe<?> recipe) {
         if (recipe != null && this.canAcceptRecipeOutput(recipe)) {
             ItemStack recipeOutput = recipe.getOutput();
             ItemStack outputStack = this.inventory.get(1);
-            if (outputStack.isEmpty()) {
-                this.inventory.set(1, recipeOutput.copy());
-            } else if (outputStack.getItem() == recipeOutput.getItem()) {
+            if (outputStack.isEmpty()) this.inventory.set(1, recipeOutput.copy());
+            else if (outputStack.getItem() == recipeOutput.getItem()) {
                 outputStack.increment(recipeOutput.getCount());
             }
             this.inventory.get(0).decrement(1);
@@ -167,33 +173,8 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
 
         if (slot == 0 && !flag) {
             this.totalCraftTime = this.getCraftTime();
-            this.craftTime = 0;
             this.markDirty();
         }
-    }
-
-    public boolean isValid(int slot, ItemStack stack) {
-        return slot == 0;
-    }
-
-    public Text getDisplayName() {
-        return new TranslatableText("container." + MainMod.MOD_ID + ".millstone");
-    }
-
-    public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-        return new MillstoneScreenHandler(syncId, inv, this, this.propertyDelegate);
-    }
-
-    public int[] getAvailableSlots(Direction side) {
-        return (side == Direction.DOWN) ? new int[]{1} : new int[]{0};
-    }
-
-    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
-        return this.isValid(slot, stack);
-    }
-
-    public boolean canExtract(int slot, ItemStack stack, Direction dir) {
-        return (dir == Direction.DOWN && slot == 1);
     }
 }
 

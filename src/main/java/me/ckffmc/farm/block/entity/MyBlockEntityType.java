@@ -1,7 +1,6 @@
 package me.ckffmc.farm.block.entity;
 
 import me.ckffmc.farm.MainMod;
-import me.ckffmc.farm.block.CookingTableBlock;
 import me.ckffmc.farm.block.MyBlocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;

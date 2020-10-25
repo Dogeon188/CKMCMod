@@ -1,0 +1,9 @@
+{
+  "type": "ckfarm:cooking",
+  "ingredients": [
+    {"item": "ckfarm:soy_milk"},
+    {"item": "ckfarm:soy_milk"},
+    {"item": "ckfarm:bittern"}
+  ],
+  "result": {"item": "ckfarm:tofu", "count": 2}
+}

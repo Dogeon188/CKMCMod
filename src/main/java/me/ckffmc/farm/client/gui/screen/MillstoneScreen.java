@@ -17,14 +17,15 @@ public class MillstoneScreen extends HandledScreen<MillstoneScreenHandler> {
     }
 
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-        RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-        assert client != null;
-        client.getTextureManager().bindTexture(BACKGROUND_TEXTURE);
-        int x = (width - backgroundWidth) / 2;
-        int y = (height - backgroundHeight) / 2;
-        drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        int l = handler.getCraftProgress();
-        drawTexture(matrices, x + 76, y + 45, 178, 2, l + 1, 16);
+        if (client != null) {
+            RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+            client.getTextureManager().bindTexture(BACKGROUND_TEXTURE);
+            int x = (width - backgroundWidth) / 2;
+            int y = (height - backgroundHeight) / 2;
+            drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+            int l = handler.getCraftProgress();
+            drawTexture(matrices, x + 76, y + 45, 178, 2, l + 1, 16);
+        }
     }
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {

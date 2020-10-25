@@ -38,9 +38,8 @@ public class CookingTableBlock extends BlockWithEntity {
     public BlockRenderType getRenderType(BlockState state) { return BlockRenderType.MODEL; }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.isClient) {
-            return ActionResult.SUCCESS;
-        } else {
+        if (world.isClient) return ActionResult.SUCCESS;
+        else {
             this.openScreen(world, pos, player);
             return ActionResult.CONSUME;
         }

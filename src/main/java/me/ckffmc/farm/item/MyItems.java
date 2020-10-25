@@ -70,7 +70,7 @@ public class MyItems {
     public static final Item SALT_BLOCK = register(MyBlocks.SALT_BLOCK, MyItemGroups.GENERAL);
 
     public static final Item BITTERN = register("bittern",
-            new Item(new Item.Settings().group(MyItemGroups.GENERAL).recipeRemainder(Items.GLASS_BOTTLE)));
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL).recipeRemainder(Items.GLASS_BOTTLE).maxCount(16)));
 
     public static final Item TOFU = register("tofu",
             new Item(new Item.Settings().group(MyItemGroups.GENERAL)));

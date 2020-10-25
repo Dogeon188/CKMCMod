@@ -1,12 +1,7 @@
 {
   "type": "block",
   "pools": [
-    {
-      "rolls": 1.0,
-      "entries": [
-        {"type": "item", "name": "ckfarm:soybean"}
-      ]
-    },
+    {"rolls": 1.0, "entries": [{"type": "item", "name": "ckfarm:soybean"}]},
     {
       "rolls": 1.0,
       "entries": [

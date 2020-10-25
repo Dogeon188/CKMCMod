@@ -13,6 +13,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
 public class MillingRecipe implements Recipe<Inventory> {
+    public static final int DEFAULT_CRAFT_TIME = 200;
     protected final Identifier id;
     protected final Ingredient ingredient;
     protected final ItemStack result;
@@ -42,11 +43,11 @@ public class MillingRecipe implements Recipe<Inventory> {
         return defaultedList;
     }
 
-    public ItemStack getOutput() { return this.result; }
+    public ItemStack getOutput() { return result; }
 
     public int getCraftTime() { return craftTime; }
 
-    public Identifier getId() { return this.id; }
+    public Identifier getId() { return id; }
 
     public RecipeSerializer<?> getSerializer() { return MyRecipeSerializer.MILLING; }
 
@@ -55,16 +56,16 @@ public class MillingRecipe implements Recipe<Inventory> {
     public static class Serializer implements RecipeSerializer<MillingRecipe> {
         public MillingRecipe read(Identifier identifier, JsonObject jsonObject) {
             Ingredient ingredient = Ingredient.fromJson(JsonHelper.getObject(jsonObject, "ingredient"));
-            ItemStack itemStack = ShapedRecipe.getItemStack(JsonHelper.getObject(jsonObject, "result"));
-            int craftTime = JsonHelper.getInt(jsonObject, "craft_time", 200);
-            return new MillingRecipe(identifier, ingredient, itemStack, craftTime);
+            ItemStack result = ShapedRecipe.getItemStack(JsonHelper.getObject(jsonObject, "result"));
+            int craftTime = JsonHelper.getInt(jsonObject, "craft_time", DEFAULT_CRAFT_TIME);
+            return new MillingRecipe(identifier, ingredient, result, craftTime);
         }
 
         public MillingRecipe read(Identifier identifier, PacketByteBuf packetByteBuf) {
             Ingredient ingredient = Ingredient.fromPacket(packetByteBuf);
-            ItemStack itemStack = packetByteBuf.readItemStack();
+            ItemStack result = packetByteBuf.readItemStack();
             int craftTime = packetByteBuf.readVarInt();
-            return new MillingRecipe(identifier, ingredient, itemStack, craftTime);
+            return new MillingRecipe(identifier, ingredient, result, craftTime);
         }
 
         public void write(PacketByteBuf packetByteBuf, MillingRecipe millingRecipe) {

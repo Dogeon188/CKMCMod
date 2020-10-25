@@ -25,8 +25,6 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Optional;
-
 public class CookingTableBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory,
         Tickable, SidedInventory, BlockEntityClientSerializable {
     private static final int invsize = 5;
@@ -108,16 +106,16 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
     public boolean isCooking() { return this.cookTime > 0; }
 
     protected int getCookTime() {
-        assert this.world != null;
-        return this.world.getRecipeManager().getFirstMatch(MyRecipeType.COOKING, this, this.world).map(CookingRecipe::getCookTime).orElse(200); }
+        if (this.world != null) {
+            return this.world.getRecipeManager().getFirstMatch(MyRecipeType.COOKING, this, this.world).map(CookingRecipe::getCookTime).orElse(CookingRecipe.DEFAULT_COOK_TIME);
+        } else return 0;
+    }
 
     public void tick() {
         boolean isDirty = false;
         boolean oldIsCooking = this.isCooking();
         if (this.world != null && !this.world.isClient) {
-            if (this.isCooking() && this.inventory.subList(0, 4).isEmpty()) {
-                this.cookTime = Math.max(this.cookTime - 2, 0);
-            } else {
+            if (!this.inventory.subList(0, 4).isEmpty()) {
                 Recipe<?> r = this.world.getRecipeManager().getFirstMatch(MyRecipeType.COOKING, this, this.world).orElse(null);
                 if (this.canAcceptRecipeOutput(r)) {
                     ++this.cookTime;
@@ -137,9 +135,8 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
     protected boolean canAcceptRecipeOutput(@Nullable Recipe<?> recipe) {
         if (!this.inventory.subList(0, 4).isEmpty() && recipe != null) {
             ItemStack recipeOutput = recipe.getOutput();
-            if (recipeOutput.isEmpty()) {
-                return false;
-            } else {
+            if (recipeOutput.isEmpty()) return false;
+            else {
                 ItemStack outputSlot = this.inventory.get(4);
                 if (outputSlot.isEmpty()) return true;
                 else if (!outputSlot.isItemEqualIgnoreDamage(recipeOutput)) return false;
@@ -164,11 +161,11 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
 
     public void setStack(int slot, ItemStack stack) {
         ItemStack originalStack = this.inventory.get(slot);
-        boolean flag = !stack.isEmpty() && stack.isItemEqualIgnoreDamage(originalStack) && ItemStack.areTagsEqual(stack, originalStack);
+        boolean b = !stack.isEmpty() && stack.isItemEqualIgnoreDamage(originalStack) && ItemStack.areTagsEqual(stack, originalStack);
         this.inventory.set(slot, stack);
         if (stack.getCount() > this.getMaxCountPerStack()) stack.setCount(this.getMaxCountPerStack());
 
-        if ((slot >= 0 && slot < 4) && !flag) {
+        if ((slot >= 0 && slot < 4) && !b) {
             this.totalCookTime = this.getCookTime();
             this.cookTime = 0;
             this.markDirty();

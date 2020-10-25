@@ -49,9 +49,7 @@ public class MillstoneScreenHandler extends ScreenHandler {
                 this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 84 + m * 18));
             }
         }
-        for (m = 0; m < 9; ++m) {
-            this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
-        }
+        for (m = 0; m < 9; ++m) this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
     }
 
     public boolean canUse(PlayerEntity player) { return this.inventory.canPlayerUse(player); }
@@ -73,7 +71,6 @@ public class MillstoneScreenHandler extends ScreenHandler {
                 if (!this.insertItem(oldStack, 2, 38, true)) {
                     return ItemStack.EMPTY;
                 }
-
                 slot.onStackChanged(oldStack, newStack);
             } else if (invSlot >= 2 && invSlot < 38) {
                 if (!this.insertItem(oldStack, 0, 1, false)) {
