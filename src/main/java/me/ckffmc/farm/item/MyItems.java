@@ -22,6 +22,8 @@ public class MyItems {
             new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.SWEET_POTATO)));
     public static final Item BAKED_SWEET_POTATO = register("baked_sweet_potato",
             new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.BAKED_SWEET_POTATO)));
+    public static final Item ROASTED_CORN = register("roasted_corn",
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.ROASTED_CORN)));
     public static final Item GINGER = register("ginger", new AliasedBlockItem(MyBlocks.GINGER,
             new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.GINGER)));
     public static final Item GARLIC = register("garlic", new AliasedBlockItem(MyBlocks.GARLIC,
@@ -53,13 +55,13 @@ public class MyItems {
     public static final Item BITTERN = register("bittern",
             new Item(new Item.Settings().group(MyItemGroups.GENERAL).recipeRemainder(Items.GLASS_BOTTLE).maxCount(16)));
     public static final Item TOFU = register("tofu",
-            new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.TOFU)));
     public static final Item TOFU_PUDDING = register("tofu_pudding",
-            new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.TOFU_PUDDING)));
     public static final Item SWEET_POTATO_STARCH = register("sweet_potato_starch",
             new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
     public static final Item SHAVED_ICE = register("shaved_ice",
-            new Item(new Item.Settings().group(MyItemGroups.GENERAL)));
+            new Item(new Item.Settings().group(MyItemGroups.GENERAL).food(MyFoodComponents.SHAVED_ICE)));
 
     public static final Item MILLSTONE = register(MyBlocks.MILLSTONE, MyItemGroups.GENERAL);
     public static final Item COOKING_TABLE = register(MyBlocks.COOKING_TABLE, MyItemGroups.GENERAL);
