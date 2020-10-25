@@ -19,31 +19,52 @@ So the textures or so will eventually be changed to something more normal, and w
 
 - Oyster
 
+### Utility Blocks
+
+- Millstone
+    - Accepts 1 input, gives 1 output
+    - Shows its item in the input slot above the block
+    - Spins when "milling" an item
+- Cooking table
+    - Accepts 1~4 input, gives 1 output
+
 ### Crops
 
-- Lettuce, sweet potato, rice, corn, garlic
-- Ginger (WIP), Spring Onion (WIP)
+- Lettuce, rice, corn, spring onion
+    - Craft corn seeds with corn item
+- Sweet potato, garlic, ginger, soybean
 
-### Foods & Ingredients
+### Ingredients
 
-- Baked Sweet Potato
-- Raw & Cooked Oyster
-- Salt
+- Salt & salt block
+- Bittern: Use 1 water bottle + 1 salt to craft
+- Flour: From milling wheat
+- Sweet potato starch: From milling sweet potato
+
+### Foods
+
+- Baked sweet potato
+- Raw & cooked oyster
+- Noodles: From cooking egg + salt + wheat flour
+- Tofu: From cooking 2 soy milks + 1 bittern
+- Tofu pudding: From cooking 2 soy milks + 1 bittern + 1 sweet potato starch
+- Shaved ice: From milling ice block
+- Soy milk: From milling soybean
+- 
 
 ## Future Plans
 
 ### Crops
 
-- Soybean (WIP)
 - Tea, mango, red bean, pineapple, daikon radish, cabbage
 
 ### Foods & Ingredients
 
-- Beef noodles (noodles, flour)
-- Oyster Vermicelli (vermicelli)
+- Beef noodles
+- Oyster Vermicelli
 - Bubble tea (tapioca balls)
-- Tofu, stinky tofu, tofu puddings, soy sauce
-- Shaved ice (brown sugar)
+- stinky tofu, soy sauce
+- brown sugar
 - Sausage, preserved egg
 - Red bean cake, pineapple cake, radish cake, sun cake
 
