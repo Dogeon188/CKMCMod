@@ -8,12 +8,17 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class MyRecipeSerializer {
-    public static final RecipeSerializer<MillingRecipe> MILLING = register("milling", new MillingRecipe.Serializer());
-    public static final RecipeSerializer<CookingRecipe> COOKING = register("cooking", new CookingRecipe.Serializer());
-    public static final SpecialRecipeSerializer<BitternRecipe> BITTERN = register(
-            "bittern", new SpecialRecipeSerializer<>(BitternRecipe::new));
+    public static final RecipeSerializer<MillingRecipe> MILLING = new MillingRecipe.Serializer();
+    public static final RecipeSerializer<CookingRecipe> COOKING = new CookingRecipe.Serializer();
+    public static final SpecialRecipeSerializer<BitternRecipe> BITTERN = new SpecialRecipeSerializer<>(BitternRecipe::new);
 
-    static <S extends RecipeSerializer<T>, T extends Recipe<?>> S register(String id, S serializer) {
-        return Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(MainMod.MOD_ID, id), serializer);
+    static <S extends RecipeSerializer<T>, T extends Recipe<?>> void register(String id, S serializer) {
+        Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(MainMod.MOD_ID, id), serializer);
+    }
+
+    public static void registerRecipeSerializers() {
+        register("milling", MILLING);
+        register("cooking", COOKING);
+        register("bittern", BITTERN);
     }
 }

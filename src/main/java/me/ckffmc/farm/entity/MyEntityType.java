@@ -18,7 +18,7 @@ public class MyEntityType {
         return Registry.register(Registry.ENTITY_TYPE, new Identifier(MainMod.MOD_ID, id), type.build());
     }
 
-    public static void load() {
+    public static void registerEntityAttributes() {
         FabricDefaultAttributeRegistry.register(OYSTER, OysterEntity.createOysterAttributes());
     }
 }
