@@ -1,4 +1,4 @@
-package me.ckffmc.farm.mixin;
+package me.ckffmc.farm.mixin.client;
 
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.jetbrains.annotations.Nullable;
@@ -16,7 +16,7 @@ public class TitleScreenMixin {
 
 	@Shadow private @Nullable String splashText;
 
-	@Inject(at = @At("HEAD"), method = "init()V")
+	@Inject(at = @At("HEAD"), method = "init")
 	private void init(CallbackInfo info) {
 		if (random.nextFloat() < 0.01F) splashText = "You have been hacked by Dogeon! (jk)";
 		System.out.println("Now I know what this mixin stuff does ouo.");

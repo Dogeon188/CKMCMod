@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(DefaultBiomeFeatures.class)
 public class DefaultBiomeFeaturesMixin {
-    @Inject(method = "addMineables(Lnet/minecraft/world/biome/GenerationSettings$Builder;)V", at = @At("HEAD"))
+    @Inject(at = @At("HEAD"), method = "addMineables")
     private static void addDefaultOres(GenerationSettings.Builder builder, CallbackInfo ci) {
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MyFeatures.ORE_SALT);
     }
