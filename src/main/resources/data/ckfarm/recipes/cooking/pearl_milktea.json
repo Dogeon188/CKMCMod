@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ckfarm:sweet_patato_starch"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "item": "ckfarm:black_tea_leaves"
+    }
+  ],
+  "result": {
+    "item": "minecraft:lapis_ore",
+    "count": 1
+  }
+}
