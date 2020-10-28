@@ -19,7 +19,7 @@ public class ClientRecipeBookMixin {
             method = "getGroupForRecipe",
             cancellable = true
     )
-    private static void getGroupForRecipe(Recipe<?> recipe, CallbackInfoReturnable<RecipeBookGroup> cir) {
+    private static void suppressRecipeWarn(Recipe<?> recipe, CallbackInfoReturnable<RecipeBookGroup> cir) {
         if (recipe.getType() == MyRecipeType.COOKING || recipe.getType() == MyRecipeType.MILLING) {
             cir.setReturnValue(RecipeBookGroup.UNKNOWN);
         }

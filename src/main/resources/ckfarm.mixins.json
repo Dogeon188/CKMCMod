@@ -4,11 +4,12 @@
   "package": "me.ckffmc.farm.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "DefaultBiomeFeaturesMixin"
+    "world.DefaultBiomeCreatorMixin",
+    "world.DefaultBiomeFeaturesMixin"
   ],
   "client": [
-    "client.TitleScreenMixin",
-    "client.ClientRecipeBookMixin"
+    "client.ClientRecipeBookMixin",
+    "client.TitleScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
