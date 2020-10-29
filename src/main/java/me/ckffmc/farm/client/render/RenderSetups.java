@@ -33,6 +33,7 @@ public class RenderSetups {
     private static void renderLayerSetups() {
         // mipped with transparent pixel(s)
         RenderLayer cutoutMipped = RenderLayer.getCutoutMipped();
+        putBlock(MyBlocks.TEA_SAPLING, cutoutMipped);
         // with transparent pixel(s)
         RenderLayer cutout = RenderLayer.getCutout();
         putBlock(MyBlocks.RICE, cutout);

@@ -1,9 +1,11 @@
 package me.ckffmc.farm.block.crop;
 
+import me.ckffmc.farm.item.MyItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
@@ -20,6 +22,8 @@ public class TeaSaplingBlock extends CropBlock {
     private static final VoxelShape[] AGE_TO_SHAPE;
 
     public TeaSaplingBlock(Settings settings) { super(settings); }
+
+    protected ItemConvertible getSeedsItem() { return MyItems.TEA_SAPLING; }
 
     public IntProperty getAgeProperty() { return AGE; }
 
@@ -39,9 +43,9 @@ public class TeaSaplingBlock extends CropBlock {
 
     static {
         AGE_TO_SHAPE = new VoxelShape[]{
-                Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
-                Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D),
-                Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D),
-                Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D)};
+                Block.createCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 4.0D, 10.0D),
+                Block.createCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 7.0D, 10.0D),
+                Block.createCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 10.0D, 10.0D),
+                Block.createCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 12.0D, 11.0D)};
     }
 }

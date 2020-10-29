@@ -22,8 +22,8 @@ public class MyBlocks {
     public static final Block LETTUCE = CropHelper.newAge8("lettuce_seeds", CropHelper.newCropSettings());
     public static final Block RICE = CropHelper.newAge8("rice_seeds", CropHelper.newCropSettings());
 
-    public static final Block TEA_SAPLING = new TeaSaplingBlock(FabricBlockSettings.of(Material.PLANT)
-            .ticksRandomly().sounds(BlockSoundGroup.GRASS));
+    public static final Block TEA_SAPLING = new TeaSaplingBlock(FabricBlockSettings
+            .of(Material.WOOD, MaterialColor.FOLIAGE).ticksRandomly().sounds(BlockSoundGroup.GRASS));
 
     public static final Block SALT_BLOCK = new Block(FabricBlockSettings.of(Material.GLASS, MaterialColor.WHITE)
             .strength(0.3F).sounds(BlockSoundGroup.GLASS));

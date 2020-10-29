@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "age=0": {"model": "ckfarm:block/tea_sapling/0"},
+    "age=1": {"model": "ckfarm:block/tea_sapling/1"},
+    "age=2": {"model": "ckfarm:block/tea_sapling/2"},
+    "age=3": {"model": "ckfarm:block/tea_sapling/3"}
+  }
+}
