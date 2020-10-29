@@ -1,0 +1,11 @@
+{
+  "type": "ckfarm:cooking",
+  "ingredients": [
+    {"item": "ckfarm:sweet_potato_starch"},
+    {"item": "ckfarm:sweet_potato_starch"},
+    {"item": "sugar"}
+  ],
+  "result": {"item": "ckfarm:tapioca_balls", "count": 2},
+  "cook_time": 200,
+  "experience": 0.35
+}

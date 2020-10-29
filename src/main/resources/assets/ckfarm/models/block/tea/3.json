@@ -1,0 +1,36 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "ckfarm:block/tea/stem",
+		"particle": "ckfarm:block/tea/leaves",
+		"ols": "ckfarm:block/tea/leaves"
+	},
+	"elements": [
+		{
+			"from": [5, 0, 5],
+			"to": [11, 12, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [13, 8, 13]},
+			"faces": {
+				"north": {"uv": [0, 0, 6, 12], "texture": "#0"},
+				"east": {"uv": [0, 0, 6, 12], "texture": "#0"},
+				"south": {"uv": [0, 0, 6, 12], "texture": "#0"},
+				"west": {"uv": [0, 0, 6, 12], "texture": "#0"},
+				"up": {"uv": [6, 0, 12, 6], "texture": "#0"},
+				"down": {"uv": [6, 0, 12, 6], "texture": "#0"}
+			}
+		},
+		{
+			"from": [2, 4, 2],
+			"to": [14, 16, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [9, 12, 9]},
+			"faces": {
+				"north": {"uv": [0, 0, 12, 12], "texture": "#ols"},
+				"east": {"uv": [0, 0, 12, 12], "texture": "#ols"},
+				"south": {"uv": [0, 0, 12, 12], "texture": "#ols"},
+				"west": {"uv": [0, 0, 12, 12], "texture": "#ols"},
+				"up": {"uv": [0, 0, 12, 12], "texture": "#ols"},
+				"down": {"uv": [0, 0, 12, 12], "texture": "#ols"}
+			}
+		}
+	]
+}

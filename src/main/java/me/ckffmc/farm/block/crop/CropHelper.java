@@ -2,11 +2,17 @@ package me.ckffmc.farm.block.crop;
 
 import me.ckffmc.farm.MainMod;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Material;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class CropHelper {
+    public static FabricBlockSettings newCropSettings() {
+        return FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP);
+    }
+
     public static Age8CropBlock newAge8(String seeds_item, FabricBlockSettings settings) {
         return new Age8CropBlock(settings) {
             protected ItemConvertible getSeedsItem() {

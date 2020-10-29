@@ -1,11 +1,17 @@
 package me.ckffmc.farm.item;
 
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 
 public class MyFoodComponents {
 
     public static final FoodComponent BAKED_SWEET_POTATO = new FoodComponent.Builder().hunger(4).saturationModifier(2.4f).build();
-    public static final FoodComponent COOKED_OYSTER = new FoodComponent.Builder().hunger(2).saturationModifier(1.6f).meat().build();
+    public static final FoodComponent BUBBLE_TEA = new FoodComponent.Builder().hunger(4).saturationModifier(0.4f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1800, 1), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 1800, 1), 1.0F)
+            .build();
+    public static final FoodComponent COOKED_OYSTER = new FoodComponent.Builder().hunger(2).saturationModifier(0.6f).meat().build();
     public static final FoodComponent CORN = new FoodComponent.Builder().hunger(1).saturationModifier(0.8f).build();
     public static final FoodComponent ROASTED_CORN = new FoodComponent.Builder().hunger(4).saturationModifier(1.8f).build();
     public static final FoodComponent GARLIC = new FoodComponent.Builder().hunger(1).saturationModifier(0.3f).build();

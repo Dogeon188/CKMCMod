@@ -1,14 +1,12 @@
 package me.ckffmc.farm.entity;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.WaterCreatureEntity;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 
 public class OysterEntity extends WaterCreatureEntity {
     public OysterEntity(EntityType<? extends WaterCreatureEntity> entityType, World world) {
@@ -21,8 +19,4 @@ public class OysterEntity extends WaterCreatureEntity {
     }
 
     protected void initGoals() { this.goalSelector.add(8, new LookAroundGoal(this)); }
-
-//    public boolean canSpawn(WorldAccess world, SpawnReason spawnReason) {
-//        return super.canSpawn(world, spawnReason);
-//    }
 }

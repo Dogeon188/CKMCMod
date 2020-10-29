@@ -38,6 +38,11 @@ public class MyItems {
     public static final Item RICE_SEEDS = new AliasedBlockItem(MyBlocks.RICE,
             new Item.Settings().group(MyItemGroups.GENERAL));
 
+    public static final Item TEA_SAPLING = new BlockItem(MyBlocks.TEA_SAPLING,
+            new Item.Settings().group(MyItemGroups.GENERAL));
+    public static final Item TEA_LEAVES = new Item(new Item.Settings().group(MyItemGroups.GENERAL));
+    public static final Item BLACK_TEA_LEAVES = new Item(new Item.Settings().group(MyItemGroups.GENERAL));
+
     public static final Item RAW_OYSTER = new Item(new Item.Settings().group(MyItemGroups.GENERAL));
     public static final Item COOKED_OYSTER = new Item(new Item.Settings().group(MyItemGroups.GENERAL)
             .food(MyFoodComponents.COOKED_OYSTER));
@@ -57,6 +62,9 @@ public class MyItems {
     public static final Item SWEET_POTATO_STARCH = new Item(new Item.Settings().group(MyItemGroups.GENERAL));
     public static final Item SHAVED_ICE = new Item(new Item.Settings().group(MyItemGroups.GENERAL)
             .food(MyFoodComponents.SHAVED_ICE));
+    public static final Item TAPIOCA_BALLS = new Item(new Item.Settings().group(MyItemGroups.GENERAL));
+    public static final Item BUBBLE_TEA = new DrinkItem(new Item.Settings().group(MyItemGroups.GENERAL)
+            .food(MyFoodComponents.BUBBLE_TEA).maxCount(16));
 
     public static final Item MILLSTONE = new BlockItem(MyBlocks.MILLSTONE,
             new Item.Settings().group(MyItemGroups.GENERAL));
@@ -85,6 +93,9 @@ public class MyItems {
         register("corn_seeds", CORN_SEEDS);
         register("spring_onion_seeds", SPRING_ONION_SEEDS);
         register("rice_seeds", RICE_SEEDS);
+        register("tea_sapling", TEA_SAPLING);
+        register("tea_leaves", TEA_LEAVES);
+        register("black_tea_leaves", BLACK_TEA_LEAVES);
         register("raw_oyster", RAW_OYSTER);
         register("cooked_oyster", COOKED_OYSTER);
         register("wheat_flour", WHEAT_FLOUR);
@@ -97,6 +108,8 @@ public class MyItems {
         register("tofu_pudding", TOFU_PUDDING);
         register("sweet_potato_starch", SWEET_POTATO_STARCH);
         register("shaved_ice", SHAVED_ICE);
+        register("tapioca_balls", TAPIOCA_BALLS);
+        register("bubble_tea", BUBBLE_TEA);
         register("millstone", MILLSTONE);
         register("cooking_table", COOKING_TABLE);
         register("oyster_spawn_egg", OYSTER_SPAWN_EGG);

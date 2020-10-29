@@ -3,7 +3,6 @@ package me.ckffmc.farm.block.crop;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.IntProperty;
@@ -23,7 +22,7 @@ public class TallCropBlock extends CropBlock {
     public static final VoxelShape[] SHAPES;
 
     public TallCropBlock(Settings settings) {
-        super(settings.noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP));
+        super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(HALF, DoubleBlockHalf.LOWER));
     }
 

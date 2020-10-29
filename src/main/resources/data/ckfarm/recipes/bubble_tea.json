@@ -1,0 +1,10 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {"item": "ckfarm:tapioca_balls"},
+    {"item": "sugar"},
+    {"item": "milk_bucket"},
+    {"item": "ckfarm:black_tea_leaves"}
+  ],
+  "result": {"item": "ckfarm:bubble_tea", "count": 1}
+}

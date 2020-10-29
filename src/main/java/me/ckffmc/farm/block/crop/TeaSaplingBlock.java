@@ -15,11 +15,11 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class Age4CropBlock extends CropBlock {
+public class TeaSaplingBlock extends CropBlock {
     public static final IntProperty AGE = Properties.AGE_3;
     private static final VoxelShape[] AGE_TO_SHAPE;
 
-    public Age4CropBlock(Settings settings) { super(settings); }
+    public TeaSaplingBlock(Settings settings) { super(settings); }
 
     public IntProperty getAgeProperty() { return AGE; }
 

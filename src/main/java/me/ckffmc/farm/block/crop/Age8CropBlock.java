@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -12,9 +11,7 @@ import net.minecraft.world.BlockView;
 public class Age8CropBlock extends CropBlock {
     private static final VoxelShape[] AGE_TO_SHAPE;
 
-    public Age8CropBlock(Settings settings) {
-        super(settings.noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP));
-    }
+    public Age8CropBlock(Settings settings) { super(settings); }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return AGE_TO_SHAPE[state.get(this.getAgeProperty())];
