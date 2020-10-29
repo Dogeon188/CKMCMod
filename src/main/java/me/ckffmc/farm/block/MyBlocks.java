@@ -1,26 +1,25 @@
 package me.ckffmc.farm.block;
 
 import me.ckffmc.farm.MainMod;
-import me.ckffmc.farm.block.crop.CropHelper;
-import me.ckffmc.farm.block.crop.TeaSaplingBlock;
+import me.ckffmc.farm.block.crop.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.block.MaterialColor;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class MyBlocks {
-    public static final Block CORN = CropHelper.newTall("corn_seeds", CropHelper.newCropSettings());
-    public static final Block GARLIC = CropHelper.newAge4("garlic",  CropHelper.newCropSettings());
-    public static final Block GINGER = CropHelper.newAge4("ginger", CropHelper.newCropSettings());
-    public static final Block SOYBEAN = CropHelper.newAge4("soybean", CropHelper.newCropSettings());
-    public static final Block SPRING_ONION = CropHelper.newAge4("spring_onion_seeds",
-            CropHelper.newCropSettings());
-    public static final Block SWEET_POTATO = CropHelper.newAge4("sweet_potato", CropHelper.newCropSettings());
-    public static final Block LETTUCE = CropHelper.newAge8("lettuce_seeds", CropHelper.newCropSettings());
-    public static final Block RICE = CropHelper.newAge8("rice_seeds", CropHelper.newCropSettings());
+    public static final Block CORN = newTallCrop("corn_seeds", newCropSettings());
+    public static final Block GARLIC = newAge4Crop("garlic",  newCropSettings());
+    public static final Block GINGER = newAge4Crop("ginger", newCropSettings());
+    public static final Block SOYBEAN = newAge4Crop("soybean", newCropSettings());
+    public static final Block SPRING_ONION = newAge4Crop("spring_onion_seeds", newCropSettings());
+    public static final Block SWEET_POTATO = newAge4Crop("sweet_potato", newCropSettings());
+    public static final Block LETTUCE = newAge8Crop("lettuce_seeds", newCropSettings());
+    public static final Block RICE = newAge8Crop("rice_seeds", newCropSettings());
 
     public static final Block TEA_SAPLING = new TeaSaplingBlock(FabricBlockSettings
             .of(Material.WOOD, MaterialColor.FOLIAGE).ticksRandomly().sounds(BlockSoundGroup.GRASS));
@@ -49,5 +48,33 @@ public class MyBlocks {
         register("salt_block", SALT_BLOCK);
         register("millstone", MILLSTONE);
         register("cooking_table", COOKING_TABLE);
+    }
+
+    private static FabricBlockSettings newCropSettings() {
+        return FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP);
+    }
+
+    private static Age8CropBlock newAge8Crop(String seeds_item, FabricBlockSettings settings) {
+        return new Age8CropBlock(settings) {
+            protected ItemConvertible getSeedsItem() {
+                return Registry.ITEM.get(new Identifier(MainMod.MOD_ID, seeds_item));
+            }
+        };
+    }
+
+    private static Age4CropBlock newAge4Crop(String seeds_item, FabricBlockSettings settings) {
+        return new Age4CropBlock(settings) {
+            protected ItemConvertible getSeedsItem() {
+                return Registry.ITEM.get(new Identifier(MainMod.MOD_ID, seeds_item));
+            }
+        };
+    }
+
+    private static TallCropBlock newTallCrop(String seeds_item, FabricBlockSettings settings) {
+        return new TallCropBlock(settings) {
+            protected ItemConvertible getSeedsItem() {
+                return Registry.ITEM.get(new Identifier(MainMod.MOD_ID, seeds_item));
+            }
+        };
     }
 }
