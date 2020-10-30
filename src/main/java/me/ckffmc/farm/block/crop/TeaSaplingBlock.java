@@ -1,10 +1,7 @@
 package me.ckffmc.farm.block.crop;
 
 import me.ckffmc.farm.item.MyItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
@@ -33,7 +30,11 @@ public class TeaSaplingBlock extends CropBlock {
         if (random.nextInt(3) != 0) super.randomTick(state, world, pos, random);
     }
 
-    protected int getGrowthAmount(World world) { return super.getGrowthAmount(world) / 3; }
+    protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
+        return floor.isOf(Blocks.GRASS_BLOCK) || floor.isOf(Blocks.DIRT) || floor.isOf(Blocks.COARSE_DIRT) || floor.isOf(Blocks.PODZOL) || floor.isOf(Blocks.FARMLAND);
+    }
+
+    protected int getGrowthAmount(World world) { return super.getGrowthAmount(world) / 5; }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) { builder.add(AGE); }
 

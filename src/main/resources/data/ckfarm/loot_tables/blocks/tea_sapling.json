@@ -12,13 +12,14 @@
               "conditions": [
                 {
                   "condition": "block_state_property",
-                  "block": "ckfarm:spring_onion",
+                  "block": "ckfarm:tea_sapling",
                   "properties": {"age": "3"}
                 }
               ],
-              "name": "ckfarm:spring_onion"
+              "functions": [{"function": "set_count", "count": {"min": 2, "max": 5}}],
+              "name": "ckfarm:tea_leaves"
             },
-            {"type": "item", "name": "ckfarm:spring_onion_seeds"}
+            {"type": "item", "name": "ckfarm:tea_sapling"}
           ]
         }
       ]
@@ -33,16 +34,16 @@
               "function": "apply_bonus",
               "enchantment": "fortune",
               "formula": "binomial_with_bonus_count",
-              "parameters": {"extra": 3, "probability": 0.5714286}
+              "parameters": {"extra": 1, "probability": 0.5714286}
             }
           ],
-          "name": "ckfarm:spring_onion_seeds"
+          "name": "ckfarm:tea_sapling"
         }
       ],
       "conditions": [
         {
           "condition": "block_state_property",
-          "block": "ckfarm:spring_onion",
+          "block": "ckfarm:tea_sapling",
           "properties": {"age": "3"}
         }
       ]

@@ -48,5 +48,5 @@
       ]
     }
   ],
-  "functions": [{"function": "minecraft:explosion_decay"}]
+  "functions": [{"function": "explosion_decay"}]
 }

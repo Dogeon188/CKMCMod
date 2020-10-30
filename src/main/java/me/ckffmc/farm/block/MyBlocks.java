@@ -22,7 +22,7 @@ public class MyBlocks {
     public static final Block RICE = newAge8Crop("rice_seeds", newCropSettings());
 
     public static final Block TEA_SAPLING = new TeaSaplingBlock(FabricBlockSettings
-            .of(Material.WOOD, MaterialColor.FOLIAGE).ticksRandomly().sounds(BlockSoundGroup.GRASS));
+            .of(Material.PLANT, MaterialColor.FOLIAGE).ticksRandomly().sounds(BlockSoundGroup.WOOD));
 
     public static final Block SALT_BLOCK = new Block(FabricBlockSettings.of(Material.GLASS, MaterialColor.WHITE)
             .strength(0.3F).sounds(BlockSoundGroup.GLASS));
