@@ -1,4 +1,4 @@
 {
-  "parent": "minecraft:block/crop",
-  "textures": {"crop": "ckfarm:block/lettuce/3"}
+  "parent": "minecraft:block/cross",
+  "textures": {"cross": "ckfarm:block/lettuce/3"}
 }

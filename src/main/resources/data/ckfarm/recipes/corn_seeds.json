@@ -1,0 +1,5 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [{"item": "ckfarm:rice"}],
+  "result": {"item": "ckfarm:rice_seeds", "count": 2}
+}

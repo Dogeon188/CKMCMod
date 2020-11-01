@@ -1,5 +1,5 @@
 {
   "type": "crafting_shapeless",
   "ingredients": [{"item": "ckfarm:corn"}],
-  "result": {"item": "ckfarm:corn_seeds"}
+  "result": {"item": "ckfarm:corn_seeds", "count": 2}
 }
