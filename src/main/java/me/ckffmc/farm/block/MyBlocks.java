@@ -18,6 +18,7 @@ public class MyBlocks {
     public static final Block SOYBEAN = newAge4Crop("soybean", newCropSettings());
     public static final Block SPRING_ONION = newAge4Crop("spring_onion_seeds", newCropSettings());
     public static final Block SWEET_POTATO = newAge4Crop("sweet_potato", newCropSettings());
+    public static final Block HANJI = newAge4Crop("hanji", newCropSettings());
     public static final Block LETTUCE = newAge8Crop("lettuce_seeds", newCropSettings());
     public static final Block RICE = newAge8Crop("rice_seeds", newCropSettings());
 
@@ -42,6 +43,7 @@ public class MyBlocks {
         register("soybean", SOYBEAN);
         register("spring_onion", SPRING_ONION);
         register("sweet_potato", SWEET_POTATO);
+        register("hanji", HANJI);
         register("lettuce", LETTUCE);
         register("rice", RICE);
         register("tea_sapling", TEA_SAPLING);

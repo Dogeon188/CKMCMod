@@ -18,7 +18,7 @@ public class TitleScreenMixin {
 
 	@Inject(at = @At("HEAD"), method = "init")
 	private void splash(CallbackInfo info) {
-		if (random.nextFloat() < 0.01F) splashText = "You have been hacked by Dogeon! (jk)";
+		if (random.nextFloat() < 0.001F) splashText = "You have been hacked by Dogeon! (jk)";
 		System.out.println("Now I know what this mixin stuff does ouo.");
 	}
 }

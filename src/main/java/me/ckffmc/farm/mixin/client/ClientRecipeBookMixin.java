@@ -15,7 +15,7 @@ public class ClientRecipeBookMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lorg/apache/logging/log4j/Logger;warn(Ljava/lang/String;[Lorg/apache/logging/log4j/util/Supplier;)V"
-    ),
+            ),
             method = "getGroupForRecipe",
             cancellable = true
     )

@@ -91,17 +91,11 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
 
     public boolean isValid(int slot, ItemStack stack) { return slot >= 0 && slot < 4; }
 
-    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
-        return this.isValid(slot, stack);
-    }
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) { return this.isValid(slot, stack); }
 
-    public boolean canExtract(int slot, ItemStack stack, Direction dir) {
-        return (dir == Direction.DOWN && slot == 4);
-    }
+    public boolean canExtract(int slot, ItemStack stack, Direction dir) { return (dir == Direction.DOWN && slot == 4); }
 
-    public Text getDisplayName() {
-        return new TranslatableText("container." + MainMod.MOD_ID + ".cooking_table");
-    }
+    public Text getDisplayName() { return new TranslatableText("container." + MainMod.MOD_ID + ".cooking_table"); }
 
     public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
         return new CookingTableScreenHandler(syncId, inv, this, this.propertyDelegate);

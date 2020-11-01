@@ -1,6 +1,7 @@
 package me.ckffmc.farm.block;
 
 import me.ckffmc.farm.block.entity.MillstoneBlockEntity;
+import me.ckffmc.farm.sound.MySoundEvents;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -9,7 +10,6 @@ import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -42,9 +42,7 @@ public class MillstoneBlock extends BlockWithEntity {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite()).with(MILLING, false);
     }
 
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, MILLING);
-    }
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) { builder.add(FACING, MILLING); }
 
     public BlockEntity createBlockEntity(BlockView world) { return new MillstoneBlockEntity(); }
 
@@ -87,7 +85,7 @@ public class MillstoneBlock extends BlockWithEntity {
             double e = pos.getY();
             double f = pos.getZ() + 0.5D;
             if (random.nextDouble() < 0.1D) {
-                world.playSound(d, e, f, SoundEvents.ENTITY_MINECART_INSIDE, SoundCategory.BLOCKS, 0.1F, 1.0F, false);
+                world.playSound(d, e, f, MySoundEvents.MILLSTONE_MILLING, SoundCategory.BLOCKS, 0.1F, 1.0F, false);
             }
             double i = random.nextDouble() * 0.6D - 0.3D;
             double j = 0.6875D;

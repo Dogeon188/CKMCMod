@@ -18,9 +18,7 @@ public class DrinkItem extends Item {
 
     public UseAction getUseAction(ItemStack stack) { return UseAction.DRINK; }
 
-    public SoundEvent getEatSound() {
-        return SoundEvents.ENTITY_GENERIC_DRINK;
-    }
+    public SoundEvent getEatSound() { return SoundEvents.ENTITY_GENERIC_DRINK; }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (this.isFood()) {

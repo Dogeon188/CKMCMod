@@ -1,10 +1,8 @@
 package me.ckffmc.farm.block.crop;
 
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
@@ -16,7 +14,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
@@ -31,8 +28,9 @@ public class TallCropBlock extends CropBlock {
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPES[state.get(HALF) == DoubleBlockHalf.UPPER ? this.getAge(state) % 4 : Math.min(3,
-                this.getAge(state))];
+        return SHAPES[state.get(HALF) == DoubleBlockHalf.UPPER
+                ? this.getAge(state) % 4
+                : Math.min(3, this.getAge(state))];
     }
 
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {

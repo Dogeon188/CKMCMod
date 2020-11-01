@@ -15,7 +15,8 @@ public class BitternRecipe extends SpecialCraftingRecipe {
     public BitternRecipe(Identifier id) { super(id); }
 
     public boolean matches(CraftingInventory inv, World world) {
-        int water_count = 0, salt_count = 0;
+        int water_count = 0;
+        int salt_count = 0;
         for(int k = 0; k < inv.size(); ++k) {
             ItemStack itemStack = inv.getStack(k);
             if (!itemStack.isEmpty()) {

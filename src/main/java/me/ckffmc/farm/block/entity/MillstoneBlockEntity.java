@@ -86,23 +86,15 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
 
     public CompoundTag toClientTag(CompoundTag tag) { return toTag(tag); }
 
-    public int[] getAvailableSlots(Direction side) {
-        return (side == Direction.DOWN) ? new int[]{1} : new int[]{0};
-    }
+    public int[] getAvailableSlots(Direction side) { return (side == Direction.DOWN) ? new int[]{1} : new int[]{0}; }
 
     public boolean isValid(int slot, ItemStack stack) { return slot == 0; }
 
-    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
-        return this.isValid(slot, stack);
-    }
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) { return this.isValid(slot, stack); }
 
-    public boolean canExtract(int slot, ItemStack stack, Direction dir) {
-        return (dir == Direction.DOWN && slot == 1);
-    }
+    public boolean canExtract(int slot, ItemStack stack, Direction dir) { return (dir == Direction.DOWN && slot == 1); }
 
-    public Text getDisplayName() {
-        return new TranslatableText("container." + MainMod.MOD_ID + ".millstone");
-    }
+    public Text getDisplayName() { return new TranslatableText("container." + MainMod.MOD_ID + ".millstone"); }
 
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
         return new MillstoneScreenHandler(syncId, inv, this, this.propertyDelegate);

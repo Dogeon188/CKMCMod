@@ -29,9 +29,7 @@ public class CookingTableBlock extends BlockWithEntity {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
     }
 
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
-    }
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) { builder.add(FACING); }
 
     public BlockEntity createBlockEntity(BlockView world) { return new CookingTableBlockEntity(); }
 

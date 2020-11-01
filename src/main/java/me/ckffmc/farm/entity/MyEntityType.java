@@ -15,8 +15,8 @@ public class MyEntityType {
             .create(SpawnGroup.WATER_AMBIENT, OysterEntity::new)
             .dimensions(EntityDimensions.fixed(0.5f, 0.125f)).build();
 
-    private static <T extends Entity> EntityType<T> register(String id, EntityType<T> type) {
-        return Registry.register(Registry.ENTITY_TYPE, new Identifier(MainMod.MOD_ID, id), type);
+    private static <T extends Entity> void register(String id, EntityType<T> type) {
+        Registry.register(Registry.ENTITY_TYPE, new Identifier(MainMod.MOD_ID, id), type);
     }
 
     public static void registerEntityAttributes() {
