@@ -1,7 +1,10 @@
 package me.ckffmc.farm.block.crop;
 
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
@@ -13,6 +16,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
@@ -35,16 +39,16 @@ public class TallCropBlock extends CropBlock {
         return floor.isOf(Blocks.FARMLAND);
     }
 
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState,
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState stateFrom,
                                                  WorldAccess world, BlockPos pos, BlockPos posFrom) {
         DoubleBlockHalf h = state.get(HALF);
-        if (direction.getAxis() == Direction.Axis.Y && h == DoubleBlockHalf.LOWER == (direction == Direction.UP) && state.get(AGE) > this.getMidAge() && (!newState.isOf(this) || newState.get(HALF) == h))
+        if (direction.getAxis() == Direction.Axis.Y && h == DoubleBlockHalf.LOWER == (direction == Direction.UP) && state.get(AGE) > this.getMidAge() && (!stateFrom.isOf(this) || stateFrom.get(HALF) == h))
             return Blocks.AIR.getDefaultState();
         if (h == DoubleBlockHalf.LOWER && direction == Direction.DOWN && !state.canPlaceAt(world, pos))
             return Blocks.AIR.getDefaultState();
         if ((h == DoubleBlockHalf.UPPER && world.getBlockState(pos.down()).isOf(this)) || (h == DoubleBlockHalf.LOWER && world.getBlockState(pos.up()).isOf(this)))
             return state;
-        return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
+        return super.getStateForNeighborUpdate(state, direction, stateFrom, world, pos, posFrom);
     }
 
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
@@ -70,12 +74,29 @@ public class TallCropBlock extends CropBlock {
 
         BlockState stateUp = world.getBlockState(pos.up());
         if (state.get(HALF) == DoubleBlockHalf.UPPER) {
-            world.setBlockState(pos, this.withAge(i), 2);
+            world.setBlockState(pos, this.withAge(i).with(HALF, DoubleBlockHalf.UPPER), 2);
             world.setBlockState(pos.down(), this.withAge(i).with(HALF, DoubleBlockHalf.LOWER), 2);
         } else if (i > this.getMidAge() && (stateUp.isAir() || stateUp.isOf(this))) {
             world.setBlockState(pos, this.withAge(i), 2);
             world.setBlockState(pos.up(), this.withAge(i).with(HALF, DoubleBlockHalf.UPPER), 2);
         } else world.setBlockState(pos, this.withAge(Math.min(3, i)), 2);
+    }
+
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (!world.isClient) {
+            if (player.isCreative()) onCreativeBreak(world, pos, state, player);
+            else dropStacks(state, world, pos, null, player, player.getMainHandStack());
+        }
+        super.onBreak(world, pos, state, player);
+    }
+
+    protected static void onCreativeBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        BlockPos otherPos = (state.get(HALF) == DoubleBlockHalf.UPPER) ? pos.down() : pos.up();
+        BlockState otherState = world.getBlockState(otherPos);
+        if (otherState.getBlock() == state.getBlock() && otherState.get(HALF) != state.get(HALF)) {
+            world.setBlockState(otherPos, Blocks.AIR.getDefaultState(), 0b0110010);
+            world.syncWorldEvent(player, 2001, otherPos, Block.getRawIdFromState(otherState));
+        }
     }
 
     public int getMidAge() { return 3; }

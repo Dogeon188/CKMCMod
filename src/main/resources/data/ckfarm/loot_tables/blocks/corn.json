@@ -41,7 +41,7 @@
         {
           "condition": "block_state_property",
           "block": "ckfarm:corn",
-          "properties": {"age": "7", "half": "upper"}
+          "properties": {"age": "7", "half": "lower"}
         }
       ]
     }
