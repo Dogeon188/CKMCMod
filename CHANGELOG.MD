@@ -1,3 +1,5 @@
+### 0.5.2+build.8-1.16
+
 ### 0.5.1+build.7-1.16
 - added tea leaves & tea plant
     - tea plant can be planted on normal dirt
@@ -9,7 +11,8 @@
 - salt ore now generates in overworld
 - oyster now spawns in oceans and rivers
 - better textures
-- fixed a bug that it still drops loot when you break corn in creative 
+- fixed a bug that it still drops loot when you break corn in creative
+- also kinda changed the way version counts ;)
 
 ### 0.5.0+build.6-1.16
 - added soybean

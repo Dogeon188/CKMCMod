@@ -17,3 +17,6 @@
 - Client-server data syncing
 - Crafting algorithm computing
 - Recipe read & use
+
+### Salt ore & Oyster spawning
+- mixin

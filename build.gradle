@@ -22,12 +22,12 @@ processResources {
 	inputs.property "version", project.version
 
 	from(sourceSets.main.resources.srcDirs) {
-		include "ckfarm.mod.json"
+		include "fabric.mod.json"
 		expand "version": project.version
 	}
 
 	from(sourceSets.main.resources.srcDirs) {
-		exclude "ckfarm.mod.json"
+		exclude "fabric.mod.json"
 	}
 }
 
