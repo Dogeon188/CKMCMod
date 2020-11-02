@@ -6,18 +6,20 @@ The mod is for a school project, and this is also the very first mod I've ever m
 
 **~~Mod Menu~~ CKFFMC requires [Fabric Loader](https://fabricmc.net/use/) and [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)**
 
-(The current look. Yep it's exactly like that, but just for now.)
-![current look](https://media.forgecdn.net/attachments/thumbnails/314/185/310/172/2020-09-24_22.png)
+(Part of the current look. It's corn and rice, I'm quite proud of the rice texture.)
+
+![current look](https://i.imgur.com/QTPnD6Rl.png)
 
 **NOTE: The mod is still under heavy(?) development!**
 
-So the textures or so will eventually be changed to something more normal, and we might add some features soon.
+So we might add some more features soon :)
 
 ## Features
 
 ### Entity (Probably not with an s)
 
 - Oyster
+    - Spawns in oceans and rivers
 
 ### Utility Blocks
 
@@ -31,15 +33,19 @@ So the textures or so will eventually be changed to something more normal, and w
 ### Crops
 
 - Lettuce, rice, corn, spring onion
-    - Craft corn seeds with corn item
 - Sweet potato, garlic, ginger, soybean
+- Tea plant
+    - Can be planted on normal dirt block
 
 ### Ingredients
 
 - Salt & salt block
+    - Salt block generates as ore in the overworld
 - Bittern: Use 1 water bottle + 1 salt to craft
 - Flour: From milling wheat
 - Sweet potato starch: From milling sweet potato
+- Tea leaves & black tea leaves
+- Tapioca balls: for making bubble tea
 
 ### Foods
 
@@ -50,18 +56,20 @@ So the textures or so will eventually be changed to something more normal, and w
 - Tofu pudding: From cooking 2 soy milks + 1 bittern + 1 sweet potato starch
 - Shaved ice: From milling ice block
 - Soy milk: From milling soybean
+- Bubble tea
+    - Crafting: tapioca balls + sugar + milk bucket + black tea leaves
+    - Drinking it gives 90sec of speed I and haste I
 
 ## Future Plans
 
 ### Crops
 
-- Tea, mango, red bean, pineapple, daikon radish, cabbage
+- Mango, red bean, pineapple, daikon radish, cabbage
 
 ### Foods & Ingredients
 
 - Beef noodles
 - Oyster Vermicelli
-- Bubble tea (tapioca balls)
 - stinky tofu, soy sauce
 - brown sugar
 - Sausage, preserved egg
@@ -76,4 +84,4 @@ Also feel free to leave your suggestions! (since I'm lack of creativity lol)
 
 ## Copyright Thingies
 
-I might use some copyrighted textures or something. If I did, please contact me, and I'll fix that ASAP.
+I might have used some copyrighted textures or something. If I did, please contact me, and I'll fix that ASAP.
