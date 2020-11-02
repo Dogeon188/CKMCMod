@@ -1,3 +1,16 @@
+### 0.5.1+build.7-1.16
+- added tea leaves & tea plant
+    - tea plant can be planted on normal dirt
+    - added black tea leaves
+- added tapioca balls (from 2 sweet potato starch + 1 sugar in cooking table)
+- added bubble tea
+    - crafting: tapioca balls + sugar + milk bucket + black tea leaves
+    - drinking gives 90sec of speed I and haste I
+- salt ore now generates in overworld
+- oyster now spawns in oceans and rivers
+- better textures
+- fixed a bug that it still drops loot when you break corn in creative 
+
 ### 0.5.0+build.6-1.16
 - added soybean
 - added cooking table

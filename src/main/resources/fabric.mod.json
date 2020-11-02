@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "ckffmc_farm",
-  "version": "0.5.0+build.6-1.16",
+  "version": "0.5.1+build.7-1.16",
 
   "name": "CKFarm",
   "description": "Farming, cooking, living.",
