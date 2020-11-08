@@ -19,7 +19,7 @@ import net.minecraft.util.Identifier;
 import java.util.Objects;
 
 public class MillstoneBlockEntityRenderer extends BlockEntityRenderer<MillstoneBlockEntity> {
-    public static final SpriteIdentifier GRIND_TEXTURE = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX,
+    public static final SpriteIdentifier GRIND_TEXTURE = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE,
             new Identifier(MainMod.MOD_ID, "block/millstone/grind"));
     private final ModelPart grind;
 
