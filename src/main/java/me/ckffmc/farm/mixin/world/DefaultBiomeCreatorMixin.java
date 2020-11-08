@@ -20,11 +20,11 @@ public class DefaultBiomeCreatorMixin {
 
     @ModifyVariable(at = @At("STORE"), method = "createPlains", ordinal = 0)
     private static GenerationSettings.Builder addVegetationToPlain(GenerationSettings.Builder builder) {
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MyFeatures.PATCH_TEA_SAPLING);
-        return addWeed(builder);
+        return builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MyFeatures.PATCH_TEA_SAPLING);
     }
 
-    private static GenerationSettings.Builder addWeed(GenerationSettings.Builder builder) {
-        return builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MyFeatures.PATCH_WEED);
+    @ModifyVariable(at = @At("STORE"), method = "createMountains", ordinal = 0)
+    private static GenerationSettings.Builder addVegetationToMountains(GenerationSettings.Builder builder) {
+        return builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MyFeatures.PATCH_TEA_SAPLING);
     }
 }

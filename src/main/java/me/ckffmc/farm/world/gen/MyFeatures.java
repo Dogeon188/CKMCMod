@@ -26,9 +26,6 @@ public class MyFeatures {
     public static final ConfiguredFeature<?, ?> PATCH_TEA_SAPLING = Feature.RANDOM_PATCH
             .configure(Configs.TEA_SAPLING_CONFIG)
             .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE);
-    public static final ConfiguredFeature<?, ?> PATCH_WEED = Feature.RANDOM_PATCH
-            .configure(Configs.WEED_CONFIG)
-            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE);
 
     private static void register(String id, ConfiguredFeature<?, ?> feature) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MainMod.MOD_ID, id), feature);
@@ -37,7 +34,6 @@ public class MyFeatures {
     public static void registerFeatures() {
         register("ore_salt", ORE_SALT);
         register("patch_tea_sapling", PATCH_TEA_SAPLING);
-        register("patch_seedgrass", PATCH_WEED);
     }
 
     public static final class States {
@@ -45,17 +41,12 @@ public class MyFeatures {
         protected static final BlockState TEA_SAPLING = MyBlocks.TEA_SAPLING.getDefaultState()
                 .with(TeaSaplingBlock.AGE, 3);
         protected static final BlockState GRASS_BLOCK = Blocks.GRASS_BLOCK.getDefaultState();
-        protected static final BlockState SEEDGRASS = MyBlocks.WEED.getDefaultState();
     }
 
     public static final class Configs {
         public static final RandomPatchFeatureConfig TEA_SAPLING_CONFIG = new RandomPatchFeatureConfig.Builder(
                 new SimpleBlockStateProvider(States.TEA_SAPLING), SimpleBlockPlacer.INSTANCE)
                 .tries(32).whitelist(ImmutableSet.of(States.GRASS_BLOCK.getBlock()))
-                .cannotProject().build();
-        public static final RandomPatchFeatureConfig WEED_CONFIG = new RandomPatchFeatureConfig.Builder(
-                new SimpleBlockStateProvider(States.SEEDGRASS), SimpleBlockPlacer.INSTANCE)
-                .tries(48).whitelist(ImmutableSet.of(States.GRASS_BLOCK.getBlock()))
                 .cannotProject().build();
     }
 }

@@ -45,7 +45,6 @@ public class RenderSetups {
         putBlock(MyBlocks.SWEET_POTATO, cutout);
         putBlock(MyBlocks.HANJI, cutout);
         putBlock(MyBlocks.SOYBEAN, cutout);
-        putBlock(MyBlocks.WEED, cutout);
         // half-transparent
         RenderLayer translucent = RenderLayer.getTranslucent();
     }

@@ -22,9 +22,6 @@ public class MyBlocks {
     public static final Block LETTUCE = newAge8Crop("lettuce_seeds", newCropSettings());
     public static final Block RICE = newAge8Crop("rice_seeds", newCropSettings());
 
-    public static final Block WEED = new Block(FabricBlockSettings.of(Material.PLANT)
-            .noCollision().breakInstantly().sounds(BlockSoundGroup.CROP));
-
     public static final Block TEA_SAPLING = new TeaSaplingBlock(FabricBlockSettings
             .of(Material.PLANT, MaterialColor.FOLIAGE).ticksRandomly().sounds(BlockSoundGroup.WOOD));
 
@@ -49,7 +46,6 @@ public class MyBlocks {
         register("hanji", HANJI);
         register("lettuce", LETTUCE);
         register("rice", RICE);
-        register("weed", WEED);
         register("tea_sapling", TEA_SAPLING);
         register("salt_block", SALT_BLOCK);
         register("millstone", MILLSTONE);
