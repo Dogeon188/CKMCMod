@@ -4,6 +4,7 @@
   "package": "me.ckffmc.farm.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "structure.StructureProcessorListsMixin",
     "world.DefaultBiomeCreatorMixin",
     "world.DefaultBiomeFeaturesMixin"
   ],

@@ -4,14 +4,11 @@
     {
       "rolls": 1,
       "entries": [
-        {"type": "item", "name": "ckfarm:corn_seeds"},
         {"type": "item", "name": "ckfarm:garlic"},
         {"type": "item", "name": "ckfarm:ginger"},
         {"type": "item", "name": "ckfarm:soybean"},
         {"type": "item", "name": "ckfarm:spring_onion_seeds"},
-        {"type": "item", "name": "ckfarm:sweet_potato"},
-        {"type": "item", "name": "ckfarm:lettuce_seeds"},
-        {"type": "item", "name": "ckfarm:rice_seeds"}
+        {"type": "item", "name": "ckfarm:lettuce_seeds"}
       ],
       "conditions": [
         {"condition": "random_chance", "chance": 0.125}
