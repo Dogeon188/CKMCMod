@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "gpg",
+    "#f#",
+    "#i#"
+  ],
+  "key": {
+    "#": {"item": "iron_ingot"},
+    "p": {"item": "heavy_weighted_pressure_plate"},
+    "f": {"item": "flint_and_steel"},
+    "i": {"item": "iron_block"},
+    "g": {"item": "glass"}
+  },
+  "result": {"item": "ckfarm:cooking_table", "count": 1}
+}
