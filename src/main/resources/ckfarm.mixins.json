@@ -4,6 +4,10 @@
   "package": "me.ckffmc.farm.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "entity.FarmerWorkTaskAccessor",
+    "entity.FarmerVillagerTaskMixin",
+    "entity.VillagerEntityAccessor",
+    "entity.VillagerEntityMixin",
     "structure.StructureProcessorListsMixin",
     "world.DefaultBiomeCreatorMixin",
     "world.DefaultBiomeFeaturesMixin"

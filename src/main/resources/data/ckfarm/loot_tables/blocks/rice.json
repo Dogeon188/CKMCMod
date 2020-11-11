@@ -1,7 +1,28 @@
 {
   "type": "block",
   "pools": [
-    {"rolls": 1.0, "entries": [{"type": "item", "name": "ckfarm:rice"}]},
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "alternatives",
+          "children": [
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "block_state_property",
+                  "block": "ckfarm:rice",
+                  "properties": {"age": "7"}
+                }
+              ],
+              "name": "ckfarm:rice"
+            },
+            {"type": "item", "name": "ckfarm:rice_seeds"}
+          ]
+        }
+      ]
+    },
     {
       "rolls": 1.0,
       "entries": [
@@ -15,7 +36,7 @@
               "parameters": {"extra": 3, "probability": 0.5714286}
             }
           ],
-          "name": "ckfarm:rice"
+          "name": "ckfarm:rice_seeds"
         }
       ],
       "conditions": [
