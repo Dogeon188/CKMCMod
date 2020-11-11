@@ -2,6 +2,7 @@ package me.ckffmc.farm;
 
 import me.ckffmc.farm.block.MyBlocks;
 import me.ckffmc.farm.entity.MyEntityType;
+import me.ckffmc.farm.entity.VillagerModify;
 import me.ckffmc.farm.item.MyItems;
 import me.ckffmc.farm.loot.LootModify;
 import me.ckffmc.farm.recipe.MyRecipeSerializer;
@@ -20,6 +21,7 @@ public class MainMod implements ModInitializer {
             MyEntityType.registerEntityAttributes();
             MyRecipeSerializer.registerRecipeSerializers();
             LootModify.modifyLoot();
+            VillagerModify.modify();
         } catch (Exception e) { e.printStackTrace(); }
     }
 }
