@@ -1,4 +1,8 @@
 ### 0.5.2+build.8-1.16
+- breaking grass/fern now has a chance to drop various seeds
+- rice/corn/sweet potato/soybean now generates in village farms
+- villagers will grow & harvest & eat the new crops
+- update game version to 1.16.4
 
 ### 0.5.1+build.7-1.16
 - added tea leaves & tea plant

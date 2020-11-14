@@ -18,5 +18,7 @@
 - Crafting algorithm computing
 - Recipe read & use
 
-### Salt ore & Oyster spawning
-- mixin
+### Mixin
+- salt ore
+- oyster spawning
+- villagers interact with new crops

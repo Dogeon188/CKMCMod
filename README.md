@@ -36,6 +36,7 @@ So we might add some more features soon :)
 - Sweet potato, garlic, ginger, soybean
 - Tea plant
     - Can be planted on normal dirt block
+- Can be found from grass/fern, or in village farms
 
 ### Ingredients
 
