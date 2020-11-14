@@ -4,8 +4,8 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import me.ckffmc.farm.item.MyItems;
-import me.ckffmc.farm.mixin.entity.FarmerWorkTaskAccessor;
-import me.ckffmc.farm.mixin.entity.VillagerEntityAccessor;
+import me.ckffmc.farm.mixin.entity.ai.brain.task.FarmerWorkTaskAccessor;
+import me.ckffmc.farm.mixin.entity.passive.VillagerEntityAccessor;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.item.Item;
 

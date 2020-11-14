@@ -1,4 +1,4 @@
-package me.ckffmc.farm.mixin.world;
+package me.ckffmc.farm.mixin.world.gen.feature;
 
 import me.ckffmc.farm.entity.MyEntityType;
 import me.ckffmc.farm.world.gen.MyFeatures;

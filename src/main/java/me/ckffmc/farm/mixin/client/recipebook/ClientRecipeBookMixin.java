@@ -1,4 +1,4 @@
-package me.ckffmc.farm.mixin.client;
+package me.ckffmc.farm.mixin.client.recipebook;
 
 import me.ckffmc.farm.recipe.MyRecipeType;
 import net.minecraft.client.recipebook.ClientRecipeBook;

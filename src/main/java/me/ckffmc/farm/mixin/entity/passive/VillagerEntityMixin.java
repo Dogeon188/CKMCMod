@@ -1,4 +1,4 @@
-package me.ckffmc.farm.mixin.entity;
+package me.ckffmc.farm.mixin.entity.passive;
 
 import com.google.common.collect.ImmutableSet;
 import me.ckffmc.farm.item.MyItems;
@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Mixin(VillagerEntity.class)
 public class VillagerEntityMixin {
-    // should also modify me.ckffmc.farm.mixin.entity.FarmerVillagerTaskMixin for it to work.
+    // should also modify me.ckffmc.farm.mixin.entity.ai.brain.task.FarmerVillagerTaskMixin for it to work.
     @ModifyArg(method = "hasSeedToPlant", at = @At(value = "INVOKE",
             target = "Lnet/minecraft/inventory/SimpleInventory;containsAny(Ljava/util/Set;)Z"))
     private Set<Item> addPlantableSeeds(Set<Item> set) {

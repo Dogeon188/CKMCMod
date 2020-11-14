@@ -1,4 +1,4 @@
-package me.ckffmc.farm.mixin.entity;
+package me.ckffmc.farm.mixin.entity.ai.brain.task;
 
 import me.ckffmc.farm.block.MyBlocks;
 import me.ckffmc.farm.item.MyItems;

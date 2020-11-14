@@ -1,4 +1,4 @@
-package me.ckffmc.farm.mixin.structure;
+package me.ckffmc.farm.mixin.structure.processor;
 
 import com.google.common.collect.ImmutableList;
 import me.ckffmc.farm.block.MyBlocks;

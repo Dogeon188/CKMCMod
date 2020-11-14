@@ -1,4 +1,4 @@
-package me.ckffmc.farm.mixin.entity;
+package me.ckffmc.farm.mixin.entity.passive;
 
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.item.Item;

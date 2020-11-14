@@ -1,4 +1,4 @@
-package me.ckffmc.farm.mixin.entity;
+package me.ckffmc.farm.mixin.entity.ai.brain.task;
 
 import net.minecraft.entity.ai.brain.task.FarmerWorkTask;
 import net.minecraft.item.Item;

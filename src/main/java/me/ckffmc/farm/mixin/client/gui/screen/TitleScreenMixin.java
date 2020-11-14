@@ -1,4 +1,4 @@
-package me.ckffmc.farm.mixin.client;
+package me.ckffmc.farm.mixin.client.gui.screen;
 
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.jetbrains.annotations.Nullable;

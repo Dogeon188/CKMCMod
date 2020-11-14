@@ -4,17 +4,17 @@
   "package": "me.ckffmc.farm.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "entity.FarmerWorkTaskAccessor",
-    "entity.FarmerVillagerTaskMixin",
-    "entity.VillagerEntityAccessor",
-    "entity.VillagerEntityMixin",
-    "structure.StructureProcessorListsMixin",
-    "world.DefaultBiomeCreatorMixin",
-    "world.DefaultBiomeFeaturesMixin"
+    "entity.ai.brain.task.FarmerWorkTaskAccessor",
+    "entity.ai.brain.task.FarmerVillagerTaskMixin",
+    "entity.passive.VillagerEntityAccessor",
+    "entity.passive.VillagerEntityMixin",
+    "structure.processor.StructureProcessorListsMixin",
+    "world.biome.DefaultBiomeCreatorMixin",
+    "world.gen.feature.DefaultBiomeFeaturesMixin"
   ],
   "client": [
-    "client.ClientRecipeBookMixin",
-    "client.TitleScreenMixin"
+    "client.recipebook.ClientRecipeBookMixin",
+    "client.gui.screen.TitleScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
