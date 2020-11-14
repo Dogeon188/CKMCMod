@@ -9,9 +9,7 @@
         {"type": "item", "name": "ckfarm:ginger"},
         {"type": "item", "name": "ckfarm:spring_onion_seeds"}
       ],
-      "conditions": [
-        {"condition": "random_chance", "chance": 0.125}
-      ]
+      "conditions": [{"condition": "random_chance", "chance": 0.125}]
     }
   ],
   "functions": [{"function": "explosion_decay"}]

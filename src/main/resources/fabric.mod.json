@@ -2,29 +2,21 @@
   "schemaVersion": 1,
   "id": "ckffmc_farm",
   "version": "${version}",
-
   "name": "CKFarm",
   "description": "Farming, cooking, living.",
-  "authors": [
-    "Dogeon188",
-    "Tsoado",
-    "Sky-Mee"
-  ],
+  "authors": ["Dogeon188", "Tsoado", "Sky-Mee"],
   "contact": {
     "homepage": "https://dogeon188.github.io/",
     "sources": "https://github.com/Dogeon188/CKMCMod/"
   },
-
   "icon": "assets/ckfarm/icon.png",
-
   "environment": "*",
   "entrypoints": {
-    "main": [ "me.ckffmc.farm.MainMod" ],
-    "client": [ "me.ckffmc.farm.client.MainClient" ],
-    "server": [ "me.ckffmc.farm.server.MainServer" ]
+    "main": ["me.ckffmc.farm.MainMod"],
+    "client": ["me.ckffmc.farm.client.MainClient"],
+    "server": ["me.ckffmc.farm.server.MainServer"]
   },
-  "mixins": [ "ckfarm.mixins.json" ],
-
+  "mixins": ["ckfarm.mixins.json"],
   "depends": {
     "fabricloader": ">=0.10.6",
     "fabric": "*",

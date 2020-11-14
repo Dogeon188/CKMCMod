@@ -1,3 +1,5 @@
+### 0.6.0+build.9-1.16
+
 ### 0.5.2+build.8-1.16
 - breaking grass/fern now has a chance to drop various seeds
 - rice/corn/sweet potato/soybean now generates in village farms

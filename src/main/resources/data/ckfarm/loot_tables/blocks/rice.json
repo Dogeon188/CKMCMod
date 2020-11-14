@@ -2,21 +2,19 @@
   "type": "block",
   "pools": [
     {
-      "rolls": 1.0,
+      "rolls": 1,
       "entries": [
         {
           "type": "alternatives",
           "children": [
             {
-              "type": "item",
+              "type": "item", "name": "ckfarm:rice",
               "conditions": [
                 {
                   "condition": "block_state_property",
-                  "block": "ckfarm:rice",
-                  "properties": {"age": "7"}
+                  "block": "ckfarm:rice", "properties": {"age": "7"}
                 }
-              ],
-              "name": "ckfarm:rice"
+              ]
             },
             {"type": "item", "name": "ckfarm:rice_seeds"}
           ]
@@ -24,10 +22,10 @@
       ]
     },
     {
-      "rolls": 1.0,
+      "rolls": 1,
       "entries": [
         {
-          "type": "item",
+          "type": "item", "name": "ckfarm:rice_seeds",
           "functions": [
             {
               "function": "apply_bonus",
@@ -35,15 +33,13 @@
               "formula": "binomial_with_bonus_count",
               "parameters": {"extra": 3, "probability": 0.5714286}
             }
-          ],
-          "name": "ckfarm:rice_seeds"
+          ]
         }
       ],
       "conditions": [
         {
           "condition": "block_state_property",
-          "block": "ckfarm:rice",
-          "properties": {"age": "7"}
+          "block": "ckfarm:rice", "properties": {"age": "7"}
         }
       ]
     }

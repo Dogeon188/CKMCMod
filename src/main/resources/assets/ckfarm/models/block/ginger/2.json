@@ -1,4 +1,1 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {"cross": "ckfarm:block/ginger/2"}
-}
+{"parent": "block/cross", "textures": {"cross": "ckfarm:block/ginger/2"}}

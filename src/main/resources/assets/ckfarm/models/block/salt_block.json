@@ -1,4 +1,1 @@
-{
-  "parent": "block/cube_all",
-  "textures": {"all": "ckfarm:block/salt_block"}
-}
+{"parent": "block/cube_all", "textures": {"all": "ckfarm:block/salt_block"}}

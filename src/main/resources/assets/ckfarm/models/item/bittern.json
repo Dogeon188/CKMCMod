@@ -1,4 +1,1 @@
-{
-  "parent": "item/generated",
-  "textures": { "layer0": "ckfarm:item/bittern" }
-}
+{"parent": "item/generated", "textures": {"layer0": "ckfarm:item/bittern"}}

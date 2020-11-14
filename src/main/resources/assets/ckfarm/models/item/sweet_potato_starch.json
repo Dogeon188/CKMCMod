@@ -1,4 +1,1 @@
-{
-  "parent": "item/generated",
-  "textures": { "layer0": "ckfarm:item/sweet_potato_starch" }
-}
+{"parent": "item/generated", "textures": {"layer0": "ckfarm:item/sweet_potato_starch"}}

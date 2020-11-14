@@ -1,3 +1,1 @@
-{
-  "variants": {"": {"model": "ckfarm:block/salt_block"}}
-}
+{"variants": {"": {"model": "ckfarm:block/salt_block"}}}

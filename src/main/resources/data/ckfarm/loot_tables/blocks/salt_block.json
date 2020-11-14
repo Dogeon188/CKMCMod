@@ -8,17 +8,16 @@
           "type": "alternatives",
           "children": [
             {
-              "type": "item",
+              "type": "item", "name": "ckfarm:salt_block",
               "conditions": [
                 {
                   "condition": "match_tool",
                   "predicate": {"enchantments": [{"enchantment": "silk_touch", "levels": {"min": 1}}]}
                 }
-              ],
-              "name": "ckfarm:salt_block"
+              ]
             },
             {
-              "type": "item",
+              "type": "item", "name": "ckfarm:salt",
               "functions": [
                 {"function": "set_count", "count": {"min": 2.0, "max": 4.0, "type": "uniform"}},
                 {
@@ -29,8 +28,7 @@
                 },
                 {"function": "limit_count", "limit": {"max": 4, "min": 1}},
                 {"function": "explosion_decay"}
-              ],
-              "name": "ckfarm:salt"
+              ]
             }
           ]
         }

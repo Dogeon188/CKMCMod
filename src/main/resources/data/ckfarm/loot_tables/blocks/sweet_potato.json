@@ -1,12 +1,12 @@
 {
   "type": "block",
   "pools": [
-    {"rolls": 1.0, "entries": [{"type": "item", "name": "ckfarm:sweet_potato"}]},
+    {"rolls": 1, "entries": [{"type": "item", "name": "ckfarm:sweet_potato"}]},
     {
-      "rolls": 1.0,
+      "rolls": 1,
       "entries": [
         {
-          "type": "item",
+          "type": "item", "name": "ckfarm:sweet_potato",
           "functions": [
             {
               "function": "apply_bonus",
@@ -14,15 +14,13 @@
               "formula": "binomial_with_bonus_count",
               "parameters": {"extra": 3, "probability": 0.5714286}
             }
-          ],
-          "name": "ckfarm:sweet_potato"
+          ]
         }
       ],
       "conditions": [
         {
           "condition": "block_state_property",
-          "block": "ckfarm:sweet_potato",
-          "properties": {"age": "3"}
+          "block": "ckfarm:sweet_potato", "properties": {"age": "3"}
         }
       ]
     }

@@ -1,4 +1,1 @@
-{
-  "parent": "minecraft:block/crop",
-  "textures": {"crop": "ckfarm:block/rice/1"}
-}
+{"parent": "block/crop", "textures": {"crop": "ckfarm:block/rice/1"}}

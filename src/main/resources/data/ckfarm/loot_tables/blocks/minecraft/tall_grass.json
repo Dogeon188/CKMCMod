@@ -16,9 +16,8 @@
           "block": "tall_grass", "properties": {"half": "upper"}
         },
         {
-          "condition": "location_check",
-          "predicate": {"block": {"block": "tall_grass", "state": {"half": "lower"}}},
-          "offsetY": -1
+          "condition": "location_check", "offsetY": -1,
+          "predicate": {"block": {"block": "tall_grass", "state": {"half": "lower"}}}
         },
         {"condition": "random_chance", "chance": 0.125}
       ]

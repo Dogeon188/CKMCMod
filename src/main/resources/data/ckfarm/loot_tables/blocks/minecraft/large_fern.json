@@ -16,9 +16,8 @@
           "block": "large_fern", "properties": {"half": "upper"}
         },
         {
-          "condition": "location_check",
-          "predicate": {"block": {"block": "large_fern", "state": {"half": "lower"}}},
-          "offsetY": -1
+          "condition": "location_check", "offsetY": -1,
+          "predicate": {"block": {"block": "large_fern", "state": {"half": "lower"}}}
         },
         {"condition": "random_chance", "chance": 0.125}
       ]
