@@ -18,7 +18,7 @@ public class MainMod implements ModInitializer {
             MyBlocks.registerBlocks();
             MyFeatures.registerFeatures();
             MyEntityType.class.getDeclaredConstructor().newInstance();
-            MyEntityType.registerEntityAttributes();
+            MyEntityType.registerEntities();
             MyRecipeSerializer.registerRecipeSerializers();
             LootModify.modifyLoot();
             VillagerModify.modify();

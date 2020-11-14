@@ -8,7 +8,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class MyBlockEntityType {
-
     public static final BlockEntityType<MillstoneBlockEntity> MILLSTONE_BLOCK_ENTITY = register("millstone",
             BlockEntityType.Builder.create(MillstoneBlockEntity::new, MyBlocks.MILLSTONE).build(null));
     public static final BlockEntityType<CookingTableBlockEntity> COOKING_TABLE_BLOCK_ENTITY = register("cooking_table",

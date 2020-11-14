@@ -52,7 +52,7 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
 
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: CookingTableBlockEntity.this.cookTime = value;      break;
+                    case 0: CookingTableBlockEntity.this.cookTime = value; break;
                     case 1: CookingTableBlockEntity.this.totalCookTime = value;
                 }
             }

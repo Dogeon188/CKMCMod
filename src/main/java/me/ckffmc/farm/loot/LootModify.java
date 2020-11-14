@@ -9,9 +9,7 @@ import net.minecraft.loot.entry.LootTableEntry;
 import net.minecraft.util.Identifier;
 
 public class LootModify {
-    private static final String[] GRASS_IDENTIFIERS = {
-            "grass", "fern", "large_fern", "tall_grass"
-    };
+    private static final String[] GRASS_IDENTIFIERS = {"grass", "fern", "large_fern", "tall_grass"};
     public static void modifyLoot() {
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             for (String i : GRASS_IDENTIFIERS) {
