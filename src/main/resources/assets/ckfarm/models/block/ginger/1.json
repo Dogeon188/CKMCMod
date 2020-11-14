@@ -1,1 +1,1 @@
-{"parent": "block/cross", "textures": {"cross": "ckfarm:block/ginger/1"}}
+{"parent": "ckfarm:block/cross_crop", "textures": {"cross": "ckfarm:block/ginger/1"}}
