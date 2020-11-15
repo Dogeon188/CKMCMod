@@ -23,11 +23,12 @@ public class TunScreen extends HandledScreen<TunScreenHandler> {
             int x = (width - backgroundWidth) / 2;
             int y = (height - backgroundHeight) / 2;
             drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
-            int l = handler.getCraftProgress();
-            drawTexture(matrices, x + 76, y + 18, 176, 5, 20 + 1, 6);
-            drawTexture(matrices, x + 54, y + 58, 176, 0, l + 1, 5);
-            drawTexture(matrices, x + 77, y + 65, 176, 0, l + 1, 5);
-            drawTexture(matrices, x + 100, y + 58, 176, 0, l + 1, 5);
+
+            drawTexture(matrices, x + 76, y + 18, 176, 5, handler.getFuel() + 1, 6);
+            for (int i = 0; i < 3; i++) {
+                drawTexture(matrices, x + 100 - 23 * i, y + (i == 1 ? 65 : 58), 176, 0,
+                        handler.getFermentProgress(i), 5);
+            }
         }
     }
 
