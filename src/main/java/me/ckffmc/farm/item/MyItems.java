@@ -72,6 +72,8 @@ public class MyItems {
             new Item.Settings().group(MyItemGroups.GENERAL));
     public static final Item COOKING_TABLE = new BlockItem(MyBlocks.COOKING_TABLE,
             new Item.Settings().group(MyItemGroups.GENERAL));
+    public static final Item TUN = new BlockItem(MyBlocks.TUN,
+            new Item.Settings().group(MyItemGroups.GENERAL));
 
     public static final Item OYSTER_SPAWN_EGG = new SpawnEggItem(MyEntityType.OYSTER, 0x091E07, 0xC9BCCA, new Item.Settings().group(MyItemGroups.GENERAL));
 
@@ -115,6 +117,7 @@ public class MyItems {
         register("bubble_tea", BUBBLE_TEA);
         register("millstone", MILLSTONE);
         register("cooking_table", COOKING_TABLE);
+        register("tun", TUN);
         register("oyster_spawn_egg", OYSTER_SPAWN_EGG);
     }
 }

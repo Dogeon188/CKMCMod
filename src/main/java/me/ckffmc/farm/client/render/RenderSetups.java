@@ -3,6 +3,7 @@ package me.ckffmc.farm.client.render;
 import me.ckffmc.farm.block.MyBlocks;
 import me.ckffmc.farm.block.entity.MyBlockEntityType;
 import me.ckffmc.farm.client.gui.screen.CookingTableScreen;
+import me.ckffmc.farm.client.gui.screen.TunScreen;
 import me.ckffmc.farm.client.gui.screen.MillstoneScreen;
 import me.ckffmc.farm.client.render.block.entity.MillstoneBlockEntityRenderer;
 import me.ckffmc.farm.client.render.entity.OysterEntityRenderer;
@@ -25,6 +26,7 @@ public class RenderSetups {
         // ui render setups
         ScreenRegistry.register(MyScreenHandlerType.MILLSTONE_SCREEN_HANDLER, MillstoneScreen::new);
         ScreenRegistry.register(MyScreenHandlerType.COOKING_TABLE_SCREEN_HANDLER, CookingTableScreen::new);
+        ScreenRegistry.register(MyScreenHandlerType.TUN_SCREEN_HANDLER, TunScreen::new);
 
         // block entity render setups
         BlockEntityRendererRegistry.INSTANCE.register(MyBlockEntityType.MILLSTONE_BLOCK_ENTITY, MillstoneBlockEntityRenderer::new);

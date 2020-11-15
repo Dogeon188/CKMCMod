@@ -12,6 +12,8 @@ public class MyScreenHandlerType {
             register("millstone", MillstoneScreenHandler::new);
     public static final ScreenHandlerType<CookingTableScreenHandler> COOKING_TABLE_SCREEN_HANDLER =
             register("cooking_table", CookingTableScreenHandler::new);
+    public static final ScreenHandlerType<TunScreenHandler> TUN_SCREEN_HANDLER =
+            register("tun", TunScreenHandler::new);
 
     private static <T extends ScreenHandler> ScreenHandlerType<T> register(String id, SimpleClientHandlerFactory<T> factory) {
         return ScreenHandlerRegistry.registerSimple(new Identifier(MainMod.MOD_ID, id), factory);

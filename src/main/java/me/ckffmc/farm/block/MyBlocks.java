@@ -1,7 +1,10 @@
 package me.ckffmc.farm.block;
 
 import me.ckffmc.farm.MainMod;
-import me.ckffmc.farm.block.crop.*;
+import me.ckffmc.farm.block.crop.Age4CropBlock;
+import me.ckffmc.farm.block.crop.Age8CropBlock;
+import me.ckffmc.farm.block.crop.TallCropBlock;
+import me.ckffmc.farm.block.crop.TeaSaplingBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
@@ -31,6 +34,8 @@ public class MyBlocks {
             .requiresTool().strength(3.5F));
     public static final Block COOKING_TABLE = new CookingTableBlock(FabricBlockSettings.of(Material.STONE)
             .requiresTool().strength(3.5F));
+    public static final Block TUN =
+            new TunBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).sounds(BlockSoundGroup.WOOD));
 
     private static void register(String id, Block block) {
         Registry.register(Registry.BLOCK, new Identifier(MainMod.MOD_ID, id), block);
@@ -50,6 +55,7 @@ public class MyBlocks {
         register("salt_block", SALT_BLOCK);
         register("millstone", MILLSTONE);
         register("cooking_table", COOKING_TABLE);
+        register("tun", TUN);
     }
 
     private static FabricBlockSettings newCropSettings() {
