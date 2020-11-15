@@ -17,12 +17,7 @@ public class FermentingRecipeRegistry {
         return false;
    }
 
-   public static boolean hasRecipe(ItemStack input) {
-        for (Recipe recipe : RECIPES) { if (recipe.input.test(input)) return true; }
-        return false;
-   }
-
-   public static int getFermentTime() { return 400; }
+    public static int getFermentTime() { return 400; }
 
    public static ItemStack craft(ItemStack input) {
         if (!input.isEmpty()) {
@@ -32,25 +27,23 @@ public class FermentingRecipeRegistry {
    }
 
     public static void registerFermentingRecipes() {
-        register(MyItems.TEA_LEAVES, MyItems.BLACK_TEA_LEAVES, 200);
-        register(MyItems.SOYBEAN, Items.STONE, 200);
-        register(MyItems.TOFU, Items.STONE, 200);
-        register(Items.EGG, Items.ACACIA_LOG, 400);
+        register(MyItems.TEA_LEAVES, MyItems.BLACK_TEA_LEAVES);
+        register(MyItems.SOYBEAN, MyItems.SOY_SAUCE);
+        register(MyItems.TOFU, MyItems.STINKY_TOFU);
+        register(Items.EGG, MyItems.PRESERVED_EGG);
     }
 
-    private static void register(Item input, Item output, int fermentTime) {
-        RECIPES.add(new Recipe(Ingredient.ofItems(input), output, fermentTime));
+    private static void register(Item input, Item output) {
+        RECIPES.add(new Recipe(Ingredient.ofItems(input), output));
     }
 
     static class Recipe {
         private final Ingredient input;
         private final Item output;
-        private final int fermentTime;
 
-        public Recipe(Ingredient input, Item output, int fermentTime) {
+        public Recipe(Ingredient input, Item output) {
             this.input = input;
             this.output = output;
-            this.fermentTime = fermentTime;
         }
     }
 }

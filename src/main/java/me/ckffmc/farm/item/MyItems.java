@@ -61,12 +61,17 @@ public class MyItems {
             .food(MyFoodComponents.TOFU));
     public static final Item TOFU_PUDDING = new Item(new Item.Settings().group(MyItemGroups.GENERAL)
             .food(MyFoodComponents.TOFU_PUDDING));
+    public static final Item STINKY_TOFU = new Item(new Item.Settings().group(MyItemGroups.GENERAL)
+            .food(MyFoodComponents.STINKY_TOFU));
+    public static final Item PRESERVED_EGG = new Item(new Item.Settings().group(MyItemGroups.GENERAL)
+            .food(MyFoodComponents.PRESERVED_EGG));
     public static final Item SWEET_POTATO_STARCH = new Item(new Item.Settings().group(MyItemGroups.GENERAL));
     public static final Item SHAVED_ICE = new Item(new Item.Settings().group(MyItemGroups.GENERAL)
             .food(MyFoodComponents.SHAVED_ICE));
     public static final Item TAPIOCA_BALLS = new Item(new Item.Settings().group(MyItemGroups.GENERAL));
     public static final Item BUBBLE_TEA = new DrinkItem(new Item.Settings().group(MyItemGroups.GENERAL)
             .food(MyFoodComponents.BUBBLE_TEA).maxCount(16));
+    public static final Item SOY_SAUCE = new Item(new Item.Settings().group(MyItemGroups.GENERAL));
 
     public static final Item MILLSTONE = new BlockItem(MyBlocks.MILLSTONE,
             new Item.Settings().group(MyItemGroups.GENERAL));
@@ -111,10 +116,13 @@ public class MyItems {
         register("bittern", BITTERN);
         register("tofu", TOFU);
         register("tofu_pudding", TOFU_PUDDING);
+        register("stinky_tofu", STINKY_TOFU);
+        register("preserved_egg", PRESERVED_EGG);
         register("sweet_potato_starch", SWEET_POTATO_STARCH);
         register("shaved_ice", SHAVED_ICE);
         register("tapioca_balls", TAPIOCA_BALLS);
         register("bubble_tea", BUBBLE_TEA);
+        register("soy_sauce", SOY_SAUCE);
         register("millstone", MILLSTONE);
         register("cooking_table", COOKING_TABLE);
         register("tun", TUN);
