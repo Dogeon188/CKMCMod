@@ -118,6 +118,7 @@ public class MyItems {
         register("tea_sapling", TEA_SAPLING);
         register("tea_leaves", TEA_LEAVES);
         register("black_tea_leaves", BLACK_TEA_LEAVES);
+        register("mango", MANGO);
         register("mango_sapling", MANGO_SAPLING);
         register("mango_log", MANGO_LOG);
         register("mango_planks", MANGO_PLANKS);

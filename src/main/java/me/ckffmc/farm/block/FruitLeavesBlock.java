@@ -13,6 +13,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -38,8 +39,15 @@ public class FruitLeavesBlock extends LeavesBlock {
 
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         super.randomTick(state, world, pos, random);
-        if (!state.get(PERSISTENT) && !state.get(HAS_FRUIT) && random.nextFloat() <= 0.005F)
+        if (!state.get(PERSISTENT) && !state.get(HAS_FRUIT) && adjacentToAir(world, pos) && random.nextFloat() <= 0.005F)
             world.setBlockState(pos, state.with(HAS_FRUIT, true));
+    }
+
+    private boolean adjacentToAir(ServerWorld world, BlockPos pos) {
+        for (Direction direction : FACINGS) {
+            if (world.getBlockState(pos.offset(direction)).isAir()) return true;
+        }
+        return false;
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {

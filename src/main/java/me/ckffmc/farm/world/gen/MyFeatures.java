@@ -2,6 +2,7 @@ package me.ckffmc.farm.world.gen;
 
 import com.google.common.collect.ImmutableSet;
 import me.ckffmc.farm.MainMod;
+import me.ckffmc.farm.block.FruitLeavesBlock;
 import me.ckffmc.farm.block.MyBlocks;
 import me.ckffmc.farm.block.crop.TeaSaplingBlock;
 import net.minecraft.block.BlockState;
@@ -16,7 +17,9 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.placer.SimpleBlockPlacer;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 public class MyFeatures {
@@ -47,7 +50,9 @@ public class MyFeatures {
                 .with(TeaSaplingBlock.AGE, 3);
         protected static final BlockState GRASS_BLOCK = Blocks.GRASS_BLOCK.getDefaultState();
         protected static final BlockState MANGO_LOG = MyBlocks.MANGO_LOG.getDefaultState();
-        protected static final BlockState MANGO_LEAVES = MyBlocks.MANGO_LEAVES.getDefaultState();
+        protected static final BlockStateProvider MANGO_STATE_PROVIDER = new WeightedBlockStateProvider()
+                .addState(MyBlocks.MANGO_LEAVES.getDefaultState(), 8)
+                .addState(MyBlocks.MANGO_LEAVES.getDefaultState().with(FruitLeavesBlock.HAS_FRUIT, true), 1);
     }
 
     public static final class Configs {
@@ -60,7 +65,7 @@ public class MyFeatures {
                 .cannotProject().build();
         public static final TreeFeatureConfig MANGO_CONFIG = new TreeFeatureConfig.Builder(
                 new SimpleBlockStateProvider(States.MANGO_LOG),
-                new SimpleBlockStateProvider(States.MANGO_LEAVES),
+                States.MANGO_STATE_PROVIDER,
                 new BlobFoliagePlacer(UniformIntDistribution.of(2), UniformIntDistribution.of(0), 3),
                 new StraightTrunkPlacer(4, 2, 0),
                 new TwoLayersFeatureSize(1, 0, 1))
