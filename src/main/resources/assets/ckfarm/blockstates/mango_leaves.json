@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "has_fruit=false": {"model": "ckfarm:block/mango_leaves"},
+    "has_fruit=true": {"model": "ckfarm:block/mango_leaves_has_fruit"}
+  }
+}

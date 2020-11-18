@@ -36,6 +36,7 @@ public class RenderSetups {
         // mipped with transparent pixel(s)
         RenderLayer cutoutMipped = RenderLayer.getCutoutMipped();
         putBlock(MyBlocks.TEA_SAPLING, cutoutMipped);
+        putBlock(MyBlocks.MANGO_LEAVES, cutoutMipped);
         // with transparent pixel(s)
         RenderLayer cutout = RenderLayer.getCutout();
         putBlock(MyBlocks.RICE, cutout);
@@ -47,6 +48,7 @@ public class RenderSetups {
         putBlock(MyBlocks.SWEET_POTATO, cutout);
         putBlock(MyBlocks.HANJI, cutout);
         putBlock(MyBlocks.SOYBEAN, cutout);
+        putBlock(MyBlocks.MANGO_SAPLING, cutout);
         // half-transparent
         RenderLayer translucent = RenderLayer.getTranslucent();
     }

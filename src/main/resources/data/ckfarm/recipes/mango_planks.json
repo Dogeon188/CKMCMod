@@ -1,0 +1,5 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [{"item": "ckfarm:mango_log"}],
+  "result": {"item": "ckfarm:mango_planks", "count": 4}
+}

@@ -45,7 +45,19 @@ public class MyItems {
     public static final Item TEA_LEAVES = new Item(new Item.Settings().group(MyItemGroups.GENERAL));
     public static final Item BLACK_TEA_LEAVES = new Item(new Item.Settings().group(MyItemGroups.GENERAL));
 
-    public static final Item RAW_OYSTER = new Item(new Item.Settings().group(MyItemGroups.GENERAL));
+    public static final Item MANGO = new Item(new Item.Settings().group(MyItemGroups.GENERAL)
+            .food(MyFoodComponents.MANGO));
+    public static final Item MANGO_SAPLING = new BlockItem(MyBlocks.MANGO_SAPLING,
+            new Item.Settings().group(MyItemGroups.GENERAL));
+    public static final Item MANGO_LOG = new BlockItem(MyBlocks.MANGO_LOG,
+            new Item.Settings().group(MyItemGroups.GENERAL));
+    public static final Item MANGO_PLANKS = new BlockItem(MyBlocks.MANGO_PLANKS,
+            new Item.Settings().group(MyItemGroups.GENERAL));
+    public static final Item MANGO_LEAVES = new BlockItem(MyBlocks.MANGO_LEAVES,
+            new Item.Settings().group(MyItemGroups.GENERAL));
+
+    public static final Item RAW_OYSTER = new Item(new Item.Settings().group(MyItemGroups.GENERAL)
+            .food(MyFoodComponents.RAW_OYSTER));
     public static final Item COOKED_OYSTER = new Item(new Item.Settings().group(MyItemGroups.GENERAL)
             .food(MyFoodComponents.COOKED_OYSTER));
     public static final Item WHEAT_FLOUR = new Item(new Item.Settings().group(MyItemGroups.GENERAL));
@@ -106,6 +118,10 @@ public class MyItems {
         register("tea_sapling", TEA_SAPLING);
         register("tea_leaves", TEA_LEAVES);
         register("black_tea_leaves", BLACK_TEA_LEAVES);
+        register("mango_sapling", MANGO_SAPLING);
+        register("mango_log", MANGO_LOG);
+        register("mango_planks", MANGO_PLANKS);
+        register("mango_leaves", MANGO_LEAVES);
         register("raw_oyster", RAW_OYSTER);
         register("cooked_oyster", COOKED_OYSTER);
         register("wheat_flour", WHEAT_FLOUR);

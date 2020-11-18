@@ -15,7 +15,9 @@ public class MyFoodComponents {
     public static final FoodComponent GARLIC = newFood(1, 0.3f);
     public static final FoodComponent GINGER = newFood(1, 0.3f);
     public static final FoodComponent LETTUCE = newFood(1, 0.4f);
+    public static final FoodComponent MANGO = newFood(1, 0.4f);
     public static final FoodComponent PRESERVED_EGG = newFood(2, 0.6f);
+    public static final FoodComponent RAW_OYSTER = newFood(1, 0.2f);
     public static final FoodComponent ROASTED_CORN = newFood(4, 1.8f);
     public static final FoodComponent SHAVED_ICE = newFood(2, 0.1f);
     public static final FoodComponent SOY_MILK = newFood(3, 0.8f);
