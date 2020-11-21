@@ -1,6 +1,12 @@
 {
-  "variants": {
-    "has_fruit=false": {"model": "ckfarm:block/mango_leaves"},
-    "has_fruit=true": {"model": "ckfarm:block/mango_leaves_has_fruit"}
-  }
+  "multipart": [
+    {"apply": {"model": "ckfarm:block/mango_leaves"}},
+    {
+      "when": {"has_fruit": "true"},
+      "apply": [
+        {"model": "ckfarm:block/mango_leaves_fruit0"},
+        {"model": "ckfarm:block/mango_leaves_fruit1"}
+      ]
+    }
+  ]
 }
