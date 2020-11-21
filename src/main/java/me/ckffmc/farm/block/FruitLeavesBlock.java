@@ -1,28 +1,37 @@
 package me.ckffmc.farm.block;
 
-import me.ckffmc.farm.item.MyItems;
+import me.ckffmc.farm.MainMod;
+import me.ckffmc.farm.sound.MySoundEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeavesBlock;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
 public class FruitLeavesBlock extends LeavesBlock {
     public static final BooleanProperty HAS_FRUIT = BooleanProperty.of("has_fruit");
+    private final String fruitItem;
+    private final int fruitCount;
 
-    public FruitLeavesBlock(Settings settings) {
+    public FruitLeavesBlock(String fruitItem, int fruitCount, Settings settings) {
         super(settings);
+        this.fruitItem = fruitItem;
+        this.fruitCount = fruitCount;
         this.setDefaultState(this.getStateManager().getDefaultState()
                 .with(HAS_FRUIT, false).with(DISTANCE, 7)
                 .with(PERSISTENT, false));
@@ -33,9 +42,7 @@ public class FruitLeavesBlock extends LeavesBlock {
         builder.add(HAS_FRUIT);
     }
 
-    public boolean hasRandomTicks(BlockState state) {
-        return super.hasRandomTicks(state) || !state.get(HAS_FRUIT);
-    }
+    public boolean hasRandomTicks(BlockState state) { return super.hasRandomTicks(state) || !state.get(HAS_FRUIT); }
 
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         super.randomTick(state, world, pos, random);
@@ -52,10 +59,18 @@ public class FruitLeavesBlock extends LeavesBlock {
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (state.get(HAS_FRUIT)) {
-            dropStack(world, pos, new ItemStack(MyItems.MANGO, 1));
+            dropStack(world, pos, getFruitStack());
             world.setBlockState(pos, state.with(HAS_FRUIT, false));
+            if (world.isClient) {
+                ((ClientWorld)world).playSound(pos, MySoundEvents.MANGO_PICK_FROM_LEAVES, SoundCategory.BLOCKS,
+                        1F, 1F, false);
+            }
             return ActionResult.success(world.isClient);
         }
         else return super.onUse(state, world, pos, player, hand, hit);
+    }
+
+    protected ItemStack getFruitStack() {
+        return new ItemStack(Registry.ITEM.get(new Identifier(MainMod.MOD_ID, fruitItem)), fruitCount);
     }
 }

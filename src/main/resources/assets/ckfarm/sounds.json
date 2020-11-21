@@ -1,3 +1,13 @@
 {
-  "block.millstone.milling": {"sounds": ["minecart/inside"]}
+  "block.millstone.milling": {
+    "sounds": ["minecart/inside"],
+    "subtitle": "subtitles.block.millstone.milling"
+  },
+  "item.mango.pick_from_leaves": {
+    "sounds": [
+      "item/sweet_berries/pick_from_bush1",
+      "item/sweet_berries/pick_from_bush2"
+    ],
+    "subtitle": "subtitles.item.mango.pick"
+  }
 }

@@ -1,15 +1,19 @@
 package me.ckffmc.farm.block.crop;
 
+import me.ckffmc.farm.MainMod;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -21,11 +25,15 @@ public class TallCropBlock extends CropBlock {
     public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
     public static final IntProperty AGE = Properties.AGE_7;
     public static final VoxelShape[] SHAPES;
+    private final String seedsItem;
 
-    public TallCropBlock(Settings settings) {
+    public TallCropBlock(String seedsItem, Settings settings) {
         super(settings);
+        this.seedsItem = seedsItem;
         this.setDefaultState(this.stateManager.getDefaultState().with(HALF, DoubleBlockHalf.LOWER));
     }
+
+    protected ItemConvertible getSeedsItem() { return Registry.ITEM.get(new Identifier(MainMod.MOD_ID, this.seedsItem)); }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPES[state.get(HALF) == DoubleBlockHalf.UPPER

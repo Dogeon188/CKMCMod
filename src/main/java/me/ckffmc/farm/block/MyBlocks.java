@@ -10,7 +10,6 @@ import me.ckffmc.farm.block.sapling.MangoSaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -19,15 +18,15 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
 
 public class MyBlocks {
-    public static final Block CORN = newTallCrop("corn_seeds", newCropSettings());
-    public static final Block GARLIC = newAge4Crop("garlic",  newCropSettings());
-    public static final Block GINGER = newAge4Crop("ginger", newCropSettings());
-    public static final Block SOYBEAN = newAge4Crop("soybean", newCropSettings());
-    public static final Block SPRING_ONION = newAge4Crop("spring_onion_seeds", newCropSettings());
-    public static final Block SWEET_POTATO = newAge4Crop("sweet_potato", newCropSettings());
-    public static final Block HANJI = newAge4Crop("hanji", newCropSettings());
-    public static final Block LETTUCE = newAge8Crop("lettuce_seeds", newCropSettings());
-    public static final Block RICE = newAge8Crop("rice_seeds", newCropSettings());
+    public static final Block CORN = new TallCropBlock("corn_seeds", newCropSettings());
+    public static final Block GARLIC = new Age4CropBlock("garlic",  newCropSettings());
+    public static final Block GINGER = new Age4CropBlock("ginger", newCropSettings());
+    public static final Block SOYBEAN = new Age4CropBlock("soybean", newCropSettings());
+    public static final Block SPRING_ONION = new Age4CropBlock("spring_onion_seeds", newCropSettings());
+    public static final Block SWEET_POTATO = new Age4CropBlock("sweet_potato", newCropSettings());
+    public static final Block HANJI = new Age4CropBlock("hanji", newCropSettings());
+    public static final Block LETTUCE = new Age8CropBlock("lettuce_seeds", newCropSettings());
+    public static final Block RICE = new Age8CropBlock("rice_seeds", newCropSettings());
 
     public static final Block TEA_SAPLING = new TeaSaplingBlock(FabricBlockSettings
             .of(Material.PLANT, MaterialColor.FOLIAGE).ticksRandomly().sounds(BlockSoundGroup.WOOD));
@@ -40,9 +39,10 @@ public class MyBlocks {
     public static final Block MANGO_PLANKS = new Block(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD)
             .strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
 
-    public static final Block MANGO_LEAVES = new FruitLeavesBlock(FabricBlockSettings.of(Material.LEAVES)
-            .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque()
-            .allowsSpawning(Criteria::canSpawnOnLeaves).suffocates(Criteria::never).blockVision(Criteria::never));
+    public static final Block MANGO_LEAVES = new FruitLeavesBlock("mango", 1,
+            FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().nonOpaque()
+                    .sounds(BlockSoundGroup.GRASS).allowsSpawning(Criteria::canSpawnOnLeaves)
+                    .suffocates(Criteria::never).blockVision(Criteria::never));
 
     public static final Block SALT_BLOCK = new Block(FabricBlockSettings.of(Material.GLASS, MaterialColor.WHITE)
             .strength(0.3F).sounds(BlockSoundGroup.GLASS));
@@ -80,30 +80,6 @@ public class MyBlocks {
 
     private static FabricBlockSettings newCropSettings() {
         return FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP);
-    }
-
-    private static Age8CropBlock newAge8Crop(String seeds_item, FabricBlockSettings settings) {
-        return new Age8CropBlock(settings) {
-            protected ItemConvertible getSeedsItem() {
-                return Registry.ITEM.get(new Identifier(MainMod.MOD_ID, seeds_item));
-            }
-        };
-    }
-
-    private static Age4CropBlock newAge4Crop(String seeds_item, FabricBlockSettings settings) {
-        return new Age4CropBlock(settings) {
-            protected ItemConvertible getSeedsItem() {
-                return Registry.ITEM.get(new Identifier(MainMod.MOD_ID, seeds_item));
-            }
-        };
-    }
-
-    private static TallCropBlock newTallCrop(String seeds_item, FabricBlockSettings settings) {
-        return new TallCropBlock(settings) {
-            protected ItemConvertible getSeedsItem() {
-                return Registry.ITEM.get(new Identifier(MainMod.MOD_ID, seeds_item));
-            }
-        };
     }
 
     static class Criteria {
