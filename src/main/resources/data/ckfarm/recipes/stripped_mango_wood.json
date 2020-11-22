@@ -1,0 +1,10 @@
+{
+  "type": "crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {"#": {"item": "ckfarm:stripped_mango_log"}},
+  "result": {"item": "ckfarm:stripped_mango_wood", "count": 3}
+}

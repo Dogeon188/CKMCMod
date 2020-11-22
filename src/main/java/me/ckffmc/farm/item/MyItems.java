@@ -35,6 +35,9 @@ public class MyItems {
     public static final Item MANGO = new Item(grouped().food(MyFoodComponents.MANGO));
     public static final Item MANGO_SAPLING = new BlockItem(MyBlocks.MANGO_SAPLING, grouped());
     public static final Item MANGO_LOG = new BlockItem(MyBlocks.MANGO_LOG, grouped());
+    public static final Item STRIPPED_MANGO_LOG = new BlockItem(MyBlocks.STRIPPED_MANGO_LOG, grouped());
+    public static final Item MANGO_WOOD = new BlockItem(MyBlocks.MANGO_WOOD, grouped());
+    public static final Item STRIPPED_MANGO_WOOD = new BlockItem(MyBlocks.STRIPPED_MANGO_WOOD, grouped());
     public static final Item MANGO_PLANKS = new BlockItem(MyBlocks.MANGO_PLANKS, grouped());
     public static final Item MANGO_LEAVES = new BlockItem(MyBlocks.MANGO_LEAVES, grouped());
 
@@ -92,6 +95,9 @@ public class MyItems {
         register("mango", MANGO);
         register("mango_sapling", MANGO_SAPLING);
         register("mango_log", MANGO_LOG);
+        register("stripped_mango_log", STRIPPED_MANGO_LOG);
+        register("mango_wood", MANGO_WOOD);
+        register("stripped_mango_wood", STRIPPED_MANGO_WOOD);
         register("mango_planks", MANGO_PLANKS);
         register("mango_leaves", MANGO_LEAVES);
         register("raw_oyster", RAW_OYSTER);

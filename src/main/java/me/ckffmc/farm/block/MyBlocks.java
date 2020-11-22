@@ -34,8 +34,16 @@ public class MyBlocks {
     public static final Block MANGO_SAPLING = new MangoSaplingBlock(new MangoSaplingGenerator(),
             FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS));
     public static final Block MANGO_LOG = new PillarBlock(FabricBlockSettings.of(Material.WOOD,
-            (state) -> state.get(PillarBlock.AXIS) == Direction.Axis.Y ? MaterialColor.ORANGE : MaterialColor.WOOD)
+            (state) -> state.get(PillarBlock.AXIS) == Direction.Axis.Y ? MaterialColor.ORANGE_TERRACOTTA : MaterialColor.WOOD)
             .strength(2.0F).sounds(BlockSoundGroup.WOOD));
+    public static final Block STRIPPED_MANGO_LOG = new PillarBlock(FabricBlockSettings.of(Material.WOOD,
+            (state) -> state.get(PillarBlock.AXIS) == Direction.Axis.Y ? MaterialColor.ORANGE_TERRACOTTA :
+                    MaterialColor.ORANGE_TERRACOTTA)
+            .strength(2.0F).sounds(BlockSoundGroup.WOOD));
+    public static final Block MANGO_WOOD = new PillarBlock(FabricBlockSettings.of(Material.WOOD,
+            MaterialColor.WOOD).strength(2.0F).sounds(BlockSoundGroup.WOOD));
+    public static final Block STRIPPED_MANGO_WOOD = new PillarBlock(FabricBlockSettings.of(Material.WOOD,
+            MaterialColor.ORANGE_TERRACOTTA).strength(2.0F).sounds(BlockSoundGroup.WOOD));
     public static final Block MANGO_PLANKS = new Block(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD)
             .strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
 
@@ -70,6 +78,9 @@ public class MyBlocks {
         register("tea_sapling", TEA_SAPLING);
         register("mango_sapling", MANGO_SAPLING);
         register("mango_log", MANGO_LOG);
+        register("stripped_mango_log", STRIPPED_MANGO_LOG);
+        register("mango_wood", MANGO_WOOD);
+        register("stripped_mango_wood", STRIPPED_MANGO_WOOD);
         register("mango_planks", MANGO_PLANKS);
         register("mango_leaves", MANGO_LEAVES);
         register("salt_block", SALT_BLOCK);

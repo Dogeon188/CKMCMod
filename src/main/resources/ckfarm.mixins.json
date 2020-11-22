@@ -9,6 +9,7 @@
     "entity.ai.brain.task.FarmerWorkTaskAccessor",
     "entity.passive.VillagerEntityAccessor",
     "entity.passive.VillagerEntityMixin",
+    "item.AxeItemAccessor",
     "structure.processor.StructureProcessorListsMixin",
     "world.biome.DefaultBiomeCreatorMixin",
     "world.gen.feature.DefaultBiomeFeaturesMixin"

@@ -1,0 +1,4 @@
+{
+  "parent": "block/cube_column",
+  "textures": {"end": "ckfarm:block/mango_log", "side": "ckfarm:block/mango_log"}
+}
