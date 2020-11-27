@@ -39,6 +39,16 @@ public class MyItems {
     public static final Item MANGO_WOOD = new BlockItem(MyBlocks.MANGO_WOOD, grouped());
     public static final Item STRIPPED_MANGO_WOOD = new BlockItem(MyBlocks.STRIPPED_MANGO_WOOD, grouped());
     public static final Item MANGO_PLANKS = new BlockItem(MyBlocks.MANGO_PLANKS, grouped());
+    public static final Item MANGO_STAIRS = new BlockItem(MyBlocks.MANGO_STAIRS, grouped());
+    public static final Item MANGO_SLAB = new BlockItem(MyBlocks.MANGO_SLAB, grouped());
+//    public static final Item MANGO_SIGN = new SignItem(grouped().maxCount(16),
+//            MyBlocks.MANGO_SIGN, MyBlocks.MANGO_WALL_SIGN);
+    public static final Item MANGO_BUTTON = new BlockItem(MyBlocks.MANGO_BUTTON, grouped());
+    public static final Item MANGO_PRESSURE_PLATE = new BlockItem(MyBlocks.MANGO_PRESSURE_PLATE, grouped());
+    public static final Item MANGO_TRAPDOOR = new BlockItem(MyBlocks.MANGO_TRAPDOOR, grouped());
+    public static final Item MANGO_FENCE_GATE = new BlockItem(MyBlocks.MANGO_FENCE_GATE, grouped());
+    public static final Item MANGO_FENCE = new BlockItem(MyBlocks.MANGO_FENCE, grouped());
+    public static final Item MANGO_DOOR = new BlockItem(MyBlocks.MANGO_DOOR, grouped());
     public static final Item MANGO_LEAVES = new BlockItem(MyBlocks.MANGO_LEAVES, grouped());
 
     public static final Item RAW_OYSTER = new Item(grouped().food(MyFoodComponents.RAW_OYSTER));
@@ -54,11 +64,9 @@ public class MyItems {
     public static final Item STINKY_TOFU = new Item(grouped().food(MyFoodComponents.STINKY_TOFU));
     public static final Item PRESERVED_EGG = new Item(grouped().food(MyFoodComponents.PRESERVED_EGG));
     public static final Item SWEET_POTATO_STARCH = new Item(grouped());
-    public static final Item SHAVED_ICE = new Item(grouped()
-            .food(MyFoodComponents.SHAVED_ICE));
+    public static final Item SHAVED_ICE = new Item(grouped().food(MyFoodComponents.SHAVED_ICE));
     public static final Item TAPIOCA_BALLS = new Item(grouped());
-    public static final Item BUBBLE_TEA = new DrinkItem(grouped()
-            .food(MyFoodComponents.BUBBLE_TEA).maxCount(16));
+    public static final Item BUBBLE_TEA = new DrinkItem(grouped().food(MyFoodComponents.BUBBLE_TEA).maxCount(16));
     public static final Item SOY_SAUCE = new Item(grouped());
 
     public static final Item MILLSTONE = new BlockItem(MyBlocks.MILLSTONE, grouped());
@@ -99,6 +107,15 @@ public class MyItems {
         register("mango_wood", MANGO_WOOD);
         register("stripped_mango_wood", STRIPPED_MANGO_WOOD);
         register("mango_planks", MANGO_PLANKS);
+        register("mango_stairs", MANGO_STAIRS);
+        register("mango_slab", MANGO_SLAB);
+//        register("mango_sign", MANGO_SIGN);
+        register("mango_button", MANGO_BUTTON);
+        register("mango_pressure_plate", MANGO_PRESSURE_PLATE);
+        register("mango_trapdoor", MANGO_TRAPDOOR);
+        register("mango_fence_gate", MANGO_FENCE_GATE);
+        register("mango_fence", MANGO_FENCE);
+        register("mango_door", MANGO_DOOR);
         register("mango_leaves", MANGO_LEAVES);
         register("raw_oyster", RAW_OYSTER);
         register("cooked_oyster", COOKED_OYSTER);

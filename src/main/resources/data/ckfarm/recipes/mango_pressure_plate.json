@@ -1,0 +1,9 @@
+{
+  "type": "crafting_shaped",
+  "group": "wooden_pressure_plate",
+  "pattern": [
+    "##"
+  ],
+  "key": {"#": {"item": "ckfarm:mango_planks"}},
+  "result": {"item": "ckfarm:mango_pressure_plate", "count": 1}
+}

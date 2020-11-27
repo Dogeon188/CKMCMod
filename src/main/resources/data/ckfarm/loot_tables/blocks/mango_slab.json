@@ -1,0 +1,26 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item", "name": "ckfarm:mango_slab",
+          "functions": [
+            {
+              "function": "set_count",
+              "conditions": [
+                {
+                  "condition": "block_state_property",
+                  "block": "ckfarm:mango_slab", "properties": {"type": "double"}
+                }
+              ],
+              "count": 2
+            },
+            {"function": "explosion_decay"}
+          ]
+        }
+      ]
+    }
+  ]
+}

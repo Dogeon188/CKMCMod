@@ -1,0 +1,44 @@
+{
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "block/flower_pot",
+		"pot": "block/flower_pot",
+		"leaves": "ckfarm:block/tea/leaves",
+		"stem": "ckfarm:block/tea/stem"
+	},
+	"elements": [
+		{
+			"from": [5, 0, 5], "to": [11, 6, 11],
+			"faces": {
+				"north": {"uv": [5, 10, 11, 16], "texture": "#pot"},
+				"east": {"uv": [5, 10, 11, 16], "texture": "#pot"},
+				"south": {"uv": [5, 10, 11, 16], "texture": "#pot"},
+				"west": {"uv": [5, 10, 11, 16], "texture": "#pot"},
+				"up": {"uv": [5, 5, 11, 11], "texture": "#pot"},
+				"down": {"uv": [5, 5, 6, 11], "texture": "#pot", "cullface": "down"}
+			}
+		},
+		{
+			"from": [6, 5, 6], "to": [10, 14, 10],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 10], "texture": "#stem"},
+				"east": {"uv": [0, 0, 4, 10], "texture": "#stem"},
+				"south": {"uv": [0, 0, 4, 10], "texture": "#stem"},
+				"west": {"uv": [0, 0, 4, 10], "texture": "#stem"},
+				"up": {"uv": [12, 0, 16, 4], "texture": "#stem", "cullface": "up"}
+			}
+		},
+		{
+			"from": [4, 8, 4], "to": [12, 16, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [17, 21, 14]},
+			"faces": {
+				"north": {"uv": [0, 8, 8, 16], "texture": "#leaves"},
+				"east": {"uv": [8, 8, 16, 16], "texture": "#leaves"},
+				"south": {"uv": [8, 0, 16, 8], "texture": "#leaves"},
+				"west": {"uv": [0, 0, 8, 8], "texture": "#leaves"},
+				"up": {"uv": [0, 0, 8, 8], "texture": "#leaves"},
+				"down": {"uv": [0, 8, 8, 16], "texture": "#leaves"}
+			}
+		}
+	]
+}

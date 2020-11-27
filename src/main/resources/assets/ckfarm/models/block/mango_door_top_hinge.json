@@ -1,0 +1,4 @@
+{
+  "parent": "block/door_top_rh",
+  "textures": {"top": "ckfarm:block/mango_door_top", "bottom": "ckfarm:block/mango_door_bottom"}
+}

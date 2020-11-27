@@ -1,4 +1,4 @@
 {
   "parent": "block/cube_column",
-  "textures": {"end": "ckfarm:block/mango_log", "side": "ckfarm:block/mango_log"}
+  "textures": {"end": "ckfarm:block/stripped_mango_log", "side": "ckfarm:block/stripped_mango_log"}
 }

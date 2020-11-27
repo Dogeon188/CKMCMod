@@ -44,8 +44,25 @@ public class MyBlocks {
             MaterialColor.WOOD).strength(2.0F).sounds(BlockSoundGroup.WOOD));
     public static final Block STRIPPED_MANGO_WOOD = new PillarBlock(FabricBlockSettings.of(Material.WOOD,
             MaterialColor.ORANGE_TERRACOTTA).strength(2.0F).sounds(BlockSoundGroup.WOOD));
-    public static final Block MANGO_PLANKS = new Block(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD)
-            .strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block MANGO_PLANKS = new Block(FabricBlockSettings.of(Material.WOOD,
+            MaterialColor.ORANGE_TERRACOTTA).strength(2.0F, 3.0F)
+            .sounds(BlockSoundGroup.WOOD));
+    public static final Block MANGO_STAIRS = new MyStairsBlock(MANGO_PLANKS.getDefaultState(),
+            FabricBlockSettings.copy(MANGO_PLANKS));
+    public static final Block MANGO_SLAB = new SlabBlock(FabricBlockSettings.copy(MANGO_PLANKS));
+
+    public static final Block MANGO_BUTTON = new MyWoodenButtonBlock(FabricBlockSettings.of(Material.SUPPORTED)
+            .noCollision().strength(0.5F).sounds(BlockSoundGroup.WOOD));
+    public static final Block MANGO_PRESSURE_PLATE = new MyPressurePlateBlock(
+            PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.of(Material.WOOD,
+            MANGO_PLANKS.getDefaultMaterialColor()).noCollision().strength(0.5F).sounds(BlockSoundGroup.WOOD));
+    public static final Block MANGO_TRAPDOOR = new MyTrapdoorBlock(FabricBlockSettings.copy(MANGO_PLANKS)
+            .strength(3.0F).nonOpaque().allowsSpawning(Criteria::never));
+    public static final Block MANGO_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copy(MANGO_PLANKS));
+    public static final Block MANGO_FENCE = new FenceBlock(FabricBlockSettings.copy(MANGO_PLANKS));
+    public static final Block MANGO_DOOR = new MyDoorBlock(FabricBlockSettings.copy(MANGO_PLANKS)
+            .strength(3.0F).nonOpaque());
 
     public static final Block MANGO_LEAVES = new FruitLeavesBlock("mango", 1,
             FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().nonOpaque()
@@ -58,8 +75,13 @@ public class MyBlocks {
             .requiresTool().strength(3.5F));
     public static final Block COOKING_TABLE = new CookingTableBlock(FabricBlockSettings.of(Material.STONE)
             .requiresTool().strength(3.5F));
-    public static final Block TUN =
-            new TunBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).sounds(BlockSoundGroup.WOOD));
+    public static final Block TUN = new TunBlock(FabricBlockSettings.of(Material.WOOD)
+            .strength(2.5F).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block POTTED_TEA_SAPLING = new FlowerPotBlock(TEA_SAPLING,
+            FabricBlockSettings.of(Material.SUPPORTED).breakInstantly().nonOpaque());
+    public static final Block POTTED_MANGO_SAPLING = new FlowerPotBlock(MANGO_SAPLING,
+            FabricBlockSettings.of(Material.SUPPORTED).breakInstantly().nonOpaque());
 
     private static void register(String id, Block block) {
         Registry.register(Registry.BLOCK, new Identifier(MainMod.MOD_ID, id), block);
@@ -82,11 +104,23 @@ public class MyBlocks {
         register("mango_wood", MANGO_WOOD);
         register("stripped_mango_wood", STRIPPED_MANGO_WOOD);
         register("mango_planks", MANGO_PLANKS);
+        register("mango_stairs", MANGO_STAIRS);
+        register("mango_slab", MANGO_SLAB);
+//        register("mango_sign", MANGO_SIGN);
+//        register("mango_wall_sign", MANGO_WALL_SIGN);
+        register("mango_button", MANGO_BUTTON);
+        register("mango_pressure_plate", MANGO_PRESSURE_PLATE);
+        register("mango_trapdoor", MANGO_TRAPDOOR);
+        register("mango_fence_gate", MANGO_FENCE_GATE);
+        register("mango_fence", MANGO_FENCE);
+        register("mango_door", MANGO_DOOR);
         register("mango_leaves", MANGO_LEAVES);
         register("salt_block", SALT_BLOCK);
         register("millstone", MILLSTONE);
         register("cooking_table", COOKING_TABLE);
         register("tun", TUN);
+        register("potted_tea_sapling", POTTED_TEA_SAPLING);
+        register("potted_mango_sapling", POTTED_MANGO_SAPLING);
     }
 
     private static FabricBlockSettings newCropSettings() {
@@ -99,5 +133,9 @@ public class MyBlocks {
         }
 
         private static boolean never(BlockState state, BlockView world, BlockPos pos) { return false; }
+
+        private static Boolean never(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) {
+            return false;
+        }
     }
 }

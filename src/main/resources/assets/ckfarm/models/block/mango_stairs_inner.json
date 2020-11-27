@@ -1,0 +1,7 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "ckfarm:block/mango_planks",
+    "top": "ckfarm:block/mango_planks",
+    "side": "ckfarm:block/mango_planks"}
+}

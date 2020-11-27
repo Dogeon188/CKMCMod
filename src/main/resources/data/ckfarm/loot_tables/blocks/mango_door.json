@@ -1,0 +1,20 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item", "name": "ckfarm:mango_door",
+          "conditions": [
+            {
+              "condition": "block_state_property",
+              "block": "ckfarm:mango_door", "properties": {"half": "lower"}
+            }
+          ]
+        }
+      ],
+      "conditions": [{"condition": "survives_explosion"}]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "type": "crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [{"item": "ckfarm:mango_planks"}],
+  "result": {"item": "ckfarm:mango_button"}
+}

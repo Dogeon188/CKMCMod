@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "powered=false": {"model": "ckfarm:block/mango_pressure_plate"},
+    "powered=true": {"model": "ckfarm:block/mango_pressure_plate_down"}
+  }
+}

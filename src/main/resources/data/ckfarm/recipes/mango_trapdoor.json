@@ -1,0 +1,10 @@
+{
+  "type": "crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {"#": {"item": "ckfarm:mango_planks"}},
+  "result": {"item": "ckfarm:mango_trapdoor", "count": 2}
+}

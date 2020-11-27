@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shaped",
+  "group": "wooden_fence",
+  "pattern": [
+    "W#W",
+    "W#W"
+  ],
+  "key": {
+    "#": {"item": "stick"},
+    "W": {"item": "ckfarm:mango_planks"}
+  },
+  "result": {"item": "ckfarm:mango_fence", "count": 3}
+}
