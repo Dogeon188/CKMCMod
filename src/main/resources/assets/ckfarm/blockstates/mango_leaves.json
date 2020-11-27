@@ -1,11 +1,11 @@
 {
   "multipart": [
-    {"apply": {"model": "ckfarm:block/mango_leaves"}},
+    {"apply": {"model": "ckfarm:block/mango/leaves"}},
     {
       "when": {"has_fruit": "true"},
       "apply": [
-        {"model": "ckfarm:block/mango_leaves_fruit0"},
-        {"model": "ckfarm:block/mango_leaves_fruit1"}
+        {"model": "ckfarm:block/mango/leaves_fruit0"},
+        {"model": "ckfarm:block/mango/leaves_fruit1"}
       ]
     }
   ]

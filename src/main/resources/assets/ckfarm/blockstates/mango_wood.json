@@ -1,7 +1,7 @@
 {
   "variants": {
-    "axis=x": {"model": "ckfarm:block/mango_wood", "x": 90, "y": 90},
-    "axis=y": {"model": "ckfarm:block/mango_wood"},
-    "axis=z": {"model": "ckfarm:block/mango_wood", "x": 90}
+    "axis=x": {"model": "ckfarm:block/mango/wood", "x": 90, "y": 90},
+    "axis=y": {"model": "ckfarm:block/mango/wood"},
+    "axis=z": {"model": "ckfarm:block/mango/wood", "x": 90}
   }
 }

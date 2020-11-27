@@ -1,7 +1,7 @@
 {
   "variants": {
-    "axis=x": {"model": "ckfarm:block/mango_log_horizontal", "x": 90, "y": 90},
-    "axis=y": {"model": "ckfarm:block/mango_log"},
-    "axis=z": {"model": "ckfarm:block/mango_log_horizontal", "x": 90}
+    "axis=x": {"model": "ckfarm:block/mango/log_horizontal", "x": 90, "y": 90},
+    "axis=y": {"model": "ckfarm:block/mango/log"},
+    "axis=z": {"model": "ckfarm:block/mango/log_horizontal", "x": 90}
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "type=bottom": {"model": "ckfarm:block/mango_slab"},
-    "type=double": {"model": "ckfarm:block/mango_planks"},
-    "type=top": {"model": "ckfarm:block/mango_slab_top"}
+    "type=bottom": {"model": "ckfarm:block/mango/slab"},
+    "type=double": {"model": "ckfarm:block/mango/planks"},
+    "type=top": {"model": "ckfarm:block/mango/slab_top"}
   }
 }
