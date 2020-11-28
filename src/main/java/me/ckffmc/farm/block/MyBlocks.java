@@ -106,8 +106,6 @@ public class MyBlocks {
         register("mango_planks", MANGO_PLANKS);
         register("mango_stairs", MANGO_STAIRS);
         register("mango_slab", MANGO_SLAB);
-//        register("mango_sign", MANGO_SIGN);
-//        register("mango_wall_sign", MANGO_WALL_SIGN);
         register("mango_button", MANGO_BUTTON);
         register("mango_pressure_plate", MANGO_PRESSURE_PLATE);
         register("mango_trapdoor", MANGO_TRAPDOOR);

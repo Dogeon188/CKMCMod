@@ -2,10 +2,7 @@ package me.ckffmc.farm;
 
 import me.ckffmc.farm.block.MyBlocks;
 import me.ckffmc.farm.entity.MyEntityType;
-import me.ckffmc.farm.entity.VillagerModify;
-import me.ckffmc.farm.item.AxeModify;
 import me.ckffmc.farm.item.MyItems;
-import me.ckffmc.farm.loot.LootModify;
 import me.ckffmc.farm.recipe.FermentingRecipeRegistry;
 import me.ckffmc.farm.recipe.MyRecipeSerializer;
 import me.ckffmc.farm.world.gen.MyFeatures;
@@ -23,9 +20,7 @@ public class MainMod implements ModInitializer {
             MyEntityType.registerEntities();
             MyRecipeSerializer.registerRecipeSerializers();
             FermentingRecipeRegistry.registerFermentingRecipes();
-            LootModify.modifyLoot();
-            VillagerModify.modify();
-            AxeModify.addStrippedBlocks();
+            MiscModifies.modify();
         } catch (Exception e) { e.printStackTrace(); }
     }
 }

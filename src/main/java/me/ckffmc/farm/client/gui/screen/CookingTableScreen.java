@@ -23,8 +23,7 @@ public class CookingTableScreen extends HandledScreen<CookingTableScreenHandler>
             int x = (width - backgroundWidth) / 2;
             int y = (height - backgroundHeight) / 2;
             drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
-            int l = handler.getCraftProgress();
-            drawTexture(matrices, x + 84, y + 35, 178, 2, l + 1, 16);
+            drawTexture(matrices, x + 84, y + 35, 178, 2, handler.getCraftProgress() + 1, 16);
         }
     }
 

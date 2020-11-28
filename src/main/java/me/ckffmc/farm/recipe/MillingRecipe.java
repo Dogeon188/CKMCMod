@@ -29,13 +29,9 @@ public class MillingRecipe implements Recipe<Inventory> {
         this.experience = experience;
     }
 
-    public boolean matches(Inventory inv, World world) {
-        return this.ingredient.test(inv.getStack(0));
-    }
+    public boolean matches(Inventory inv, World world) { return this.ingredient.test(inv.getStack(0)); }
 
-    public ItemStack craft(Inventory inv) {
-        return this.result.copy();
-    }
+    public ItemStack craft(Inventory inv) { return this.result.copy(); }
 
     @Environment(EnvType.CLIENT)
     public boolean fits(int width, int height) { return true; }

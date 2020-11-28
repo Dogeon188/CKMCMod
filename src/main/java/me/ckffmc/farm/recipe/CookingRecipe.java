@@ -44,16 +44,12 @@ public class CookingRecipe implements Recipe<Inventory> {
         return i == this.ingredients.size() && finder.findRecipe(this, null);
     }
 
-    public ItemStack craft(Inventory inv) {
-        return this.result.copy();
-    }
+    public ItemStack craft(Inventory inv) { return this.result.copy(); }
 
     @Environment(EnvType.CLIENT)
     public boolean fits(int width, int height) { return true; }
 
-    public DefaultedList<Ingredient> getPreviewInputs() {
-        return this.ingredients;
-    }
+    public DefaultedList<Ingredient> getPreviewInputs() { return this.ingredients; }
 
     public ItemStack getOutput() { return this.result; }
 

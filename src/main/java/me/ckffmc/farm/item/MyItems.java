@@ -41,8 +41,6 @@ public class MyItems {
     public static final Item MANGO_PLANKS = new BlockItem(MyBlocks.MANGO_PLANKS, grouped());
     public static final Item MANGO_STAIRS = new BlockItem(MyBlocks.MANGO_STAIRS, grouped());
     public static final Item MANGO_SLAB = new BlockItem(MyBlocks.MANGO_SLAB, grouped());
-//    public static final Item MANGO_SIGN = new SignItem(grouped().maxCount(16),
-//            MyBlocks.MANGO_SIGN, MyBlocks.MANGO_WALL_SIGN);
     public static final Item MANGO_BUTTON = new BlockItem(MyBlocks.MANGO_BUTTON, grouped());
     public static final Item MANGO_PRESSURE_PLATE = new BlockItem(MyBlocks.MANGO_PRESSURE_PLATE, grouped());
     public static final Item MANGO_TRAPDOOR = new BlockItem(MyBlocks.MANGO_TRAPDOOR, grouped());
@@ -109,7 +107,6 @@ public class MyItems {
         register("mango_planks", MANGO_PLANKS);
         register("mango_stairs", MANGO_STAIRS);
         register("mango_slab", MANGO_SLAB);
-//        register("mango_sign", MANGO_SIGN);
         register("mango_button", MANGO_BUTTON);
         register("mango_pressure_plate", MANGO_PRESSURE_PLATE);
         register("mango_trapdoor", MANGO_TRAPDOOR);
