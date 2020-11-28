@@ -1,0 +1,10 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "___",
+    "# #",
+    "###"
+  ],
+  "key": {"#": {"tag": "planks"}, "_": {"tag": "wooden_slabs"}},
+  "result": {"item": "ckfarm:tun", "count": 1}
+}

@@ -1,3 +1,8 @@
 {
-  "parent": "block/barrel"
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "top": "ckfarm:block/tun_top",
+    "bottom": "ckfarm:block/tun_bottom",
+    "side": "ckfarm:block/tun_side"
+  }
 }
