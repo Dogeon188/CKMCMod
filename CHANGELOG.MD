@@ -1,4 +1,15 @@
 ### 0.6.0+build.9-1.16
+- added tun block
+    - crafted from 5 planks & 3 wooden slabs
+    - can be used to ferment some specific items eg. soybean
+- added soy sauce, stinky tofu, preserved egg
+- added mango
+    - grows on mango tree
+    - right-click on mango leaves with fruit to harvest
+    - bone-meal on mango leaves to grow mangoes manually
+    - added mango log (w/ planks, slab, stairs, etc.)
+- you can now put tea sapling or mango sapling into a flower pot
+- fixed a bug that some crops seems to be floating
 
 ### 0.5.2+build.8-1.16
 - breaking grass/fern now has a chance to drop various seeds

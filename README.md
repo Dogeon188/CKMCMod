@@ -29,51 +29,60 @@ So we might add some more features soon :)
     - Spins when "milling" an item
 - Cooking table
     - Accepts 1~4 input, gives 1 output
+- Tun
+    - Can be used to ferment some specific items eg. soybean
 
-### Crops
+### Crops & Plants
 
-- Lettuce, rice, corn, spring onion
-- Sweet potato, garlic, ginger, soybean
+- Lettuce, rice, corn, spring onion, sweet potato, garlic, ginger, soybean
+    - Can be found from grass/fern, or in village farms
 - Tea plant
     - Can be planted on normal dirt block
-- Can be found from grass/fern, or in village farms
+- Mango tree
+    - Naturally generates in forests
+    - Sometimes has mango fruit on its leaves, right-click to harvest it!
+    - You can bone-meal mango leaves to make it grow mango fruit
+    - Use mango log to craft various building blocks
 
 ### Ingredients
 
 - Salt & salt block
     - Salt block generates as ore in the overworld
-- Bittern: Use 1 water bottle + 1 salt to craft
-- Flour: From milling wheat
-- Sweet potato starch: From milling sweet potato
+- Bittern: from crafting with 1 water bottle + 1 salt
+- Flour: from milling wheat
+- Sweet potato starch: from milling sweet potato
 - Tea leaves & black tea leaves
+    - Ferment tea leaves to get black tea leaves
 - Tapioca balls: for making bubble tea
+- Soy sauce: from fermenting soybean
 
 ### Foods
 
 - Baked sweet potato
 - Raw & cooked oyster
-- Noodles: From cooking egg + salt + wheat flour
-- Tofu: From cooking 2 soy milks + 1 bittern
-- Tofu pudding: From cooking 2 soy milks + 1 bittern + 1 sweet potato starch
-- Shaved ice: From milling ice block
-- Soy milk: From milling soybean
+- Noodles: from cooking egg + salt + wheat flour
+- Tofu: from cooking 2 soy milks + 1 bittern
+- Tofu pudding: from cooking 2 soy milks + 1 bittern + 1 sweet potato starch
+- Shaved ice: from milling ice block
+- Soy milk: from milling soybean
 - Bubble tea
     - Crafting: tapioca balls + sugar + milk bucket + black tea leaves
     - Drinking it gives 90sec of speed I and haste I
+- Stinky tofu: from fermenting tofu
+- Preserved egg: from fermenting egg
 
 ## Future Plans
 
 ### Crops
 
-- Mango, red bean, pineapple, daikon radish, cabbage
+- Red bean, pineapple, daikon radish, cabbage
 
 ### Foods & Ingredients
 
 - Beef noodles
 - Oyster Vermicelli
-- stinky tofu, soy sauce
 - brown sugar
-- Sausage, preserved egg
+- Sausage
 - Red bean cake, pineapple cake, radish cake, sun cake
 
 ## Some words
