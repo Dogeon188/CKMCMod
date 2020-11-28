@@ -84,6 +84,7 @@ So we might add some more features soon :)
 - brown sugar
 - Sausage
 - Red bean cake, pineapple cake, radish cake, sun cake
+- Braised cabbage
 
 ## Some words
 
