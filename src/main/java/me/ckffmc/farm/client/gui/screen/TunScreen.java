@@ -29,6 +29,8 @@ public class TunScreen extends HandledScreen<TunScreenHandler> {
                 drawTexture(matrices, x + 100 - 23 * i, y + (i == 1 ? 65 : 58), 176, 0,
                         handler.getFermentProgress(i), 5);
             }
+            if (handler.noFuelItem())
+                drawTexture(matrices, x + 40, y + 18, 178, 12, 16, 16);
         }
     }
 

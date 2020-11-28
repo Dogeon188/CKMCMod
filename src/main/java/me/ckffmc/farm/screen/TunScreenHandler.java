@@ -112,6 +112,9 @@ public class TunScreenHandler extends ScreenHandler {
         return (part != 0 && part != total && total != 0) ? part * 20 / total : 0;
     }
 
+    @Environment(EnvType.CLIENT)
+    public boolean noFuelItem() { return inventory.getStack(3).isEmpty(); }
+
     public void close(PlayerEntity player) {
         super.close(player);
         this.inventory.onClose(player);
