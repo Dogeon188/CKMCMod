@@ -20,6 +20,11 @@ public class DefaultBiomeFeaturesMixin {
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MyFeatures.ORE_SALT);
     }
 
+    @Inject(at = @At("HEAD"), method = "addForestTrees")
+    private static void addMangoTree(GenerationSettings.Builder builder, CallbackInfo ci) {
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MyFeatures.MANGO);
+    }
+
     @ModifyVariable(at = @At("HEAD"), method = "addOceanMobs", ordinal = 0)
     private static SpawnSettings.Builder addOyster(SpawnSettings.Builder builder) {
         return builder.spawn(SpawnGroup.WATER_AMBIENT, new SpawnSettings.SpawnEntry(MyEntityType.OYSTER, 5, 1, 5));
