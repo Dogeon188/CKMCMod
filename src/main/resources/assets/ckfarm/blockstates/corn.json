@@ -4,17 +4,17 @@
     "age=1,half=upper": {"model": "ckfarm:block/corn/0"},
     "age=2,half=upper": {"model": "ckfarm:block/corn/0"},
     "age=3,half=upper": {"model": "ckfarm:block/corn/0"},
-    "age=4,half=upper": {"model": "ckfarm:block/corn/0"},
-    "age=5,half=upper": {"model": "ckfarm:block/corn/1"},
-    "age=6,half=upper": {"model": "ckfarm:block/corn/2"},
-    "age=7,half=upper": {"model": "ckfarm:block/corn/4"},
+    "age=4,half=upper": {"model": "ckfarm:block/corn/4"},
+    "age=5,half=upper": {"model": "ckfarm:block/corn/5"},
+    "age=6,half=upper": {"model": "ckfarm:block/corn/6"},
+    "age=7,half=upper": {"model": "ckfarm:block/corn/7"},
     "age=0,half=lower": {"model": "ckfarm:block/corn/0"},
     "age=1,half=lower": {"model": "ckfarm:block/corn/1"},
-    "age=2,half=lower": {"model": "ckfarm:block/corn/2"},
+    "age=2,half=lower": {"model": "ckfarm:block/corn/1"},
     "age=3,half=lower": {"model": "ckfarm:block/corn/2"},
     "age=4,half=lower": {"model": "ckfarm:block/corn/3"},
     "age=5,half=lower": {"model": "ckfarm:block/corn/3"},
     "age=6,half=lower": {"model": "ckfarm:block/corn/3"},
-    "age=7,half=lower": {"model": "ckfarm:block/corn/5"}
+    "age=7,half=lower": {"model": "ckfarm:block/corn/3"}
   }
 }
