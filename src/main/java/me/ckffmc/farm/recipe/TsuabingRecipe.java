@@ -42,7 +42,7 @@ public class TsuabingRecipe extends SpecialCraftingRecipe {
                     if (syrup++ > 2) return false;
                 } else if (TOPPINGS.test(stack)) {
                     if (toppings++ > 4) return false;
-                }
+                } else return false;
             }
         }
         return shavedIce && (syrup > 0);

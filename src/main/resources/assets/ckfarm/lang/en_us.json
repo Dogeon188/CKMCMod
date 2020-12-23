@@ -63,5 +63,6 @@
   "subtitles.block.millstone.milling": "Millstone milling",
   "subtitles.item.mango.pick": "Mango being picked",
   "text.dogeon.concatenate.comma": "%s, %s",
-  "text.dogeon.concatenate.space": "%s %s"
+  "text.dogeon.concatenate.space": "%s %s",
+  "text.dogeon.multiply": "%s * %s"
 }
