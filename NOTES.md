@@ -1,5 +1,7 @@
 # Notes
 
+- net.minecraft.entity.player.HungerManager.eat
+
 ### Corn
 - Growing mechanics (adjust for tall crops)
 - Loot (two seeds from both blocks -> now)

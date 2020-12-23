@@ -19,7 +19,7 @@ public class MyFoodComponents {
     public static final FoodComponent PRESERVED_EGG = newFood(2, 0.6f);
     public static final FoodComponent RAW_OYSTER = newFood(1, 0.2f);
     public static final FoodComponent ROASTED_CORN = newFood(4, 1.8f);
-    public static final FoodComponent SHAVED_ICE = newFood(2, 0.1f);
+    public static final FoodComponent TSUABING = newFood(5, 1.2f);
     public static final FoodComponent SOY_MILK = newFood(3, 0.8f);
     public static final FoodComponent SPRING_ONION = newFood(1, 0.3f);
     public static final FoodComponent STINKY_TOFU = newFood(3, 1.0f);

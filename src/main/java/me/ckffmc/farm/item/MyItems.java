@@ -62,10 +62,12 @@ public class MyItems {
     public static final Item STINKY_TOFU = new Item(grouped().food(MyFoodComponents.STINKY_TOFU));
     public static final Item PRESERVED_EGG = new Item(grouped().food(MyFoodComponents.PRESERVED_EGG));
     public static final Item SWEET_POTATO_STARCH = new Item(grouped());
-    public static final Item SHAVED_ICE = new Item(grouped().food(MyFoodComponents.SHAVED_ICE));
+    public static final Item SHAVED_ICE = new Item(grouped());
     public static final Item TAPIOCA_BALLS = new Item(grouped());
     public static final Item BUBBLE_TEA = new DrinkItem(grouped().food(MyFoodComponents.BUBBLE_TEA).maxCount(16));
     public static final Item SOY_SAUCE = new Item(grouped());
+
+    public static final Item TSUABING = new TsuabingItem(grouped().food(MyFoodComponents.TSUABING));
 
     public static final Item MILLSTONE = new BlockItem(MyBlocks.MILLSTONE, grouped());
     public static final Item COOKING_TABLE = new BlockItem(MyBlocks.COOKING_TABLE, grouped());
@@ -131,6 +133,7 @@ public class MyItems {
         register("tapioca_balls", TAPIOCA_BALLS);
         register("bubble_tea", BUBBLE_TEA);
         register("soy_sauce", SOY_SAUCE);
+        register("tsuabing", TSUABING);
         register("millstone", MILLSTONE);
         register("cooking_table", COOKING_TABLE);
         register("tun", TUN);
