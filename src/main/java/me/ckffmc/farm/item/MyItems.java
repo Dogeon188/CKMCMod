@@ -15,8 +15,6 @@ public class MyItems {
 
     public static final Item SWEET_POTATO = new AliasedBlockItem(MyBlocks.SWEET_POTATO,
             grouped().food(MyFoodComponents.SWEET_POTATO));
-    public static final Item HANJI = new AliasedBlockItem(MyBlocks.HANJI,
-            new Item.Settings().food(MyFoodComponents.SWEET_POTATO));
     public static final Item BAKED_SWEET_POTATO = new Item(grouped().food(MyFoodComponents.BAKED_SWEET_POTATO));
     public static final Item ROASTED_CORN = new Item(grouped().food(MyFoodComponents.ROASTED_CORN));
     public static final Item GINGER = new AliasedBlockItem(MyBlocks.GINGER, grouped().food(MyFoodComponents.GINGER));
@@ -87,7 +85,6 @@ public class MyItems {
         register("spring_onion", SPRING_ONION);
         register("rice", RICE);
         register("sweet_potato", SWEET_POTATO);
-        register("hanji", HANJI);
         register("baked_sweet_potato", BAKED_SWEET_POTATO);
         register("roasted_corn", ROASTED_CORN);
         register("ginger", GINGER);

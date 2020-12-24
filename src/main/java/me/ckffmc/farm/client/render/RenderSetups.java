@@ -8,10 +8,12 @@ import me.ckffmc.farm.client.gui.screen.MillstoneScreen;
 import me.ckffmc.farm.client.render.block.entity.MillstoneBlockEntityRenderer;
 import me.ckffmc.farm.client.render.entity.OysterEntityRenderer;
 import me.ckffmc.farm.entity.MyEntityType;
+import me.ckffmc.farm.item.MyItems;
 import me.ckffmc.farm.screen.MyScreenHandlerType;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
@@ -19,6 +21,9 @@ import net.minecraft.client.render.RenderLayer;
 public class RenderSetups {
     public static void renderSetups() {
         renderLayerSetups();
+
+        // item dynamic coloring
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x1f1e33, MyItems.TSUABING);
 
         // entity render setups
         EntityRendererRegistry.INSTANCE.register(MyEntityType.OYSTER, (dsp, ctx) -> new OysterEntityRenderer(dsp));
@@ -47,7 +52,6 @@ public class RenderSetups {
         putBlock(MyBlocks.GINGER, cutout);
         putBlock(MyBlocks.LETTUCE, cutout);
         putBlock(MyBlocks.SWEET_POTATO, cutout);
-        putBlock(MyBlocks.HANJI, cutout);
         putBlock(MyBlocks.SOYBEAN, cutout);
         putBlock(MyBlocks.MANGO_SAPLING, cutout);
         putBlock(MyBlocks.MANGO_TRAPDOOR, cutout);

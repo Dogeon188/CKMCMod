@@ -1,0 +1,9 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "ckfarm:item/tsuabing_base",
+    "layer1": "ckfarm:item/tsuabing_syrup",
+    "layer2": "ckfarm:item/tsuabing_topping_0",
+    "layer3": "ckfarm:item/tsuabing_topping_1"
+  }
+}
