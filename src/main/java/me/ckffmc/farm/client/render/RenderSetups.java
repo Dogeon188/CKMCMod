@@ -3,12 +3,13 @@ package me.ckffmc.farm.client.render;
 import me.ckffmc.farm.block.MyBlocks;
 import me.ckffmc.farm.block.entity.MyBlockEntityType;
 import me.ckffmc.farm.client.gui.screen.CookingTableScreen;
-import me.ckffmc.farm.client.gui.screen.TunScreen;
 import me.ckffmc.farm.client.gui.screen.MillstoneScreen;
+import me.ckffmc.farm.client.gui.screen.TunScreen;
 import me.ckffmc.farm.client.render.block.entity.MillstoneBlockEntityRenderer;
 import me.ckffmc.farm.client.render.entity.OysterEntityRenderer;
 import me.ckffmc.farm.entity.MyEntityType;
 import me.ckffmc.farm.item.MyItems;
+import me.ckffmc.farm.recipe.TsuabingRecipe;
 import me.ckffmc.farm.screen.MyScreenHandlerType;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
@@ -17,13 +18,45 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.nbt.CompoundTag;
 
 public class RenderSetups {
     public static void renderSetups() {
         renderLayerSetups();
 
         // item dynamic coloring
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x1f1e33, MyItems.TSUABING);
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
+            try {
+                CompoundTag tag = stack.getSubTag("Tsuabing");
+                if (tag == null) return -1;
+                switch (tintIndex) {
+                    case 1:
+                        if (tag.contains("Syrup", 7)) {
+                            byte[] bytes = tag.getByteArray("Syrup");
+                            if (bytes.length != 0) return TsuabingRecipe.SYRUP_COLOR.get(bytes[0]);
+                        } return -1;
+                    case 2:
+                        if (tag.contains("Toppings", 7)) {
+                            byte[] bytes = tag.getByteArray("Toppings");
+                            if (bytes.length != 0) return TsuabingRecipe.TOPPINGS_COLOR.get(bytes[0]);
+                        } return -1;
+                    case 3:
+                        if (tag.contains("Toppings", 7)) {
+                            byte[] bytes = tag.getByteArray("Toppings");
+                            if (bytes.length > 1) return TsuabingRecipe.TOPPINGS_COLOR.get(bytes[1]);
+                        } return -1;
+                    case 4:
+                        if (tag.contains("Toppings", 7)) {
+                            byte[] bytes = tag.getByteArray("Toppings");
+                            if (bytes.length > 2) return TsuabingRecipe.TOPPINGS_COLOR.get(bytes[2]);
+                        } return -1;
+                    default: return -1;
+                }
+            } catch (NullPointerException e) {
+//                System.out.println(stack + ", " + tintIndex);
+                return -1;
+            }
+        }, MyItems.TSUABING);
 
         // entity render setups
         EntityRendererRegistry.INSTANCE.register(MyEntityType.OYSTER, (dsp, ctx) -> new OysterEntityRenderer(dsp));

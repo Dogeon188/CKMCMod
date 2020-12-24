@@ -36,7 +36,7 @@ public class TsuabingItem extends Item {
                         if (!map.containsKey(syrup)) map.put(syrup, 1);
                         else map.replace(syrup, map.get(syrup) + 1);
                     }
-                    map.forEach((k, v) -> tooltip.add(buildTooltipText(k, v)));
+                    map.forEach((k, v) -> tooltip.add(buildTooltipText(k, v, true)));
                 }
             }
             if (tag.contains("Toppings", 7)) {
@@ -47,14 +47,15 @@ public class TsuabingItem extends Item {
                         if (!map.containsKey(topping)) map.put(topping, 1);
                         else map.replace(topping, map.get(topping) + 1);
                     }
-                    map.forEach((k, v) -> tooltip.add(buildTooltipText(k, v)));
+                    map.forEach((k, v) -> tooltip.add(buildTooltipText(k, v, false)));
                 }
             }
         }
     }
 
-    private static Text buildTooltipText(byte k, int v) {
-        Identifier id = Registry.ITEM.getId(TsuabingRecipe.INV_INGREDIENTS.get(k));
+    private static Text buildTooltipText(byte k, int v, boolean syrup) {
+        Identifier id = Registry.ITEM.getId(
+                (syrup ? TsuabingRecipe.SYRUPS : TsuabingRecipe.TOPPINGS).inverse().get(k));
         MutableText text = new TranslatableText("item." + id.getNamespace() + "." + id.getPath());
         return ((v <= 1) ? text : new TranslatableText("text.dogeon.multiply", text, v))
                 .formatted(Formatting.GRAY);
