@@ -34,28 +34,25 @@ public class RenderSetups {
                         if (tag.contains("Syrup", 7)) {
                             byte[] bytes = tag.getByteArray("Syrup");
                             if (bytes.length != 0) return TsuabingRecipe.SYRUP_COLOR.get(bytes[0]);
-                        } return -1;
+                        } break;
                     case 2:
                         if (tag.contains("Toppings", 7)) {
                             byte[] bytes = tag.getByteArray("Toppings");
                             if (bytes.length != 0) return TsuabingRecipe.TOPPINGS_COLOR.get(bytes[0]);
-                        } return -1;
+                        } break;
                     case 3:
                         if (tag.contains("Toppings", 7)) {
                             byte[] bytes = tag.getByteArray("Toppings");
                             if (bytes.length > 1) return TsuabingRecipe.TOPPINGS_COLOR.get(bytes[1]);
-                        } return -1;
+                        } break;
                     case 4:
                         if (tag.contains("Toppings", 7)) {
                             byte[] bytes = tag.getByteArray("Toppings");
                             if (bytes.length > 2) return TsuabingRecipe.TOPPINGS_COLOR.get(bytes[2]);
-                        } return -1;
-                    default: return -1;
+                        } break;
                 }
-            } catch (NullPointerException e) {
-//                System.out.println(stack + ", " + tintIndex);
                 return -1;
-            }
+            } catch (NullPointerException e) { return -1; }
         }, MyItems.TSUABING);
 
         // entity render setups

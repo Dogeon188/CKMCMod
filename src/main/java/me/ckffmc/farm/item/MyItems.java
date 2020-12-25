@@ -65,7 +65,7 @@ public class MyItems {
     public static final Item BUBBLE_TEA = new DrinkItem(grouped().food(MyFoodComponents.BUBBLE_TEA).maxCount(16));
     public static final Item SOY_SAUCE = new Item(grouped());
 
-    public static final Item TSUABING = new TsuabingItem(grouped().food(MyFoodComponents.TSUABING));
+    public static final Item TSUABING = new TsuabingItem(grouped().food(MyFoodComponents.TSUABING).maxCount(1));
 
     public static final Item MILLSTONE = new BlockItem(MyBlocks.MILLSTONE, grouped());
     public static final Item COOKING_TABLE = new BlockItem(MyBlocks.COOKING_TABLE, grouped());
