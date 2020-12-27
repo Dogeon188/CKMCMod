@@ -9,7 +9,7 @@ import me.ckffmc.farm.client.render.block.entity.MillstoneBlockEntityRenderer;
 import me.ckffmc.farm.client.render.entity.OysterEntityRenderer;
 import me.ckffmc.farm.entity.MyEntityType;
 import me.ckffmc.farm.item.MyItems;
-import me.ckffmc.farm.recipe.TsuabingRecipe;
+import me.ckffmc.farm.item.TsuabingItem;
 import me.ckffmc.farm.screen.MyScreenHandlerType;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
@@ -33,22 +33,22 @@ public class RenderSetups {
                     case 1:
                         if (tag.contains("Syrup", 7)) {
                             byte[] bytes = tag.getByteArray("Syrup");
-                            if (bytes.length != 0) return TsuabingRecipe.SYRUP_COLOR.get(bytes[0]);
+                            if (bytes.length != 0) return TsuabingItem.SYRUP_COLOR.get(bytes[0]);
                         } break;
                     case 2:
                         if (tag.contains("Toppings", 7)) {
                             byte[] bytes = tag.getByteArray("Toppings");
-                            if (bytes.length != 0) return TsuabingRecipe.TOPPINGS_COLOR.get(bytes[0]);
+                            if (bytes.length != 0) return TsuabingItem.TOPPINGS_COLOR.get(bytes[0]);
                         } break;
                     case 3:
                         if (tag.contains("Toppings", 7)) {
                             byte[] bytes = tag.getByteArray("Toppings");
-                            if (bytes.length > 1) return TsuabingRecipe.TOPPINGS_COLOR.get(bytes[1]);
+                            if (bytes.length > 1) return TsuabingItem.TOPPINGS_COLOR.get(bytes[1]);
                         } break;
                     case 4:
                         if (tag.contains("Toppings", 7)) {
                             byte[] bytes = tag.getByteArray("Toppings");
-                            if (bytes.length > 2) return TsuabingRecipe.TOPPINGS_COLOR.get(bytes[2]);
+                            if (bytes.length > 2) return TsuabingItem.TOPPINGS_COLOR.get(bytes[2]);
                         } break;
                 }
                 return -1;
