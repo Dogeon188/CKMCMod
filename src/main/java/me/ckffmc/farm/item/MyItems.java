@@ -64,7 +64,7 @@ public class MyItems {
     public static final Item TAPIOCA_BALLS = new Item(grouped());
     public static final Item BUBBLE_TEA = new DrinkItem(grouped().food(MyFoodComponents.BUBBLE_TEA).maxCount(16));
     public static final Item SOY_SAUCE = new Item(grouped());
-    public static final Item BEEF_NOODLE = new Item(grouped().food(MyFoodComponents.BEEF_NOODLE));
+    public static final Item BEEF_NOODLES = new Item(grouped().food(MyFoodComponents.BEEF_NOODLES));
     public static final Item BRAISED_PORK_RICE = new Item(grouped().food(MyFoodComponents.BRAISED_PORK_RICE));
     public static final Item TSUABING = new TsuabingItem(grouped().food(MyFoodComponents.TSUABING).maxCount(1));
 
@@ -130,7 +130,7 @@ public class MyItems {
         register("shaved_ice", SHAVED_ICE);
         register("tapioca_balls", TAPIOCA_BALLS);
         register("bubble_tea", BUBBLE_TEA);
-        register("beef_noodle",BEEF_NOODLE);
+        register("beef_noodles",BEEF_NOODLES);
         register("braised_pork_rice",BRAISED_PORK_RICE);
         register("soy_sauce", SOY_SAUCE);
         register("tsuabing", TSUABING);

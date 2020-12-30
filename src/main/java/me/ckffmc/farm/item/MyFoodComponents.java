@@ -26,7 +26,7 @@ public class MyFoodComponents {
     public static final FoodComponent SWEET_POTATO = newFood(1, 0.8f);
     public static final FoodComponent TOFU = newFood(2, 1.0f);
     public static final FoodComponent TOFU_PUDDING = newFood(2, 1.2f);
-    public static final FoodComponent BEEF_NOODLE = newFood(12, 14f);
+    public static final FoodComponent BEEF_NOODLES = newFood(12, 14f);
     public static final FoodComponent BRAISED_PORK_RICE = newFood(8,7.2f);
 
     private static FoodComponent newFood(int h, float s) {

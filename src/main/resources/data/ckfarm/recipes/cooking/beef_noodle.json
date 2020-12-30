@@ -1,0 +1,11 @@
+{
+  "type": "ckfarm:cooking",
+  "ingredients": [
+    {"item": "minecraft:beef"},
+    {"item": "ckfarm:soy_sause"},
+    {"item": "ckfarm:noodles"}
+  ],
+  "result": {"item": "ckfarm:beef_noodles", "count": 1},
+  "cook_time": 200,
+  "experience": 2.4
+}
