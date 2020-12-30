@@ -3,6 +3,7 @@ package me.ckffmc.farm.item;
 import me.ckffmc.farm.MainMod;
 import me.ckffmc.farm.block.MyBlocks;
 import me.ckffmc.farm.entity.MyEntityType;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -51,6 +52,7 @@ public class MyItems {
     public static final Item COOKED_OYSTER = new Item(grouped().food(MyFoodComponents.COOKED_OYSTER));
     public static final Item WHEAT_FLOUR = new Item(grouped());
     public static final Item NOODLES = new Item(grouped());
+    public static final Item COOKED_RICE = new Item(grouped().food(MyFoodComponents.COOKED_RICE));
     public static final Item SOY_MILK = new DrinkItem(grouped().food(MyFoodComponents.SOY_MILK).maxCount(16));
     public static final Item SALT = new Item(grouped());
     public static final Item SALT_BLOCK = new BlockItem(MyBlocks.SALT_BLOCK, grouped());
@@ -58,6 +60,8 @@ public class MyItems {
     public static final Item TOFU = new Item(grouped().food(MyFoodComponents.TOFU));
     public static final Item TOFU_PUDDING = new Item(grouped().food(MyFoodComponents.TOFU_PUDDING));
     public static final Item STINKY_TOFU = new Item(grouped().food(MyFoodComponents.STINKY_TOFU));
+    public static final Item OYSTER_VERMICELLI = new Item(grouped()
+            .food(MyFoodComponents.OYSTER_VERMICELLI));
     public static final Item PRESERVED_EGG = new Item(grouped().food(MyFoodComponents.PRESERVED_EGG));
     public static final Item SWEET_POTATO_STARCH = new Item(grouped());
     public static final Item SHAVED_ICE = new Item(grouped());
@@ -66,7 +70,8 @@ public class MyItems {
     public static final Item SOY_SAUCE = new Item(grouped());
     public static final Item BEEF_NOODLES = new Item(grouped().food(MyFoodComponents.BEEF_NOODLES));
     public static final Item BRAISED_PORK_RICE = new Item(grouped().food(MyFoodComponents.BRAISED_PORK_RICE));
-    public static final Item TSUABING = new TsuabingItem(grouped().food(MyFoodComponents.TSUABING).maxCount(1));
+    public static final Item TSUABING = new TsuabingItem(new FabricItemSettings()
+            .food(MyFoodComponents.TSUABING).maxCount(1));
 
     public static final Item MILLSTONE = new BlockItem(MyBlocks.MILLSTONE, grouped());
     public static final Item COOKING_TABLE = new BlockItem(MyBlocks.COOKING_TABLE, grouped());
@@ -118,6 +123,7 @@ public class MyItems {
         register("cooked_oyster", COOKED_OYSTER);
         register("wheat_flour", WHEAT_FLOUR);
         register("noodles", NOODLES);
+        register("cooked_rice", COOKED_RICE);
         register("soy_milk", SOY_MILK);
         register("salt", SALT);
         register("salt_block", SALT_BLOCK);
@@ -125,6 +131,7 @@ public class MyItems {
         register("tofu", TOFU);
         register("tofu_pudding", TOFU_PUDDING);
         register("stinky_tofu", STINKY_TOFU);
+        register("oyster_vermicelli", OYSTER_VERMICELLI);
         register("preserved_egg", PRESERVED_EGG);
         register("sweet_potato_starch", SWEET_POTATO_STARCH);
         register("shaved_ice", SHAVED_ICE);

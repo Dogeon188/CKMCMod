@@ -11,11 +11,13 @@ public class MyFoodComponents {
             .statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 1800, 1), 1.0F)
             .build();
     public static final FoodComponent COOKED_OYSTER = newFood(2, 0.6f);
+    public static final FoodComponent COOKED_RICE = newFood(2, 1.2f);
     public static final FoodComponent CORN = newFood(1, 0.8f);
     public static final FoodComponent GARLIC = newFood(1, 0.3f);
     public static final FoodComponent GINGER = newFood(1, 0.3f);
     public static final FoodComponent LETTUCE = newFood(1, 0.4f);
     public static final FoodComponent MANGO = newFood(1, 0.4f);
+    public static final FoodComponent OYSTER_VERMICELLI = newFood(7, 2.4f);
     public static final FoodComponent PRESERVED_EGG = newFood(2, 0.6f);
     public static final FoodComponent RAW_OYSTER = newFood(1, 0.2f);
     public static final FoodComponent ROASTED_CORN = newFood(4, 1.8f);

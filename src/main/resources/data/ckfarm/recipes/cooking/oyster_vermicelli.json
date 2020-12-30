@@ -1,0 +1,12 @@
+{
+  "type": "ckfarm:cooking",
+  "ingredients": [
+    {"item": "ckfarm:noodles"},
+    {"item": "ckfarm:raw_oyster"},
+    {"item": "ckfarm:sweet_potato_starch"},
+    {"item": "ckfarm:soy_sauce"}
+  ],
+  "result": {"item": "ckfarm:oyster_vermicelli", "count": 1},
+  "cook_time": 200,
+  "experience": 2.4
+}
