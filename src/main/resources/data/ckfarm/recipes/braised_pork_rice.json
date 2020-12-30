@@ -1,0 +1,9 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {"item": "ckfarm:cooked_rice"},
+    {"item": "sugar"},
+    {"item": "ckfarm:soy_sause"}
+  ],
+  "result": {"item": "ckfarm:braised_pork_rice", "count": 1}
+}
