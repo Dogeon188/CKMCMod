@@ -1,0 +1,7 @@
+{
+  "type": "smoking",
+  "ingredient": { "item": "ckfarm:rice" },
+  "result": "ckfarm:cooked_rice",
+  "experience": 0.35,
+  "cookingtime": 200
+}

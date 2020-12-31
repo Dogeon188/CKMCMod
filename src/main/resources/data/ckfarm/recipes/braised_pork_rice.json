@@ -3,7 +3,8 @@
   "ingredients": [
     {"item": "ckfarm:cooked_rice"},
     {"item": "sugar"},
-    {"item": "ckfarm:soy_sause"}
+    {"item": "ckfarm:soy_sauce"},
+    {"item": "porkchop"}
   ],
   "result": {"item": "ckfarm:braised_pork_rice", "count": 1}
 }

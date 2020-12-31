@@ -1,8 +1,8 @@
 {
   "type": "ckfarm:cooking",
   "ingredients": [
-    {"item": "minecraft:beef"},
-    {"item": "ckfarm:soy_sause"},
+    {"item": "beef"},
+    {"item": "ckfarm:soy_sauce"},
     {"item": "ckfarm:noodles"}
   ],
   "result": {"item": "ckfarm:beef_noodles", "count": 1},
