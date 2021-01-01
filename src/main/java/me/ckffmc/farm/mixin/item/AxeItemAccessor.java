@@ -10,8 +10,8 @@ import java.util.Map;
 @Mixin(AxeItem.class)
 public interface AxeItemAccessor {
     @Accessor("STRIPPED_BLOCKS")
-    static void setCompostables(Map<Block, Block> items) { throw new AssertionError(); }
+    static void setStrippedBlocks(Map<Block, Block> items) { throw new AssertionError(); }
 
     @Accessor("STRIPPED_BLOCKS")
-    static Map<Block, Block> getCompostables() { throw new AssertionError(); }
+    static Map<Block, Block> getStrippedBlocks() { throw new AssertionError(); }
 }

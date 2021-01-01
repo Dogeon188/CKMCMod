@@ -18,20 +18,19 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class Age4CropBlock extends CropBlock {
     public static final IntProperty AGE = Properties.AGE_3;
     private static final VoxelShape[] AGE_TO_SHAPE;
-    private final String seedsItem;
+    private final Supplier<ItemConvertible> seedsItem;
 
-    public Age4CropBlock(String seedsItem, Settings settings) {
+    public Age4CropBlock(Supplier<ItemConvertible> seedsItem, Settings settings) {
         super(settings);
         this.seedsItem = seedsItem;
     }
 
-    protected ItemConvertible getSeedsItem() {
-        return Registry.ITEM.get(new Identifier(MainMod.MOD_ID, seedsItem));
-    }
+    protected ItemConvertible getSeedsItem() { return seedsItem.get(); }
 
     public IntProperty getAgeProperty() { return AGE; }
 

@@ -103,9 +103,9 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
     public boolean isCrafting() { return this.craftTime > 0; }
 
     protected int getCraftTime() {
-        if (this.world != null) {
+        if (this.world != null)
             return this.world.getRecipeManager().getFirstMatch(MyRecipeType.MILLING, this, this.world).map(MillingRecipe::getCraftTime).orElse(MillingRecipe.DEFAULT_CRAFT_TIME);
-        } else return 0;
+        return 0;
     }
 
     public void tick() {
@@ -134,14 +134,12 @@ public class MillstoneBlockEntity extends BlockEntity implements NamedScreenHand
         if (!this.inventory.get(0).isEmpty() && recipe != null) {
             ItemStack recipeOutput = recipe.getOutput();
             if (recipeOutput.isEmpty()) return false;
-            else {
-                ItemStack outputSlot = this.inventory.get(1);
-                if (outputSlot.isEmpty()) return true;
-                else if (!outputSlot.isItemEqualIgnoreDamage(recipeOutput)) return false;
-                else if (outputSlot.getCount() < this.getMaxCountPerStack() && outputSlot.getCount() < outputSlot.getMaxCount()) return true;
-                else return outputSlot.getCount() < recipeOutput.getMaxCount();
-            }
-        } else return false;
+            ItemStack outputSlot = this.inventory.get(1);
+            if (outputSlot.isEmpty()) return true;
+            if (!outputSlot.isItemEqualIgnoreDamage(recipeOutput)) return false;
+            if (outputSlot.getCount() < this.getMaxCountPerStack() && outputSlot.getCount() < outputSlot.getMaxCount()) return true;
+            return outputSlot.getCount() < recipeOutput.getMaxCount();
+        } return false;
     }
 
     private void craftRecipe(@Nullable Recipe<?> recipe) {

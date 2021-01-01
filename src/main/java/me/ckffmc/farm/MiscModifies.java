@@ -72,8 +72,8 @@ public class MiscModifies {
     }
 
     public static void addStrippedBlocks() {
-        AxeItemAccessor.setCompostables(ImmutableMap.<Block, Block>builder()
-                .putAll(AxeItemAccessor.getCompostables())
+        AxeItemAccessor.setStrippedBlocks(ImmutableMap.<Block, Block>builder()
+                .putAll(AxeItemAccessor.getStrippedBlocks())
                 .put(MyBlocks.MANGO_LOG, MyBlocks.STRIPPED_MANGO_LOG)
                 .put(MyBlocks.MANGO_WOOD, MyBlocks.STRIPPED_MANGO_WOOD)
                 .build());

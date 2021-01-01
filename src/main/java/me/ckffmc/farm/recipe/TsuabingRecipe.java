@@ -14,6 +14,7 @@ import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TsuabingRecipe extends SpecialCraftingRecipe {
@@ -47,8 +48,8 @@ public class TsuabingRecipe extends SpecialCraftingRecipe {
     public ItemStack craft(CraftingInventory inv) {
         ItemStack stack = new ItemStack(MyItems.TSUABING);
         CompoundTag tag = stack.getOrCreateSubTag("Tsuabing");
-        List<Byte> syrup = Lists.newArrayList();
-        List<Byte> toppings = Lists.newArrayList();
+        List<Byte> syrup = new ArrayList<>();
+        List<Byte> toppings = new ArrayList<>();
 
         for (int i = 0; i < inv.size(); i++) {
             ItemStack ingredient = inv.getStack(i);

@@ -20,20 +20,21 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class TallCropBlock extends CropBlock {
     public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
     public static final IntProperty AGE = Properties.AGE_7;
     public static final VoxelShape[] SHAPES;
-    private final String seedsItem;
+    private final Supplier<ItemConvertible> seedsItem;
 
-    public TallCropBlock(String seedsItem, Settings settings) {
+    public TallCropBlock(Supplier<ItemConvertible> seedsItem, Settings settings) {
         super(settings);
         this.seedsItem = seedsItem;
         this.setDefaultState(this.stateManager.getDefaultState().with(HALF, DoubleBlockHalf.LOWER));
     }
 
-    protected ItemConvertible getSeedsItem() { return Registry.ITEM.get(new Identifier(MainMod.MOD_ID, this.seedsItem)); }
+    protected ItemConvertible getSeedsItem() { return seedsItem.get(); }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPES[state.get(HALF) == DoubleBlockHalf.UPPER
@@ -108,7 +109,7 @@ public class TallCropBlock extends CropBlock {
     public int getMidAge() { return 3; }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(HALF); builder.add(AGE);
+        builder.add(HALF).add(AGE);
     }
 
     static {

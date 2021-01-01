@@ -41,19 +41,16 @@ public class CookingTableScreenHandler extends ScreenHandler {
             public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
                 stack.onCraft(player.world, player, stack.getCount());
                 CookingTableScreenHandler.this.output.unlockLastRecipe(player);
-                if (!player.world.isClient && this.inventory instanceof CookingTableBlockEntity) {
+                if (!player.world.isClient && this.inventory instanceof CookingTableBlockEntity)
                     ((CookingTableBlockEntity)this.inventory).dropExperience(player);
-                }
                 return super.onTakeItem(player, stack);
             }
         });
 
         int m, l;
-        for (m = 0; m < 3; ++m) {
-            for (l = 0; l < 9; ++l) {
+        for (m = 0; m < 3; ++m)
+            for (l = 0; l < 9; ++l)
                 this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 84 + m * 18));
-            }
-        }
         for (m = 0; m < 9; ++m) this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
     }
 
@@ -64,23 +61,19 @@ public class CookingTableScreenHandler extends ScreenHandler {
             ItemStack oldStack = slot.getStack();
             newStack = oldStack.copy();
             if (invSlot == 4) {
-                if (!this.insertItem(oldStack, 5, 41, true)) {
+                if (!this.insertItem(oldStack, 5, 41, true))
                     return ItemStack.EMPTY;
-                }
                 slot.onStackChanged(oldStack, newStack);
             } else if (invSlot >= 5 && invSlot < 41) {
                 if (!this.insertItem(oldStack, 0, 4, false)) {
                     if (invSlot < 32) {
-                        if (!this.insertItem(oldStack, 32, 41, false)) {
+                        if (!this.insertItem(oldStack, 32, 41, false))
                             return ItemStack.EMPTY;
-                        }
-                    } else if (!this.insertItem(oldStack, 5, 32, false)) {
+                    } else if (!this.insertItem(oldStack, 5, 32, false))
                         return ItemStack.EMPTY;
-                    }
                 }
-            } else if (!this.insertItem(oldStack, 5, 41, false)) {
+            } else if (!this.insertItem(oldStack, 5, 41, false))
                 return ItemStack.EMPTY;
-            }
 
             if (oldStack.isEmpty()) slot.setStack(ItemStack.EMPTY);
             else slot.markDirty();

@@ -37,17 +37,14 @@ public class CookingTableBlock extends BlockWithEntity {
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.isClient) return ActionResult.SUCCESS;
-        else {
-            this.openScreen(world, pos, player);
-            return ActionResult.CONSUME;
-        }
+        this.openScreen(world, pos, player);
+        return ActionResult.CONSUME;
     }
 
     protected void openScreen(World world, BlockPos pos, PlayerEntity player) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof CookingTableBlockEntity) {
+        if (blockEntity instanceof CookingTableBlockEntity)
             player.openHandledScreen((NamedScreenHandlerFactory)blockEntity);
-        }
     }
 
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {

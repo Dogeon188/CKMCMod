@@ -24,16 +24,15 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class FruitLeavesBlock extends LeavesBlock implements Fertilizable {
     public static final BooleanProperty HAS_FRUIT = BooleanProperty.of("has_fruit");
-    private final String fruitItem;
-    private final int fruitCount;
+    private final Supplier<ItemStack> fruitItem;
 
-    public FruitLeavesBlock(String fruitItem, int fruitCount, Settings settings) {
+    public FruitLeavesBlock(Supplier<ItemStack> fruitItem, Settings settings) {
         super(settings);
         this.fruitItem = fruitItem;
-        this.fruitCount = fruitCount;
         this.setDefaultState(this.getStateManager().getDefaultState()
                 .with(HAS_FRUIT, false).with(DISTANCE, 7)
                 .with(PERSISTENT, false));
@@ -69,18 +68,16 @@ public class FruitLeavesBlock extends LeavesBlock implements Fertilizable {
             }
             return ActionResult.success(world.isClient);
         }
-        else return super.onUse(state, world, pos, player, hand, hit);
+        return super.onUse(state, world, pos, player, hand, hit);
     }
 
     protected ItemStack getFruitStack() {
-        return new ItemStack(Registry.ITEM.get(new Identifier(MainMod.MOD_ID, fruitItem)), fruitCount);
+        return fruitItem.get();
     }
 
     public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) { return true; }
 
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
-        return !state.get(HAS_FRUIT);
-    }
+    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) { return !state.get(HAS_FRUIT); }
 
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         if (random.nextFloat() <= 0.3F) world.setBlockState(pos, state.with(HAS_FRUIT, true));

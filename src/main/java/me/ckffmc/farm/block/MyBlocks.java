@@ -7,9 +7,11 @@ import me.ckffmc.farm.block.crop.TallCropBlock;
 import me.ckffmc.farm.block.crop.TeaSaplingBlock;
 import me.ckffmc.farm.block.sapling.MangoSaplingBlock;
 import me.ckffmc.farm.block.sapling.MangoSaplingGenerator;
+import me.ckffmc.farm.item.MyItems;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
+import net.minecraft.item.ItemStack;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -18,14 +20,14 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
 
 public class MyBlocks {
-    public static final Block CORN = new TallCropBlock("corn_seeds", newCropSettings());
-    public static final Block GARLIC = new Age4CropBlock("garlic",  newCropSettings());
-    public static final Block GINGER = new Age4CropBlock("ginger", newCropSettings());
-    public static final Block SOYBEAN = new Age4CropBlock("soybean", newCropSettings());
-    public static final Block SPRING_ONION = new Age4CropBlock("spring_onion_seeds", newCropSettings());
-    public static final Block SWEET_POTATO = new Age4CropBlock("sweet_potato", newCropSettings());
-    public static final Block LETTUCE = new Age8CropBlock("lettuce_seeds", newCropSettings());
-    public static final Block RICE = new Age8CropBlock("rice_seeds", newCropSettings());
+    public static final Block CORN = new TallCropBlock(() -> MyItems.CORN_SEEDS, newCropSettings());
+    public static final Block GARLIC = new Age4CropBlock(() -> MyItems.GARLIC,  newCropSettings());
+    public static final Block GINGER = new Age4CropBlock(() -> MyItems.GINGER, newCropSettings());
+    public static final Block SOYBEAN = new Age4CropBlock(() -> MyItems.SOYBEAN, newCropSettings());
+    public static final Block SPRING_ONION = new Age4CropBlock(() -> MyItems.SPRING_ONION_SEEDS, newCropSettings());
+    public static final Block SWEET_POTATO = new Age4CropBlock(() -> MyItems.SWEET_POTATO, newCropSettings());
+    public static final Block LETTUCE = new Age8CropBlock(() -> MyItems.LETTUCE_SEEDS, newCropSettings());
+    public static final Block RICE = new Age8CropBlock(() -> MyItems.RICE_SEEDS, newCropSettings());
 
     public static final Block TEA_SAPLING = new TeaSaplingBlock(FabricBlockSettings
             .of(Material.PLANT, MaterialColor.FOLIAGE).ticksRandomly().sounds(BlockSoundGroup.WOOD));
@@ -63,7 +65,7 @@ public class MyBlocks {
     public static final Block MANGO_DOOR = new MyDoorBlock(FabricBlockSettings.copy(MANGO_PLANKS)
             .strength(3.0F).nonOpaque());
 
-    public static final Block MANGO_LEAVES = new FruitLeavesBlock("mango", 1,
+    public static final Block MANGO_LEAVES = new FruitLeavesBlock(() -> new ItemStack(MyItems.MANGO, 1),
             FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().nonOpaque()
                     .sounds(BlockSoundGroup.GRASS).allowsSpawning(Criteria::canSpawnOnLeaves)
                     .suffocates(Criteria::never).blockVision(Criteria::never));

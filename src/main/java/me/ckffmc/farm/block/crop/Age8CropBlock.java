@@ -12,18 +12,18 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
+import java.util.function.Supplier;
+
 public class Age8CropBlock extends CropBlock {
     private static final VoxelShape[] AGE_TO_SHAPE;
-    private final String seedsItem;
+    private final Supplier<ItemConvertible> seedsItem;
 
-    public Age8CropBlock(String seedsItem, Settings settings) {
+    public Age8CropBlock(Supplier<ItemConvertible> seedsItem, Settings settings) {
         super(settings);
         this.seedsItem = seedsItem;
     }
 
-    protected ItemConvertible getSeedsItem() {
-        return Registry.ITEM.get(new Identifier(MainMod.MOD_ID, this.seedsItem));
-    }
+    protected ItemConvertible getSeedsItem() { return seedsItem.get(); }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return AGE_TO_SHAPE[state.get(this.getAgeProperty())];

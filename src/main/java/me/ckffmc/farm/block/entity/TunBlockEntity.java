@@ -134,7 +134,7 @@ public class TunBlockEntity extends BlockEntity implements NamedScreenHandlerFac
     private boolean canCraft(int index) {
         ItemStack itemStack = this.inventory.get(index);
         if (itemStack.isEmpty()) return false;
-        else return FermentingRecipeRegistry.isValidIngredient(itemStack);
+        return FermentingRecipeRegistry.isValidIngredient(itemStack);
     }
 
     private void craft(int index) {

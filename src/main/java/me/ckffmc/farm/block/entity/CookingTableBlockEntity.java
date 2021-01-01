@@ -104,9 +104,9 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
     public boolean isCooking() { return this.cookTime > 0; }
 
     protected int getCookTime() {
-        if (this.world != null) {
+        if (this.world != null)
             return this.world.getRecipeManager().getFirstMatch(MyRecipeType.COOKING, this, this.world).map(CookingRecipe::getCookTime).orElse(CookingRecipe.DEFAULT_COOK_TIME);
-        } else return 0;
+        return 0;
     }
 
     public void tick() {
@@ -134,14 +134,12 @@ public class CookingTableBlockEntity extends BlockEntity implements NamedScreenH
         if (!this.inventory.subList(0, 4).isEmpty() && recipe != null) {
             ItemStack recipeOutput = recipe.getOutput();
             if (recipeOutput.isEmpty()) return false;
-            else {
-                ItemStack outputSlot = this.inventory.get(4);
-                if (outputSlot.isEmpty()) return true;
-                else if (!outputSlot.isItemEqualIgnoreDamage(recipeOutput)) return false;
-                else if (outputSlot.getCount() < this.getMaxCountPerStack() && outputSlot.getCount() < outputSlot.getMaxCount()) return true;
-                else return outputSlot.getCount() < recipeOutput.getMaxCount();
-            }
-        } else return false;
+            ItemStack outputSlot = this.inventory.get(4);
+            if (outputSlot.isEmpty()) return true;
+            if (!outputSlot.isItemEqualIgnoreDamage(recipeOutput)) return false;
+            if (outputSlot.getCount() < this.getMaxCountPerStack() && outputSlot.getCount() < outputSlot.getMaxCount()) return true;
+            return outputSlot.getCount() < recipeOutput.getMaxCount();
+        } return false;
     }
 
     private void craftRecipe(@Nullable Recipe<?> recipe) {

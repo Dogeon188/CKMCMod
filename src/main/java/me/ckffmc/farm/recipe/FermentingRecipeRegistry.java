@@ -7,10 +7,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FermentingRecipeRegistry {
-    private static final List<Recipe> RECIPES = Lists.newArrayList();
+    private static final List<Recipe> RECIPES = new ArrayList<>();
 
     public static boolean isValidIngredient(ItemStack stack) {
         for (Recipe recipe : RECIPES) { if (recipe.input.test(stack)) return true; }
@@ -20,9 +21,9 @@ public class FermentingRecipeRegistry {
     public static int getFermentTime() { return 400; }
 
    public static ItemStack craft(ItemStack input) {
-        if (!input.isEmpty()) {
-            for (Recipe recipe : RECIPES) { if (recipe.input.test(input)) return new ItemStack(recipe.output); }
-        }
+        if (!input.isEmpty())
+            for (Recipe recipe : RECIPES)
+                if (recipe.input.test(input)) return new ItemStack(recipe.output);
         return input;
    }
 

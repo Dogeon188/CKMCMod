@@ -24,7 +24,7 @@ public class DrinkItem extends Item {
             if (this.getFoodComponent() != null && user.canConsume(this.getFoodComponent().isAlwaysEdible())) {
                 user.setCurrentHand(hand);
                 return TypedActionResult.consume(itemStack);
-            } else return TypedActionResult.fail(itemStack);
-        } else return TypedActionResult.pass(user.getStackInHand(hand));
+            } return TypedActionResult.fail(itemStack);
+        } return TypedActionResult.pass(user.getStackInHand(hand));
     }
 }

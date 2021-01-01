@@ -101,9 +101,7 @@ public interface ImplementedInventory extends Inventory {
     /**
      * Clears the inventory.
      */
-    default void clear() {
-        getItems().clear();
-    }
+    default void clear() { getItems().clear(); }
 
     /**
      * Marks the state as dirty.

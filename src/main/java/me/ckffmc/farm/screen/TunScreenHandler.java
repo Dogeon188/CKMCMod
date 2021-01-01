@@ -37,11 +37,9 @@ public class TunScreenHandler extends ScreenHandler {
         this.addSlot(new FuelSlot(inventory, 3, 40, 18)); // fuel slot
 
         int m, l;
-        for (m = 0; m < 3; ++m) {
-            for (l = 0; l < 9; ++l) {
+        for (m = 0; m < 3; ++m)
+            for (l = 0; l < 9; ++l)
                 this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 84 + m * 18));
-            }
-        }
         for (m = 0; m < 9; ++m) this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
     }
 
@@ -52,23 +50,19 @@ public class TunScreenHandler extends ScreenHandler {
             ItemStack oldStack = slot.getStack();
             newStack = oldStack.copy();
             if (invSlot < 3) {
-                if (!this.insertItem(oldStack, 4, 40, true)) {
+                if (!this.insertItem(oldStack, 4, 40, true))
                     return ItemStack.EMPTY;
-                }
                 slot.onStackChanged(oldStack, newStack);
             } else if (invSlot >= 4 && invSlot < 40) {
                 if (!this.insertItemToFermentedSlots(oldStack)) {
                     if (invSlot < 31) {
-                        if (!this.insertItem(oldStack, 31, 40, false)) {
+                        if (!this.insertItem(oldStack, 31, 40, false))
                             return ItemStack.EMPTY;
-                        }
-                    } else if (!this.insertItem(oldStack, 5, 31, false)) {
+                    } else if (!this.insertItem(oldStack, 5, 31, false))
                         return ItemStack.EMPTY;
-                    }
                 }
-            } else if (!this.insertItem(oldStack, 4, 40, false)) {
+            } else if (!this.insertItem(oldStack, 4, 40, false))
                 return ItemStack.EMPTY;
-            }
 
             if (oldStack.isEmpty()) slot.setStack(ItemStack.EMPTY);
             else slot.markDirty();
