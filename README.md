@@ -70,6 +70,16 @@ So we might add some more features soon :)
     - Drinking it gives 90sec of speed I and haste I
 - Stinky tofu: from fermenting tofu
 - Preserved egg: from fermenting egg
+- Cooked rice: from smelting rice
+- Braised pork rice
+  - Crafting: cooked rice + soy sauce + sugar + raw porkchop
+- Beef noodles
+  - Cooking: raw beef + soy sauce + noodles
+- Tsuabing (Taiwanese shaved ice)
+  - to make one, you need 1 shaved ice, 1-3 syrup item(s), and 0-5 topping item(s)
+  - valid syrups: milk bucket, honey bottle
+  - valid toppings: sweet berry, mango, tofu pudding, apple, tapioca balls
+
 
 ## Future Plans
 

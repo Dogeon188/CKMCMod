@@ -1,9 +1,19 @@
 ### 0.6.1+build.10-1.16
+- added cooked rice 
+- added braised pork rice
+- added beef noodles
+- added tsuabing
+    - to make one, you need 1 shaved ice, 1-3 syrup item, and 0-5 topping item
+    - valid syrups: milk bucket, honey bottle
+    - valid toppings: sweet berry, mango, tofu pudding, apple, tapioca balls
+- added language support for traditional chinese
+- changed corn texture
+- removed some unneeded codes
 
 ### 0.6.0+build.9-1.16
 - added tun block
     - crafted from 5 planks & 3 wooden slabs
-    - can be used to ferment some specific items eg. soybean
+    - can be used to ferment some specific items e.g. soybean
 - added soy sauce, stinky tofu, preserved egg
 - added mango
     - grows on mango tree
