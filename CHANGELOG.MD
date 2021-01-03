@@ -2,6 +2,7 @@
 - added cooked rice 
 - added braised pork rice
 - added beef noodles
+- added oyster vermicelli
 - added tsuabing
     - to make one, you need 1 shaved ice, 1-3 syrup item, and 0-5 topping item
     - valid syrups: milk bucket, honey bottle

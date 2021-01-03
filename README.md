@@ -70,6 +70,8 @@ So we might add some more features soon :)
     - Drinking it gives 90sec of speed I and haste I
 - Stinky tofu: from fermenting tofu
 - Preserved egg: from fermenting egg
+- Oyster vermicelli
+  - Cooking: raw oyster, noodles, sweet potato starch, soy sauce
 - Cooked rice: from smelting rice
 - Braised pork rice
   - Crafting: cooked rice + soy sauce + sugar + raw porkchop
@@ -89,8 +91,6 @@ So we might add some more features soon :)
 
 ### Foods & Ingredients
 
-- Beef noodles
-- Oyster Vermicelli
 - brown sugar
 - Sausage
 - Red bean cake, pineapple cake, radish cake, sun cake
