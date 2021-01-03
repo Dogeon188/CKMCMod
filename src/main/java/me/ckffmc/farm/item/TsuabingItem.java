@@ -3,6 +3,8 @@ package me.ckffmc.farm.item;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -12,6 +14,7 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Pair;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -25,8 +28,48 @@ public class TsuabingItem extends Item {
     public static final BiMap<Item, Byte> TOPPINGS = HashBiMap.create();
     public static final Map<Byte, Integer> SYRUP_COLOR = new HashMap<>();
     public static final Map<Byte, Integer> TOPPINGS_COLOR = new HashMap<>();
+    private static final Map<Byte, Pair<Integer, Float>> SYRUP_FOOD = new HashMap<>();
+    private static final Map<Byte, Pair<Integer, Float>> TOPPINGS_FOOD = new HashMap<>();
 
     public TsuabingItem(Settings settings) { super(settings); }
+
+    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        if (user instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) user;
+            player.getHungerManager().add(getFoodAmount(stack), getSaturation(stack));
+        }
+        return user.eatFood(world, stack);
+    }
+
+    private static int getFoodAmount(ItemStack stack) {
+        if (stack.getItem() == MyItems.TSUABING) {
+            CompoundTag tag = stack.getSubTag("Tsuabing");
+            if (tag != null) {
+                int food = 0;
+                if (tag.contains("Syrup", 7))
+                    for (byte b : tag.getByteArray("Syrup")) food += SYRUP_FOOD.get(b).getLeft();
+                if (tag.contains("Toppings", 7))
+                    for (byte b : tag.getByteArray("Toppings")) food += TOPPINGS_FOOD.get(b).getLeft();
+                return food;
+            }
+        }
+        return 0;
+    }
+
+    private static float getSaturation(ItemStack stack) {
+        if (stack.getItem() == MyItems.TSUABING) {
+            CompoundTag tag = stack.getSubTag("Tsuabing");
+            if (tag != null) {
+                float saturation = 0;
+                if (tag.contains("Syrup", 7))
+                    for (byte b : tag.getByteArray("Syrup")) saturation += SYRUP_FOOD.get(b).getRight();
+                if (tag.contains("Toppings", 7))
+                    for (byte b : tag.getByteArray("Toppings")) saturation += TOPPINGS_FOOD.get(b).getRight();
+                return saturation;
+            }
+        }
+        return 0;
+    }
 
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext ctx) {
         buildTooltip(tooltip, stack);
@@ -60,22 +103,24 @@ public class TsuabingItem extends Item {
     }
 
     static {
-        registerSyrup((byte) 0, Items.MILK_BUCKET, 0xe5e189);
-        registerSyrup((byte) 1, Items.HONEY_BOTTLE, 0xd99821);
-        registerTopping((byte) 0, Items.APPLE, 0xa94b03);
-        registerTopping((byte) 1, MyItems.MANGO, 0xd17c15);
-        registerTopping((byte) 2, Items.SWEET_BERRIES, 0xb01b04);
-        registerTopping((byte) 3, MyItems.TOFU_PUDDING, 0xeddd64);
-        registerTopping((byte) 4, MyItems.TAPIOCA_BALLS, 0x3b301c);
+        registerSyrup((byte) 0, Items.MILK_BUCKET, 0xe5e189, 1, 0.6f);
+        registerSyrup((byte) 1, Items.HONEY_BOTTLE, 0xd99821, 4, 1.2f);
+        registerTopping((byte) 0, Items.APPLE, 0xa94b03, 2, 0.4f);
+        registerTopping((byte) 1, MyItems.MANGO, 0xd17c15, 1, 0.5f);
+        registerTopping((byte) 2, Items.SWEET_BERRIES, 0xb01b04, 2, 0.3f);
+        registerTopping((byte) 3, MyItems.TOFU_PUDDING, 0xeddd64, 2, 1.5f);
+        registerTopping((byte) 4, MyItems.TAPIOCA_BALLS, 0x3b301c, 3, 1.2f);
     }
 
-    private static void registerSyrup(byte id, Item item, int color) {
+    private static void registerSyrup(byte id, Item item, int color, int food, float saturation) {
         SYRUPS.put(item, id);
         SYRUP_COLOR.put(id, color);
+        SYRUP_FOOD.put(id, new Pair<>(food, saturation));
     }
 
-    private static void registerTopping(byte id, Item item, int color) {
+    private static void registerTopping(byte id, Item item, int color, int food, float saturation) {
         TOPPINGS.put(item, id);
         TOPPINGS_COLOR.put(id, color);
+        TOPPINGS_FOOD.put(id, new Pair<>(food, saturation));
     }
 }
