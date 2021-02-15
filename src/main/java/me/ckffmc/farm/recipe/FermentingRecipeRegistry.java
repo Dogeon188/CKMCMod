@@ -1,6 +1,5 @@
 package me.ckffmc.farm.recipe;
 
-import com.google.common.collect.Lists;
 import me.ckffmc.farm.item.MyItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -28,7 +27,6 @@ public class FermentingRecipeRegistry {
    }
 
     public static void registerFermentingRecipes() {
-        register(MyItems.TEA_LEAVES, MyItems.BLACK_TEA_LEAVES);
         register(MyItems.SOYBEAN, MyItems.SOY_SAUCE);
         register(MyItems.TOFU, MyItems.STINKY_TOFU);
         register(Items.EGG, MyItems.PRESERVED_EGG);

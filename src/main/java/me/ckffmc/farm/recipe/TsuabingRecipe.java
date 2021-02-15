@@ -1,6 +1,5 @@
 package me.ckffmc.farm.recipe;
 
-import com.google.common.collect.Lists;
 import me.ckffmc.farm.item.MyItems;
 import me.ckffmc.farm.item.TsuabingItem;
 import net.minecraft.inventory.CraftingInventory;

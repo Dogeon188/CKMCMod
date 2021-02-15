@@ -1,0 +1,7 @@
+{
+  "type": "smoking",
+  "ingredient": { "item": "ckfarm:tea_leaves" },
+  "result": "ckfarm:black_tea_leaves",
+  "experience": 0.35,
+  "cookingtime": 200
+}
