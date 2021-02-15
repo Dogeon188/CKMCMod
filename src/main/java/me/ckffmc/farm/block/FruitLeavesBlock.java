@@ -1,6 +1,5 @@
 package me.ckffmc.farm.block;
 
-import me.ckffmc.farm.MainMod;
 import me.ckffmc.farm.sound.MySoundEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -15,11 +14,9 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 

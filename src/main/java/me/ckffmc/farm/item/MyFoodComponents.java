@@ -5,6 +5,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 
 public class MyFoodComponents {
+    // TODO: Understanding what's happening in net.minecraft.entity.player.HungerManager.add
     public static final FoodComponent BAKED_SWEET_POTATO = newFood(4, 0.8f);
     public static final FoodComponent BUBBLE_TEA = new FoodComponent.Builder().hunger(4).saturationModifier(0.4f)
             .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1800, 1), 1.0F)
