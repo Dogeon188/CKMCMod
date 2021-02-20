@@ -103,24 +103,24 @@ public class TsuabingItem extends Item {
     }
 
     static {
-        registerSyrup((byte) 0, Items.MILK_BUCKET, 0xe5e189, 1, 0.6f);
-        registerSyrup((byte) 1, Items.HONEY_BOTTLE, 0xd99821, 4, 1.2f);
-        registerTopping((byte) 0, Items.APPLE, 0xa94b03, 2, 0.4f);
-        registerTopping((byte) 1, MyItems.MANGO, 0xd17c15, 1, 0.5f);
-        registerTopping((byte) 2, Items.SWEET_BERRIES, 0xb01b04, 2, 0.3f);
-        registerTopping((byte) 3, MyItems.TOFU_PUDDING, 0xeddd64, 2, 1.5f);
-        registerTopping((byte) 4, MyItems.TAPIOCA_BALLS, 0x3b301c, 3, 1.2f);
+        registerSyrup((byte) 0, Items.MILK_BUCKET, 0xe5e189, 1, 0.2f);
+        registerSyrup((byte) 1, Items.HONEY_BOTTLE, 0xd99821, 4, 0.3f);
+        registerTopping((byte) 0, Items.APPLE, 0xa94b03, 2, 0.2f);
+        registerTopping((byte) 1, MyItems.MANGO, 0xd17c15, 1, 0.2f);
+        registerTopping((byte) 2, Items.SWEET_BERRIES, 0xb01b04, 2, 0.2f);
+        registerTopping((byte) 3, MyItems.TOFU_PUDDING, 0xeddd64, 2, 0.3f);
+        registerTopping((byte) 4, MyItems.TAPIOCA_BALLS, 0x3b301c, 3, 0.2f);
     }
 
-    private static void registerSyrup(byte id, Item item, int color, int food, float saturation) {
+    private static void registerSyrup(byte id, Item item, int color, int food, float saturationModifier) {
         SYRUPS.put(item, id);
         SYRUP_COLOR.put(id, color);
-        SYRUP_FOOD.put(id, new Pair<>(food, saturation));
+        SYRUP_FOOD.put(id, new Pair<>(food, food * saturationModifier * 2.0f));
     }
 
-    private static void registerTopping(byte id, Item item, int color, int food, float saturation) {
+    private static void registerTopping(byte id, Item item, int color, int food, float saturationModifier) {
         TOPPINGS.put(item, id);
         TOPPINGS_COLOR.put(id, color);
-        TOPPINGS_FOOD.put(id, new Pair<>(food, saturation));
+        TOPPINGS_FOOD.put(id, new Pair<>(food, food * saturationModifier * 2.0f));
     }
 }
