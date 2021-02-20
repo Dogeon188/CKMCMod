@@ -1,3 +1,7 @@
+### 0.6.2+build.11-1.16
+- toggled most of the saturation values
+- now you need to cook tea leaves to get black tea leaves, instead of fermenting them (since that's weird)
+
 ### 0.6.1+build.10-1.16
 - added cooked rice 
 - added braised pork rice
@@ -6,7 +10,7 @@
 - added tsuabing
     - to make one, you need 1 shaved ice, 1-3 syrup item, and 0-5 topping item
     - valid syrups: milk bucket, honey bottle
-    - valid toppings: sweet berry, mango, tofu pudding, apple, tapioca balls
+    - valid toppings: sweetberry, mango, tofu pudding, apple, tapioca balls
 - added language support for traditional chinese
 - changed corn texture
 - removed some unneeded codes

@@ -52,7 +52,7 @@ So we might add some more features soon :)
 - Flour: from milling wheat
 - Sweet potato starch: from milling sweet potato
 - Tea leaves & black tea leaves
-    - Ferment tea leaves to get black tea leaves
+    - _Ferment_ cook tea leaves to get black tea leaves
 - Tapioca balls: for making bubble tea
 - Soy sauce: from fermenting soybean
 
